@@ -1,0 +1,104 @@
+\frametitle{Matter–Gravity Interference and Decoherence}
+
+\begin{columns}
+
+% ══ LEFT ══════════════════════════════════════
+\begin{column}{0.46\textwidth}
+\centering
+
+{\Large\bfseries\color{graviton}
+\[
+|S_{fi}^{(2)}|^2
+=
+\langle\phi_2,h_2|\,\hat{S}^{(2)}\,|\phi_1,h_1\rangle
+\]
+}
+
+\vspace{-2mm}
+
+{\Large\bfseries\color{graviton}
+$\Downarrow$
+}
+
+\vspace{-3mm}
+
+\[
+\left|
+\begin{tikzpicture}[baseline=-0.5ex,scale=0.75]
+\begin{feynman}
+  \vertex (i)  at (-1.3,-0.75) {\scriptsize$\phi_1$};
+  \vertex (o)  at ( 1.3,-0.75) {\scriptsize$\phi_2$};
+  \vertex (v)  at (0,0) [dot] {};
+  \vertex (g1) at (-1.3, 0.75) {\scriptsize$h_1$};
+  \vertex (g2) at ( 1.3, 0.75) {\scriptsize$h_2$};
+  \diagram*{
+    (i) -- [scalar] (v) -- [scalar] (o),
+    (g1) -- [graviton] (v),
+    (g2) -- [graviton] (v),
+  };
+\end{feynman}
+\end{tikzpicture}
++
+\begin{tikzpicture}[baseline=-0.5ex,scale=0.55]
+\begin{feynman}
+  \vertex (i)  at (-1.5,-0.85) {\scriptsize$\phi_1$};
+  \vertex (o)  at ( 1.5,-0.85) {\scriptsize$\phi_2$};
+  \vertex (v1) at (-0.52, 0) [dot] {};
+  \vertex (v2) at ( 0.52, 0) [dot] {};
+  \vertex (g1) at (-1.5, 0.85) {\scriptsize$h_1$};
+  \vertex (g2) at ( 1.5, 0.85) {\scriptsize$h_2$};
+  \diagram*{
+    (i) -- [scalar] (v1)
+        -- [scalar] (v2)
+        -- [scalar] (o),
+    (g1) -- [graviton] (v1),
+    (g2) -- [graviton] (v2),
+  };
+\end{feynman}
+\end{tikzpicture}
+\right|^2
+\]
+
+\end{column}
+
+% ══ RIGHT ══════════════════════════════════════
+\begin{column}{0.47\textwidth}
+\centering
+
+\begin{beamercolorbox}[rounded=true,sep=5pt,center,wd=\linewidth]{block body}
+\small
+
+\[
+P(E_1 \to E_2)
+=
+\sum_{S_1,S_2} P(S_1 \to S_2)\,
+P(S_1,E_1 \to S_2,E_2)
+\]
+
+\begin{itemize}
+\item $\langle E_1(t)|E_2(t)\rangle = P(E_1 \to E_2)$
+\item $|S_{fi}^{(2)}|^2 \sim P(S_1,E_1 \to S_2,E_2)$
+\end{itemize}
+
+\end{beamercolorbox}
+
+\vspace{2mm}
+{\LARGE$\Downarrow$}
+
+\vspace{2mm}
+
+\fbox{%
+\parbox{0.92\linewidth}{
+\centering
+\[
+\rho_{12}(t)
+\sim
+\langle E_1|E_2\rangle
+\sim
+|S_{fi}^{(2)}|^2
+\]
+}}
+\end{column}
+
+\end{columns}
+
