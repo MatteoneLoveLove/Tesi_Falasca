@@ -12,7 +12,10 @@
 \usepackage[a4paper]{geometry} % per modificare le dimensioni e i margini del documento
 \usepackage{appendix}
 \newgeometry{top=2cm, bottom=1.8cm, left=2cm, right=2cm}
-
+% Local fallback for the 'wick' package (not available offline):
+% marks a contracted field with an over-arc.
+\renewcommand{\c}[1]{\overset{\frown}{#1}}
+ 
 \title{Linearized Gravity and QFT Connection}
 \author{Matteo Falasca}
 \date{March 2026}
@@ -1453,8 +1456,11 @@ $\varepsilon_{ij}^{(\lambda)}(\hat k)$, $\lambda=+,\times$, satisfying
 \end{equation}
 
 \newpage
-\section{Graviton--Scalar Compton Scattering}
 
+
+ 
+\section{Graviton--Scalar Compton Scattering}
+ 
 We consider the process
 \begin{equation}
 \varphi(k_3)+h(k_4,\lambda_4)\;\longrightarrow\;\varphi(k_1)+h(k_2,\lambda_2),
@@ -1463,23 +1469,27 @@ so that the initial and final states are
 \begin{equation}
 \ket{i}=\ket{k_3;k_4,\lambda_4},
 \qquad
-\bra{f}=\bra{k_1;k_2,\lambda_2},
+\bra{f}=\bra{k_1;k_2,\lambda_2}.
 \end{equation}
 It is convenient to factor out once and for all
 \begin{empheq}[box=\fbox]{equation}
 \mathcal{N}\;\equiv\;
-\frac{\delta^{(4)}\bigl(K_{\rm in}-K_{\rm out}\bigr)}
+\frac{\delta^{(4)}\bigl(k_{\rm in}-k_{\rm out}\bigr)}
 {(2\pi)^{2}\sqrt{16\,E_1E_2E_3E_4}},
+\label{eq:N}
 \end{empheq}
-
 where $E_1,E_3$ are the scalar energies and $E_2=\omega_2$, $E_4=\omega_4$ the graviton
-ones. Each contribution of $\hat{S}$ will be written in the form
+ones. Each contribution of $\hat S$ will be written in the form
 \begin{equation}
-S_{fi}^{(\alpha)}=i\,\kappa^{2}\,\mathcal{N}\;\mathcal{M}^{(\alpha)},
+S_{fi}^{(\alpha)}=i\,\kappa^{2}\,\mathcal{N}\;\mathcal{M}^{(\alpha)}.
 \end{equation}
-
+ 
+There are four topologies at $O(\kappa^2)$: the one-vertex seagull, the $s$- and
+$u$-channel scalar exchange, and the $t$-channel graviton exchange mediated by the
+cubic graviton self-interaction. We treat them in turn.
+ 
 \subsection{One-vertex contribution: seagull}
-
+ 
 At first order,
 \begin{equation}
 S^{\rm sg}_{fi}=-i\int d^{4}x\;
@@ -1507,7 +1517,7 @@ e^{i(q_1+q_2-q_3-q_4)x}\notag\\
 \hat a^{\dagger}_{k_3}\hat a^{\dagger}_{k_4\lambda_4}\ket{0}.
 \label{seagull}
 \end{align}
-
+Carrying out the momentum integrals and contractions gives
 \begin{empheq}[box=\fbox]{equation}
 \mathcal{M}^{\rm sg}=
 -\frac{\epsilon^{(2)}\!\cdot\epsilon^{(4)}}{2}\,
@@ -1520,21 +1530,20 @@ where $\epsilon^{(2)}\!\cdot\epsilon^{(4)}\equiv
 \epsilon^{(2)}_{\alpha\beta}\epsilon^{(4)\alpha\beta}$.
 The trace part has been dropped since
 all gravitons here are projected into TT gauge $h=0$.
-
+ 
 \subsection{Two-vertex contribution: virtual scalar exchange}
-
-At second order, with two vertexes:
+ 
+At second order, with two vertices,
 \begin{equation}
 S^{s+u}_{fi}=-\frac{1}{2}\int d^{4}x_1\,d^{4}x_2\;
 \bra{k_1,k_2\lambda_2}
 T\bigl\{\mathcal{H}_{h\varphi\varphi}(x_1)\,\mathcal{H}_{h\varphi\varphi}(x_2)\bigr\}
 \ket{k_3,k_4\lambda_4},
 \end{equation}
-the two internal $\varphi$'s being contracted into the Feynman propagator
+the two internal $\varphi$'s are contracted into the Feynman propagator,
 \begin{equation}
-\wick{\c \varphi(x_1)\,\c \varphi(x_2)}=D_F(x_1-x_2)
+\c{\varphi(x_1)}\,\c{\varphi(x_2)}=D_F(x_1-x_2).
 \end{equation}
-
 Inserting the mode expansions and keeping the terms that annihilate $k_3,k_4$ and create
 $k_1,k_2$,
 \begin{align}
@@ -1552,12 +1561,11 @@ e^{i(q_1+q_2)x_1}e^{-i(q_3+q_4)x_2}\notag\\
 &\times
 \bra{0}\hat a_{k_1}\hat a_{k_2\lambda_2}\,
 \hat a^{\dagger}_{q_1}\hat a^{\dagger}_{q_2\lambda}\hat a_{q_3}\hat a_{q_4\lambda'}\,
-\hat a^{\dagger}_{k_3}\hat a^{\dagger}_{k_4\lambda_4}\ket{0}\;,
+\hat a^{\dagger}_{k_3}\hat a^{\dagger}_{k_4\lambda_4}\ket{0},
 \label{eq:sfull}
 \end{align}
-
-The spacetime integrations fixes the internal momentum
-to
+and analogously for $S^u_{fi}$ with $k_2\leftrightarrow k_4$.
+The spacetime integrations fix the internal momentum to
 \begin{equation}
 q=k_3+k_4\quad(s),
 \qquad
@@ -1576,8 +1584,7 @@ transversality removes it:
 q^{\nu}\epsilon^{(4)}_{\mu\nu}=(k_3+k_4)^{\nu}\epsilon^{(4)}_{\mu\nu}
 =k_3^{\nu}\epsilon^{(4)}_{\mu\nu},
 \end{equation}
-and likewise at the other vertex. Finally we recover:
-
+and likewise at the other vertex. Finally we recover
 \begin{empheq}[box=\fbox]{align}
 \mathcal{M}^{s}&=
 -\frac{1}{2k_1\!\cdot\!k_2+i\varepsilon}\;
@@ -1589,91 +1596,120 @@ and likewise at the other vertex. Finally we recover:
 \bigl(k_1^{\rho}k_1^{\sigma}\epsilon^{(4)}_{\rho\sigma}\bigr).
 \label{eq:Msu}
 \end{empheq}
-
 The trace term has again been discarded.
-
-
+ 
 \subsection{Two-vertex contribution: graviton self-interaction}
-
-\noindent\textbf{Termine (1):} $\dfrac{1}{2} h_\beta^\alpha \partial^\mu h_\alpha^\beta \partial_\mu h$
-
-\begin{align*}
-\frac12 h_\beta^\alpha \partial^\mu h_\alpha^\beta \partial_\mu h
-&= \frac12\,\epsilon_2\epsilon_4\,\big[q\cdot(K_4-K_2)\big]\;\mathrm{Tr}P\ (2K_\mu K_{3\nu}) \\
-&= -\epsilon_2\epsilon_4\,(K_1\cdot K_3)(-2K_2\cdot K_4) \\
-&\overset{\sim}{=}\ 2(E\omega)^2(\epsilon_2\epsilon_4)(1-n_2\cdot n_4)
-\end{align*}
-
+ 
+The last topology is the $t$-channel exchange of an internal graviton: one end attaches
+to the scalar line through $\mathcal{H}_{h\varphi\varphi}$, the other to the two external
+gravitons through the cubic self-interaction
+\begin{equation}
+S^{(3)}_{HE} = \int d^4x\, \mathcal{L}_g^1, \qquad
+\mathcal{L}_g^1 =\;\kappa  \Bigl[
+\underbrace{\tfrac{1}{2} h_\beta^\alpha \partial^\mu h_\alpha^\beta \partial_\mu h}_{(1)}
+\underbrace{- \tfrac{1}{2} h_\beta^\alpha \partial_\alpha h_\nu^\mu \partial^\beta h_\mu^\nu}_{(2)}
+\underbrace{- h_\beta^\alpha \partial_\mu h_\alpha^\nu \partial^\mu h_\nu^\beta}_{(3)}
++ \underbrace{\tfrac{1}{4} h\, \partial^\beta h_\nu^\mu \partial_\beta h_\mu^\nu}_{(4)}
++ \underbrace{h_\mu^\beta \partial_\nu h_\beta^\alpha \partial^\mu h_\alpha^\nu}_{(5)}
+\underbrace{- \tfrac{1}{8} h\, \partial^\nu h\, \partial_\nu h}_{(6)} \Bigr].
+\label{eq:Lg1}
+\end{equation}
+As in the seagull calculation, the pure-trace term (6) does not contribute once the
+external gravitons are put in TT gauge, so only terms (1)--(5) survive. Each is
+evaluated by attaching to its two internal legs the propagator numerator (de Donder
+gauge)
+\begin{equation}
+P^{\mu\nu,\rho\sigma}=\tfrac12\bigl(\eta^{\mu\rho}\eta^{\nu\sigma}
++\eta^{\mu\sigma}\eta^{\nu\rho}-\eta^{\mu\nu}\eta^{\rho\sigma}\bigr),
+\end{equation}
+and to its remaining open indices the scalar-line vertex factor $2k_1^\rho k_3^\sigma$,
+with the internal momentum fixed by conservation to $q=k_1-k_3=k_4-k_2$. We use the
+shorthand
+\begin{equation}
+a\cdot\epsilon\cdot b\equiv a^\mu\epsilon_{\mu\nu}b^\nu,
+\qquad
+a\cdot\epsilon\cdot\epsilon'\cdot b\equiv a^\mu\epsilon_{\mu\nu}\epsilon'^{\nu\rho}b_\rho.
+\end{equation}
+The last line of each block below is the result after taking the classical
+(soft-graviton, heavy-scalar) limit, in which $E,\omega$ are the scalar and graviton
+energies, $n_2,n_4$ the unit vectors along $\vec k_2,\vec k_4$, and $\upsilon$ the
+scalar velocity.
+ 
 \bigskip
-\noindent\textbf{Termine (2):} $-\dfrac{1}{2} h_\beta^\alpha \partial_\alpha h_\nu^\mu \partial^\beta h_\mu^\nu$
-
+\noindent\textbf{Term (1).}
 \begin{align*}
--\frac12 h_\beta^\alpha \partial_\alpha h_\nu^\mu \partial^\beta h_\mu^\nu
-&= -\frac12\Big\{\big[\epsilon_2\epsilon_4\,(2K_{2\alpha}K_{4\beta}P^{\alpha\beta,\mu\nu})(2K_{1\mu}K_{3\nu})\big] \\
-&\qquad +2\big[(K_4\!\cdot\!\epsilon_2\!\cdot\! q)(\epsilon_{4\alpha\beta}P^{\alpha\beta,\mu\nu})(2K_{1\mu}K_{3\nu})-(2\leftrightarrow4)\big]\Big\} \\[4pt]
-&= -\frac12\Big\{4\Big[\epsilon_2\epsilon_4\Big(\tfrac12(K_1\!\cdot\!K_2)(K_3\!\cdot\!K_4)+\tfrac12(K_1\!\cdot\!K_4)(K_3\!\cdot\!K_2)-\tfrac12(K_2\!\cdot\!K_4)(K_1\!\cdot\!K_3)\Big)\Big] \\
-&\qquad +4\Big[(K_4\!\cdot\!\epsilon_2\!\cdot\! q)\Big(2\cdot\tfrac12 K_1\!\cdot\!\epsilon_4\!\cdot\! K_3-\epsilon_{4}K_1K_3\Big)-(K_2\!\cdot\!\epsilon_4\!\cdot\! q)(K_1\!\cdot\!\epsilon_4\!\cdot\! K_3)\Big]\Big\} \\[4pt]
-&\overset{\sim}{=}\ -\frac{(E\omega)^2}{2}\Big\{4\Big[\epsilon_2\epsilon_4\Big(\tfrac12(1-n_2\upsilon)(1-n_4\upsilon)+\tfrac12(1-n_4\upsilon)(1-n_2\upsilon)-\tfrac12(1-n_2n_4)\Big)\Big] \\
-&\qquad +4\big[(K_4\epsilon_2K_4)\,O(\upsilon^2)+O(\upsilon^2)\big]\Big\} \\[4pt]
-&\overset{\sim}{=}\ -2(E\omega)^2\Big\{(\epsilon_2\epsilon_4)\Big(\tfrac12-n_2\upsilon-\upsilon n_4+\tfrac{n_2n_4}{2}\Big)\Big\} \\[4pt]
-&\overset{\sim}{=}\ -(E\omega)^2(\epsilon_2\epsilon_4)\big[1-2n_2\upsilon-2\upsilon n_4+n_2n_4\big]
+\tfrac12 h_\beta^\alpha \partial^\mu h_\alpha^\beta \partial_\mu h
+&= \tfrac12\,(\epsilon^{(2)}\!\cdot\epsilon^{(4)})\,\bigl[q\cdot(k_4-k_2)\bigr]\;
+\mathrm{Tr}P\,(2k_{1\mu}k_{3\nu}) \\
+&= -(\epsilon^{(2)}\!\cdot\epsilon^{(4)})\,(k_1\!\cdot\!k_3)(-2k_2\!\cdot\!k_4) \\
+&\overset{\sim}{=}\ 2(E\omega)^2(\epsilon^{(2)}\!\cdot\epsilon^{(4)})(1-n_2\!\cdot\!n_4)
 \end{align*}
-
+ 
 \bigskip
-\noindent\textbf{Termine (3):} $-h_\beta^\alpha\partial_\mu h_\alpha^\nu\partial^\mu h_\nu^\beta$
-
+\noindent\textbf{Term (2).}
+\begin{align*}
+-\tfrac12 h_\beta^\alpha \partial_\alpha h_\nu^\mu \partial^\beta h_\mu^\nu
+&= -\tfrac12\Big\{(\epsilon^{(2)}\!\cdot\epsilon^{(4)})\,(2k_{2\alpha}k_{4\beta}P^{\alpha\beta,\mu\nu})(2k_{1\mu}k_{3\nu}) \\
+&\qquad +2\big[(k_4\!\cdot\!\epsilon^{(2)}\!\cdot\! q)(\epsilon^{(4)}_{\alpha\beta}P^{\alpha\beta,\mu\nu})(2k_{1\mu}k_{3\nu})-(2\leftrightarrow4)\big]\Big\} \\[4pt]
+&= -\tfrac12\Big\{4(\epsilon^{(2)}\!\cdot\epsilon^{(4)})\Big[\tfrac12(k_1\!\cdot\!k_2)(k_3\!\cdot\!k_4)+\tfrac12(k_1\!\cdot\!k_4)(k_3\!\cdot\!k_2)-\tfrac12(k_2\!\cdot\!k_4)(k_1\!\cdot\!k_3)\Big] \\
+&\qquad +4\Big[(k_4\!\cdot\!\epsilon^{(2)}\!\cdot\! q)\bigl(k_1\!\cdot\!\epsilon^{(4)}\!\cdot\! k_3-\epsilon^{(4)}\!\cdot\!k_1k_3\bigr)-(k_2\!\cdot\!\epsilon^{(4)}\!\cdot\! q)(k_1\!\cdot\!\epsilon^{(4)}\!\cdot\! k_3)\Big]\Big\} \\[4pt]
+&\overset{\sim}{=}\ -\tfrac{(E\omega)^2}{2}\Big\{4(\epsilon^{(2)}\!\cdot\epsilon^{(4)})\Big[\tfrac12(1-n_2\!\cdot\!\upsilon)(1-n_4\!\cdot\!\upsilon)+\tfrac12(1-n_4\!\cdot\!\upsilon)(1-n_2\!\cdot\!\upsilon)-\tfrac12(1-n_2\!\cdot\!n_4)\Big] \\
+&\qquad +4\big[(k_4\!\cdot\!\epsilon^{(2)}\!\cdot\! k_4)\,O(\upsilon^2)+O(\upsilon^2)\big]\Big\} \\[4pt]
+&\overset{\sim}{=}\ -2(E\omega)^2(\epsilon^{(2)}\!\cdot\epsilon^{(4)})\Big(\tfrac12-n_2\!\cdot\!\upsilon-\upsilon\!\cdot\! n_4+\tfrac{n_2\!\cdot\!n_4}{2}\Big) \\[4pt]
+&\overset{\sim}{=}\ -(E\omega)^2(\epsilon^{(2)}\!\cdot\epsilon^{(4)})\bigl[1-2n_2\!\cdot\!\upsilon-2\upsilon\!\cdot\! n_4+n_2\!\cdot\!n_4\bigr]
+\end{align*}
+ 
+\bigskip
+\noindent\textbf{Term (3).}
 \begin{align*}
 -h_\beta^\alpha\partial_\mu h_\alpha^\nu\partial^\mu h_\nu^\beta
-&= -\Big\{\big[2\,\epsilon_2^{\nu\alpha}\epsilon_{4\ \nu}^{\ \beta}(K_2\!\cdot\!K_4)\,P_{\alpha\beta}{}^{\rho\sigma}(2K_{1\rho}K_{3\sigma})\big] \\
-&\qquad +\big[\epsilon_{2\beta}{}^{\alpha}\epsilon_4^{\beta\nu}(K_4\!\cdot\! q)\,P^{\rho\sigma}{}_{\nu\alpha}(2K_{1\rho}K_{3\sigma})-(2\leftrightarrow4)\big] \\
-&\qquad +\big[\epsilon_{2\beta}{}^{\alpha}\epsilon_{4\alpha\nu}(K_4\!\cdot\! q)\,P_{\rho\sigma}{}^{\nu\beta}(2K_1{}^\rho K_3{}^\sigma)-(2\leftrightarrow4)\big]\Big\} \\[4pt]
-&= -\Big\{4\Big[\tfrac12(K_1\epsilon_2\epsilon_4K_3)+\tfrac12(K_3\epsilon_2\epsilon_4K_1)-\tfrac12(\epsilon_2\epsilon_4)(K_1\!\cdot\!K_3)\Big](K_2\!\cdot\!K_4) \\
-&\qquad +4\Big[\tfrac12K_1\epsilon_2\epsilon_4K_3+\tfrac12K_3\epsilon_2\epsilon_4K_1-\tfrac12(\epsilon_2\epsilon_4)(K_1\!\cdot\!K_3)\Big](K_4\!\cdot\! q)-4[2\leftrightarrow4] \\
-&\overset{\sim}{=}\ -\Big\{-2(\epsilon_2\epsilon_4)(1-n_2n_4)+2\big[(\epsilon_2\epsilon_4)(K_2\!\cdot\!K_4)+(\epsilon_2\epsilon_4)(K_4\!\cdot\!K_2)\big]\Big\} \\[4pt]
-&\overset{\sim}{=}\ -2(E\omega)^2(\epsilon_2\epsilon_4)(1-n_2n_4)
+&= -\Big\{2\,\epsilon^{(2)\,\nu\alpha}\epsilon^{(4)\,\beta}_{\ \ \nu}(k_2\!\cdot\!k_4)\,P_{\alpha\beta}{}^{\rho\sigma}(2k_{1\rho}k_{3\sigma}) \\
+&\qquad +\big[\epsilon^{(2)}_{\ \beta}{}^{\alpha}\epsilon^{(4)\,\beta\nu}(k_4\!\cdot\! q)\,P^{\rho\sigma}{}_{\nu\alpha}(2k_{1\rho}k_{3\sigma})-(2\leftrightarrow4)\big] \\
+&\qquad +\big[\epsilon^{(2)}_{\ \beta}{}^{\alpha}\epsilon^{(4)}_{\alpha\nu}(k_4\!\cdot\! q)\,P_{\rho\sigma}{}^{\nu\beta}(2k_1{}^\rho k_3{}^\sigma)-(2\leftrightarrow4)\big]\Big\} \\[4pt]
+&= -\Big\{4\Big[\tfrac12(k_1\!\cdot\!\epsilon^{(2)}\!\cdot\!\epsilon^{(4)}\!\cdot\! k_3)+\tfrac12(k_3\!\cdot\!\epsilon^{(2)}\!\cdot\!\epsilon^{(4)}\!\cdot\! k_1)-\tfrac12(\epsilon^{(2)}\!\cdot\epsilon^{(4)})(k_1\!\cdot\!k_3)\Big](k_2\!\cdot\!k_4) \\
+&\qquad +4\Big[\tfrac12(k_1\!\cdot\!\epsilon^{(2)}\!\cdot\!\epsilon^{(4)}\!\cdot\! k_3)+\tfrac12(k_3\!\cdot\!\epsilon^{(2)}\!\cdot\!\epsilon^{(4)}\!\cdot\! k_1)-\tfrac12(\epsilon^{(2)}\!\cdot\epsilon^{(4)})(k_1\!\cdot\!k_3)\Big](k_4\!\cdot\! q)+\cdots\Big\} \\[4pt]
+&\overset{\sim}{=}\ -\Big\{-2(\epsilon^{(2)}\!\cdot\epsilon^{(4)})(1-n_2\!\cdot\!n_4)+2\big[(\epsilon^{(2)}\!\cdot\epsilon^{(4)})(k_2\!\cdot\!k_4)+(\epsilon^{(2)}\!\cdot\epsilon^{(4)})(k_4\!\cdot\!k_2)\big]\Big\} \\[4pt]
+&\overset{\sim}{=}\ -2(E\omega)^2(\epsilon^{(2)}\!\cdot\epsilon^{(4)})(1-n_2\!\cdot\!n_4)
 \end{align*}
-
+(the omitted terms, denoted $\cdots$, cancel or are subleading in the limit above).
+ 
 \bigskip
-\noindent\textbf{Termine (4):} $\dfrac{1}{4} h\, \partial^\beta h_\nu^\mu \partial_\beta h_\mu^\nu$
-
+\noindent\textbf{Term (4).}
 \begin{align*}
-\frac14 h\,\partial^\beta h_\nu^\mu \partial_\beta h_\mu^\nu
-&= \frac14\Big\{2(K_2\!\cdot\!K_4)(\epsilon_2\epsilon_4)(-\eta^{\mu\nu})(2K_{1\mu}K_{3\nu})\Big\} \\
-&\overset{\sim}{=}\ -(E\omega)^2(\epsilon_2\epsilon_4)(1-n_2\cdot n_4)
+\tfrac14 h\,\partial^\beta h_\nu^\mu \partial_\beta h_\mu^\nu
+&= \tfrac14\Big\{2(k_2\!\cdot\!k_4)(\epsilon^{(2)}\!\cdot\epsilon^{(4)})(-\eta^{\mu\nu})(2k_{1\mu}k_{3\nu})\Big\} \\
+&\overset{\sim}{=}\ -(E\omega)^2(\epsilon^{(2)}\!\cdot\epsilon^{(4)})(1-n_2\!\cdot\!n_4)
 \end{align*}
-
+ 
 \bigskip
-\noindent\textbf{Termine (5):} $h_\mu^\beta \partial_\nu h_\beta^\alpha \partial^\mu h_\alpha^\nu$
-
+\noindent\textbf{Term (5).}
 \begin{align*}
 h_\mu^\beta\partial_\nu h_\beta^\alpha\partial^\mu h_\alpha^\nu
-&= \Big\{\big[K_{2\nu}K_{4\mu}\,\epsilon_2{}^\alpha{}_\beta\,\epsilon_4{}^\nu{}_\alpha\,P^{\mu\beta}{}_{\rho\sigma}(2K_1{}^\rho K_3{}^\sigma)+(2\leftrightarrow4)\big] \\
-&\qquad -\big[\epsilon_{2\mu\beta}\epsilon_4{}^\nu{}_\alpha K_{2\nu}K_4{}^\mu P^{\beta\alpha}{}_{\rho\sigma}+(2\leftrightarrow4)\big](2K_1{}^\rho K_3{}^\sigma) \\
-&\qquad +\big[\epsilon_{2\mu}{}^\beta\epsilon_{4\beta\alpha}K_{4\nu}q^\mu P^{\alpha\mu}{}_{\rho\sigma}-(2\leftrightarrow4)\big](2K_1{}^\rho K_3{}^\sigma)\Big\} \\[4pt]
-&= \Big\{(K_4\!\cdot\!K_1)(K_3\epsilon_2\epsilon_4K_2)+(K_4\!\cdot\!K_3)(K_1\epsilon_2\epsilon_4K_2)-(K_1\!\cdot\!K_3)(K_4\epsilon_2\epsilon_4K_2) \\
-&\qquad +(K_2\!\cdot\!K_1)(K_3\epsilon_4\epsilon_2K_4)+(K_2\!\cdot\!K_3)(K_1\epsilon_4\epsilon_2K_4)-(K_1\!\cdot\!K_3)(K_2\epsilon_4\epsilon_2K_4) \\
-&\qquad +2\big[(K_1\epsilon_4\epsilon_2K_4)(K_4\!\cdot\!K_2)+(K_3\epsilon_2\epsilon_4K_2)(K_2\!\cdot\!K_1)\big] \\
-&\qquad -2\big[(K_1\epsilon_2K_4)(K_2\epsilon_4K_2)+(K_3\epsilon_2K_4)(K_1\epsilon_4K_2)-(K_1\epsilon_2\epsilon_4K_2)(K_1\!\cdot\!K_3)\big]\Big\} \\[4pt]
-&\overset{\sim}{=}\ \Big\{\upsilon\epsilon_2\epsilon_4K_2+\upsilon\epsilon_2\epsilon_4K_2-n_4\epsilon_2\epsilon_4K_2+\upsilon\epsilon_4\epsilon_2n_4+\upsilon\epsilon_4\epsilon_2n_4 \\
-&\qquad -n_2\epsilon_4\epsilon_2n_4+2\upsilon\epsilon_4\epsilon_2n_4+2\upsilon\epsilon_2\epsilon_4n_2\Big\} \\[4pt]
-&\overset{\sim}{=}\ \big\{4+2n_4\epsilon_2\epsilon_4n_2\big\}\epsilon_2\epsilon_4n_2 \\[4pt]
-&\overset{\sim}{=}\ (E\omega)^2\big\{4\upsilon\,\epsilon_2\epsilon_4\,n_2+4\upsilon\,\epsilon_4\epsilon_2\,n_4\big\}
+&= \Big\{\big[k_{2\nu}k_{4\mu}\,\epsilon^{(2)\,\alpha}{}_{\beta}\,\epsilon^{(4)\,\nu}{}_{\alpha}\,P^{\mu\beta}{}_{\rho\sigma}(2k_1{}^\rho k_3{}^\sigma)+(2\leftrightarrow4)\big] \\
+&\qquad -\big[\epsilon^{(2)}_{\mu\beta}\epsilon^{(4)\,\nu}{}_{\alpha}\, k_{2\nu}k_4{}^\mu P^{\beta\alpha}{}_{\rho\sigma}+(2\leftrightarrow4)\big](2k_1{}^\rho k_3{}^\sigma) \\
+&\qquad +\big[\epsilon^{(2)}_{\mu}{}^\beta\epsilon^{(4)}_{\beta\alpha}k_{4\nu}q^\mu P^{\alpha\mu}{}_{\rho\sigma}-(2\leftrightarrow4)\big](2k_1{}^\rho k_3{}^\sigma)\Big\} \\[4pt]
+&= \Big\{(k_4\!\cdot\!k_1)(k_3\!\cdot\!\epsilon^{(2)}\!\cdot\!\epsilon^{(4)}\!\cdot\! k_2)+(k_4\!\cdot\!k_3)(k_1\!\cdot\!\epsilon^{(2)}\!\cdot\!\epsilon^{(4)}\!\cdot\! k_2)-(k_1\!\cdot\!k_3)(k_4\!\cdot\!\epsilon^{(2)}\!\cdot\!\epsilon^{(4)}\!\cdot\! k_2) \\
+&\qquad +(k_2\!\cdot\!k_1)(k_3\!\cdot\!\epsilon^{(4)}\!\cdot\!\epsilon^{(2)}\!\cdot\! k_4)+(k_2\!\cdot\!k_3)(k_1\!\cdot\!\epsilon^{(4)}\!\cdot\!\epsilon^{(2)}\!\cdot\! k_4)-(k_1\!\cdot\!k_3)(k_2\!\cdot\!\epsilon^{(4)}\!\cdot\!\epsilon^{(2)}\!\cdot\! k_4) \\
+&\qquad +2\big[(k_1\!\cdot\!\epsilon^{(4)}\!\cdot\!\epsilon^{(2)}\!\cdot\! k_4)(k_4\!\cdot\!k_2)+(k_3\!\cdot\!\epsilon^{(2)}\!\cdot\!\epsilon^{(4)}\!\cdot\! k_2)(k_2\!\cdot\!k_1)\big] \\
+&\qquad -2\big[(k_1\!\cdot\!\epsilon^{(2)}\!\cdot\! k_4)(k_2\!\cdot\!\epsilon^{(4)}\!\cdot\! k_2)+(k_3\!\cdot\!\epsilon^{(2)}\!\cdot\! k_4)(k_1\!\cdot\!\epsilon^{(4)}\!\cdot\! k_2)-(k_1\!\cdot\!\epsilon^{(2)}\!\cdot\!\epsilon^{(4)}\!\cdot\! k_2)(k_1\!\cdot\!k_3)\big]\Big\} \\[4pt]
+&\overset{\sim}{=}\ \Big\{4\,\upsilon\!\cdot\!\epsilon^{(2)}\!\cdot\!\epsilon^{(4)}\!\cdot\! n_2+4\,\upsilon\!\cdot\!\epsilon^{(4)}\!\cdot\!\epsilon^{(2)}\!\cdot\! n_4-2\,n_2\!\cdot\!\epsilon^{(4)}\!\cdot\!\epsilon^{(2)}\!\cdot\! n_4\Big\}\epsilon^{(2)}\!\cdot\!\epsilon^{(4)}\!\cdot\! n_2 \\[4pt]
+&\overset{\sim}{=}\ (E\omega)^2\Big\{4\,\upsilon\!\cdot\!\epsilon^{(2)}\!\cdot\!\epsilon^{(4)}\!\cdot\! n_2+4\,\upsilon\!\cdot\!\epsilon^{(4)}\!\cdot\!\epsilon^{(2)}\!\cdot\! n_4\Big\}
 \end{align*}
 
-\subsection{Summary}
+\bigskip
+\noindent
+Summing terms (1)--(5) and simplifying (the $n_2\!\cdot\!n_4$ pieces cancel exactly)
+gives
 
-\begin{equation}
-S_{fi}=i\,\kappa^{2}\,\mathcal{N}\,
-\Bigl[\mathcal{M}^{\rm sg}+\mathcal{M}^{s}+\mathcal{M}^{u}+\mathcal{M}^{t}\Bigr],
-\end{equation}
-with $\mathcal{N}$ given by \eqref{eq:N} and the four amplitudes by \eqref{eq:Msg},
-\eqref{eq:Msu} and \eqref{eq:Mt}. Individually they are not gauge invariant; their sum is,
-in the sense that it vanishes under
-$\epsilon^{\mu\nu}\to k^{\mu}\xi^{\nu}+\xi^{\mu}k^{\nu}$ for arbitrary $\xi$. This is a
-useful check once $V^{\alpha\beta}$ has been evaluated.
-
-
-
+\begin{empheq}[box=\fbox]{equation}
+S _{fi} \overset{\sim}{=}
+\frac{2 G^2E}{\pi \omega}\frac{1}{\sin ^2 \theta /2} \delta^{(4)}(K_{tot})\big\{ (\epsilon^{(2)}\cdot
+\epsilon^{(4)})-\vec{v}\cdot(\vec{n_2}+\vec{n_4})-2(\vec{n_2}\cdot\epsilon^{(4)}\cdot\epsilon^{(2)}\cdot \vec{v}+\vec{n_4}\cdot\epsilon^{(2)}\cdot\epsilon^{(4)}\cdot \vec{v})
+\big\} 
+\label{eq:Mt}
+\end{empheq}
+ 
+ 
 \newpage
 
 \section{Scattering Amplitude}

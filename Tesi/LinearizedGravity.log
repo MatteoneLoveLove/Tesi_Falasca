@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.16)  16 SEP 2026 10:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.16)  16 SEP 2026 11:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -519,20 +519,20 @@ Package: appendix 2020/02/08 v1.2c extra appendix facilities
  (./LinearizedGravity.aux)
 \openout1 = `LinearizedGravity.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
  (/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count338
@@ -553,10 +553,10 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 
-Package tikz-feynman Warning: LuaTeX is required if you wish to have vertices automatically placed. You can disable this warning by setting /tikzfeynman/warn luatex=false on input line 20.
+Package tikz-feynman Warning: LuaTeX is required if you wish to have vertices automatically placed. You can disable this warning by setting /tikzfeynman/warn luatex=false on input line 23.
 
 
-Package tikz-feynman Warning: Consider loading TikZ-Feynman with \usepackage[compat=1.1.0]{tikz-feynman} so that you can be warned if TikZ-Feynman changes. on input line 20.
+Package tikz-feynman Warning: Consider loading TikZ-Feynman with \usepackage[compat=1.1.0]{tikz-feynman} so that you can be warned if TikZ-Feynman changes. on input line 23.
 
 \Hy@linkcounter=\count344
 Package caption Info: Begin \AtBeginDocument code.
@@ -595,143 +595,156 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 24.
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 24.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 
 {/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2] [3] [4] [5] [6]
-Overfull \hbox (37.95787pt too wide) in paragraph at lines 499--501
+Overfull \hbox (37.95787pt too wide) in paragraph at lines 502--504
 \T1/cmr/m/n/12 QED level with the anal-ogy and we re-fer to (Rohrlich1950) and to (Matthews1949,BernardDuncan1975)
  []
 
 [7{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 642--651
+Underfull \hbox (badness 10000) in paragraph at lines 645--654
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 709--720
+Underfull \hbox (badness 10000) in paragraph at lines 712--723
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 738--740
+Underfull \hbox (badness 10000) in paragraph at lines 741--743
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 749--750
+Underfull \hbox (badness 10000) in paragraph at lines 752--753
 
  []
 
 [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 936--939
+Underfull \hbox (badness 10000) in paragraph at lines 939--942
 
  []
 
 [12] [13] [14] [15] [16]
 
-LaTeX Warning: Citation `DeLogiKovacs1977' on page 17 undefined on input line 1177.
+LaTeX Warning: Citation `DeLogiKovacs1977' on page 17 undefined on input line 1180.
 
 
-Overfull \hbox (3.48276pt too wide) in paragraph at lines 1207--1208
+Overfull \hbox (3.48276pt too wide) in paragraph at lines 1210--1211
 []\T1/cmr/m/n/12 In the present case the grav-i-ta-tional back-ground is gen-er-ated by a clas-si-cal energy-momentum
  []
 
 [17]
 
-LaTeX Warning: Citation `Peters1976' on page 18 undefined on input line 1254.
+LaTeX Warning: Citation `Peters1976' on page 18 undefined on input line 1257.
 
 
-LaTeX Warning: Reference `fig:geometry' on page 18 undefined on input line 1261.
+LaTeX Warning: Reference `fig:geometry' on page 18 undefined on input line 1264.
 
 [18]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [19] [20] [21]
-Overfull \hbox (12.23863pt too wide) detected at line 1620
+Overfull \hbox (118.29787pt too wide) detected at line 1616
+[]\OML/cmm/m/it/12 S[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 d[]x \OMS/cmsy/m/n/12 L[]\OML/cmm/m/it/12 ;  \OMS/cmsy/m/n/12 L[] \OT1/cmr/m/n/12 =  \OML/cmm/m/it/12 ^^T[][] [] [] \OT1/cmr/m/n/12 + [] + [] [][]\OML/cmm/m/it/12 :
+ []
+
+[22]
+Overfull \hbox (40.63217pt too wide) detected at line 1660
 []
  []
 
-[22] [23]
 
-LaTeX Warning: Reference `eq:N' on page 24 undefined on input line 1669.
+Overfull \hbox (7.0415pt too wide) detected at line 1697
+[]
+ []
+
+[23]
+Overfull \hbox (4.33882pt too wide) detected at line 1710
+[]
+ []
 
 
-LaTeX Warning: Reference `eq:Mt' on page 24 undefined on input line 1670.
+Overfull \hbox (11.13881pt too wide) detected at line 1710
+[]
+ []
 
 [24] [25] [26]
-Overfull \hbox (43.25882pt too wide) detected at line 1933
+Overfull \hbox (43.25882pt too wide) detected at line 1969
 \OML/cmm/m/it/12 ^^Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]; q[]; x[]; q[]; \OT1/cmr/m/n/12 0) = \OML/cmm/m/it/12 ^^Z[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]; x[]; \OT1/cmr/m/n/12 0) \OML/cmm/m/it/12 ^^Z[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 q[]; q[]; \OT1/cmr/m/n/12 0)  \OMS/cmsy/m/n/12 )  \OML/cmm/m/it/12 ^^Z[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x; x[]; t\OT1/cmr/m/n/12 ) = [] \OML/cmm/m/it/12 dx[] dx[] J[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x; x[]; t\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 x[]; x[]; \OT1/cmr/m/n/12 0) \OML/cmm/m/it/12 ^^Z[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]; x[]; \OT1/cmr/m/n/12 0)\OML/cmm/m/it/12 :
  []
 
 
-Overfull \hbox (96.05455pt too wide) detected at line 1955
+Overfull \hbox (96.05455pt too wide) detected at line 1991
 \OML/cmm/m/it/12 F\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 x; x[]\OT1/cmr/m/n/12 ] = []  []\OML/cmm/m/it/12 iS[]\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 x; x[]\OT1/cmr/m/n/12 ][]\OML/cmm/m/it/12 ;  F\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 x; x[]\OT1/cmr/m/n/12 ] = [] \OML/cmm/m/it/12 dq[] dq[] dq ^^Z[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 q[]; q[]; \OT1/cmr/m/n/12 0)  [][] \OMS/cmsy/m/n/12 D\OML/cmm/m/it/12 q e[] [][] \OMS/cmsy/m/n/12 D\OML/cmm/m/it/12 q[] e[]:
  []
 
 [27] [28]
-Overfull \hbox (88.90613pt too wide) detected at line 2083
+Overfull \hbox (88.90613pt too wide) detected at line 2119
 []\OML/cmm/m/it/12 S[] \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 dt dt[] []\OMS/cmsy/m/n/12 h\OML/cmm/m/it/12 TQ\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 i \OML/cmm/m/it/12 x\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ h\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 i \OML/cmm/m/it/12 x\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ h\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 i \OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 ) + \OMS/cmsy/m/n/12 h[]\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 i \OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 :
  []
 
 
-Overfull \hbox (28.1353pt too wide) detected at line 2111
+Overfull \hbox (28.1353pt too wide) detected at line 2147
 \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 L[]\OT1/cmr/m/n/12 )[] = \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 i^^T[] ^^N[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 ^^Q[]^^Q[] \U/msa/m/n/12 ^^C[]   \OT1/cmr/m/n/12 =[]\OMS/cmsy/m/n/12 )   h\OT1/cmr/m/n/12 0\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 T\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 h[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 h[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 gj\OT1/cmr/m/n/12 0\OMS/cmsy/m/n/12 i \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 i\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 L[]\OT1/cmr/m/n/12 )[] = \OML/cmm/m/it/12 ^^T[] ^^Q[]^^Q[] \U/msa/m/n/12 ^^C[]\OML/cmm/m/it/12 ^^N[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 :
  []
 
 [29]
-Overfull \hbox (20.49532pt too wide) detected at line 2192
+Overfull \hbox (20.49532pt too wide) detected at line 2228
 []\OML/cmm/m/it/12 F\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 x; x[]\OT1/cmr/m/n/12 ] = [] \OML/cmm/m/it/12 dq[] dq[] ^^Z[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 q[]; q[]\OT1/cmr/m/n/12 ; 0) [][] \OMS/cmsy/m/n/12 D\OML/cmm/m/it/12 q e[];  S[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 S[]\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 q[]\OT1/cmr/m/n/12 ] + \OML/cmm/m/it/12 S[]\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 x; q[]\OT1/cmr/m/n/12 ] \OMS/cmsy/m/n/12 ^^@ []\OML/cmm/m/it/12 S[]\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 q[]\OT1/cmr/m/n/12 ] + \OML/cmm/m/it/12 S[]\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 x[]; q[]\OT1/cmr/m/n/12 ][]\OML/cmm/m/it/12 :
  []
 
 [30]
-Overfull \hbox (21.34128pt too wide) detected at line 2248
+Overfull \hbox (21.34128pt too wide) detected at line 2284
 []\OML/cmm/m/it/12 S[] \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 dt dt[][]\OMS/cmsy/m/n/12 h\OML/cmm/m/it/12 T\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )]\OMS/cmsy/m/n/12 i \OML/cmm/m/it/12 x[]x[] \OMS/cmsy/m/n/12 ^^@ h\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 i \OML/cmm/m/it/12 x[]x[] \OMS/cmsy/m/n/12 ^^@ h\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 i \OML/cmm/m/it/12 x[]x[] \OT1/cmr/m/n/12 + \OMS/cmsy/m/n/12 h[]\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )]\OMS/cmsy/m/n/12 i \OML/cmm/m/it/12 x[]x[][]:
  []
 
 [31] [32] [33]
-Overfull \hbox (18.72223pt too wide) in paragraph at lines 2528--2529
+Overfull \hbox (18.72223pt too wide) in paragraph at lines 2564--2565
 \T1/cmr/m/n/12 Setting $\OML/cmm/m/it/12 G\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 r\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 j[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 kr\OT1/cmr/m/n/12 )$\T1/cmr/m/n/12 , $\OML/cmm/m/it/12 x \OMS/cmsy/m/n/12 ^^Q \OML/cmm/m/it/12 kr$\T1/cmr/m/n/12 , we can use Spher-i-cal Bessel prop-er-ties (https://dlmf.nist.gov/10.51): 
  []
 
 [34] [35] [36] [37] [38]
-Overfull \hbox (28.29514pt too wide) detected at line 2849
+Overfull \hbox (28.29514pt too wide) detected at line 2885
 [][]
  []
 
 [39] [40]
-Underfull \hbox (badness 10000) in paragraph at lines 2939--2941
+Underfull \hbox (badness 10000) in paragraph at lines 2975--2977
 
  []
 
 
-LaTeX Warning: Reference `eq:g1' on page 41 undefined on input line 2969.
+LaTeX Warning: Reference `eq:g1' on page 41 undefined on input line 3005.
 
 [41]
-Overfull \hbox (12.93962pt too wide) detected at line 3008
+Overfull \hbox (12.93962pt too wide) detected at line 3044
 []
  []
 
 
-Overfull \hbox (10.3336pt too wide) detected at line 3038
+Overfull \hbox (10.3336pt too wide) detected at line 3074
 []
  []
 
 
-Overfull \hbox (27.5326pt too wide) detected at line 3048
+Overfull \hbox (27.5326pt too wide) detected at line 3084
 []
  []
 
 [42] [43]
-Underfull \hbox (badness 10000) in paragraph at lines 3072--3075
+Underfull \hbox (badness 10000) in paragraph at lines 3108--3111
 
  []
 
@@ -746,15 +759,15 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 20730 strings out of 467525
- 438142 string characters out of 5418982
- 890984 words of memory out of 5000000
- 49246 multiletter control sequences out of 15000+600000
+ 20701 strings out of 467525
+ 437496 string characters out of 5418982
+ 896935 words of memory out of 5000000
+ 49217 multiletter control sequences out of 15000+600000
  653253 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,19n,118p,1001b,1131s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on LinearizedGravity.pdf (44 pages, 637562 bytes).
+Output written on LinearizedGravity.pdf (44 pages, 640141 bytes).
 PDF statistics:
  332 PDF objects out of 1000 (max. 8388607)
  212 compressed objects within 3 object streams
