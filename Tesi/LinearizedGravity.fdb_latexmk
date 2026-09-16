@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1789549488.38085 "/Users/matteofalasca/Desktop/VSCODE/Tesi/LinearizedGravity.tex" "LinearizedGravity.pdf" "LinearizedGravity" 1789549489.07795 0
-  "/Users/matteofalasca/Desktop/VSCODE/Tesi/LinearizedGravity.tex" 1789549487.45417 129057 8ab99c12eb030e6af38c3aa8c6e97f65 ""
+["pdflatex"] 1789549821.69254 "/Users/matteofalasca/Desktop/VSCODE/Tesi/LinearizedGravity.tex" "LinearizedGravity.pdf" "LinearizedGravity" 1789549822.42294 0
+  "/Users/matteofalasca/Desktop/VSCODE/Tesi/LinearizedGravity.tex" 1789549821.53744 129137 9e0b965ba2756eab2ceb6bcaeb50e04b ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -223,8 +223,8 @@
   "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1781618226 5573038 b99aad5e4898a9034e953632f940512b ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1781618143 3636781 f63218c34490f3988fa9458309961696 ""
   "/usr/local/texlive/2026/texmf.cnf" 1774209515 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "LinearizedGravity.aux" 1789549488.99302 11127 cca1a8eaa7a203c913dc236ee5be5ca9 "pdflatex"
-  "LinearizedGravity.tex" 1789549487.45417 129057 8ab99c12eb030e6af38c3aa8c6e97f65 ""
+  "LinearizedGravity.aux" 1789549822.33865 11127 cca1a8eaa7a203c913dc236ee5be5ca9 "pdflatex"
+  "LinearizedGravity.tex" 1789549821.53744 129137 9e0b965ba2756eab2ceb6bcaeb50e04b ""
   (generated)
   "LinearizedGravity.aux"
   "LinearizedGravity.log"
