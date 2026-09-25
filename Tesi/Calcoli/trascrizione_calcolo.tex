@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=2cm]{geometry}
+
+\begin{document}
+
+\noindent\textbf{Vertici di partenza}
+\begin{align}
+S^{(3)}_{HE} = \int d^4x\, \mathcal{L}_g^1, \qquad
+\mathcal{L}_g^1 =\;\kappa  \Bigl[
+&\frac{1}{2} h_\beta^\alpha \partial^\mu h_\alpha^\beta \partial_\mu h
+- \frac{1}{2} h_\beta^\alpha \partial_\alpha h_\nu^\mu \partial^\beta h_\mu^\nu
+- h_\beta^\alpha \partial_\mu h_\alpha^\nu \partial^\mu h_\nu^\beta \nonumber \\
+&+ \frac{1}{4} h\, \partial^\beta h_\nu^\mu \partial_\beta h_\mu^\nu
++ h_\mu^\beta \partial_\nu h_\beta^\alpha \partial^\mu h_\alpha^\nu
+- \frac{1}{8} h\, \partial^\nu h\, \partial_\nu h \Bigr]
+\end{align}
+
+\bigskip
+\noindent\textbf{Termine (1):} $\dfrac{1}{2} h_\beta^\alpha \partial^\mu h_\alpha^\beta \partial_\mu h$
+
+\begin{align*}
+\frac12 h_\beta^\alpha \partial^\mu h_\alpha^\beta \partial_\mu h
+&= \frac12\,\epsilon_2\epsilon_4\,\big[q\cdot(K_4-K_2)\big]\;\mathrm{Tr}P\cdot(-\eta^{\mu\nu})(2K_\mu K_{3\nu}) \\
+&= -\epsilon_2\epsilon_4\,(K_1\cdot K_3)(-2K_2\cdot K_4) \\
+&\overset{\sim}{=}\ 2(E\omega)^2(\epsilon_2\epsilon_4)(1-n_2\cdot n_4)
+\end{align*}
+
+\bigskip
+\noindent\textbf{Termine (2):} $-\dfrac{1}{2} h_\beta^\alpha \partial_\alpha h_\nu^\mu \partial^\beta h_\mu^\nu$
+
+\begin{align*}
+-\frac12 h_\beta^\alpha \partial_\alpha h_\nu^\mu \partial^\beta h_\mu^\nu
+&= -\frac12\Big\{\big[\epsilon_2\epsilon_4\,(2K_{2\alpha}K_{4\beta}P^{\alpha\beta,\mu\nu})(2K_{1\mu}K_{3\nu})\big] \\
+&\qquad +2\big[(K_4\!\cdot\!\epsilon_2\!\cdot\! q)(\epsilon_{4\alpha\beta}P^{\alpha\beta,\mu\nu})(2K_{4\mu}K_{3\nu})-(2\leftrightarrow4)\big]\Big\} \\[4pt]
+&= -\frac12\Big\{4\Big[\epsilon_2\epsilon_4\Big(\tfrac12(K_1\!\cdot\!K_2)(K_3\!\cdot\!K_4)+\tfrac12(K_1\!\cdot\!K_4)(K_3\!\cdot\!K_2)-\tfrac12(K_2\!\cdot\!K_4)(K_1\!\cdot\!K_3)\Big)\Big] \\
+&\qquad +4\Big[(K_4\!\cdot\!\epsilon_2\!\cdot\! q)\Big(2\cdot\tfrac12 K_1\!\cdot\!\epsilon_4\!\cdot\! K_3-\epsilon_{4\mu}K_1K_3\Big)-(K_2\!\cdot\!\epsilon_4\!\cdot\! q)(K_1\!\cdot\!\epsilon_4\!\cdot\! K_3)\Big]\Big\} \\[4pt]
+&\overset{\sim}{=}\ -\frac{(E\omega)^2}{2}\Big\{4\Big[\epsilon_2\epsilon_4\Big(\tfrac12(1-n_2\upsilon)(1-n_4\upsilon)+\tfrac12(1-n_4\upsilon)(1-n_2\upsilon)-\tfrac12(1-n_2n_4)\Big)\Big] \\
+&\qquad +4\big[(K_4\epsilon_2K_4)\,O(\upsilon^2)+O(\upsilon^2)\big]\Big\} \\[4pt]
+&\overset{\sim}{=}\ -2(E\omega)^2\Big\{(\epsilon_2\epsilon_4)\Big(\tfrac12-n_2\upsilon-\upsilon n_4+\tfrac{n_2n_4}{2}\Big)\Big\} \\[4pt]
+&\overset{\sim}{=}\ -(E\omega)^2(\epsilon_2\epsilon_4)\big[1-2n_2\upsilon-2\upsilon n_4+n_2n_4\big]
+\end{align*}
+
+\bigskip
+\noindent\textbf{Termine (3):} $-h_\beta^\alpha\partial_\mu h_\alpha^\nu\partial^\mu h_\nu^\beta$
+
+\begin{align*}
+-h_\beta^\alpha\partial_\mu h_\alpha^\nu\partial^\mu h_\nu^\beta
+&= -\Big\{\big[2\,\epsilon_2^{\nu\alpha}\epsilon_{4\ \nu}^{\ \beta}(K_2\!\cdot\!K_1)\,P_{\alpha\beta}{}^{\rho\sigma}(2K_{1\rho}K_{3\sigma})\big] \\
+&\qquad +\big[\epsilon_{2\beta}{}^{\alpha}\epsilon_4^{\beta\nu}(K_4\!\cdot\! q)\,P^{\rho\sigma}{}_{\nu\alpha}(2K_{1\rho}K_{3\sigma})-(2\leftrightarrow4)\big] \\
+&\qquad +\big[\epsilon_{2\beta}{}^{\alpha}\epsilon_{4\alpha\nu}(K_4\!\cdot\! q)\,P_{\rho\sigma}{}^{\nu\beta}(2K_1{}^\rho K_3{}^\sigma)-(2\leftrightarrow4)\big]\Big\} \\[4pt]
+&= -\Big\{4\Big[\tfrac12(K_1\epsilon_2\epsilon_4K_3)+\tfrac12(K_3\epsilon_2\epsilon_4K_1)-\tfrac12(\epsilon_2\epsilon_4)(K_1\!\cdot\!K_3)\Big](K_2\!\cdot\!K_4) \\
+&\qquad +2\Big[\tfrac12K_1\epsilon_2\epsilon_4K_3+\tfrac12K_3\epsilon_2\epsilon_4K_1-\tfrac12(\epsilon_2\epsilon_4)(K_1\!\cdot\!K_3)\Big](K_4\!\cdot\! q)-2[2\leftrightarrow4] \\
+&\qquad +2\Big[\tfrac12K_1\epsilon_2\epsilon_4K_3+\cdots\Big](\cdots)-2[\cdots]\Big\} \\[4pt]
+&\overset{\sim}{=}\ -\Big\{-2(\epsilon_2\epsilon_4)(1-n_2n_4)+2\big[(\epsilon_2\epsilon_4)(K_2\!\cdot\!K_4)+(\epsilon_2\epsilon_4)(K_4\!\cdot\!K_2)\big]\Big\} \\[4pt]
+&\overset{\sim}{=}\ -2(E\omega)^2(\epsilon_2\epsilon_4)(1-n_2n_4)
+\end{align*}
+
+\bigskip
+\noindent\textbf{Termine (4):} $\dfrac{1}{4} h\, \partial^\beta h_\nu^\mu \partial_\beta h_\mu^\nu$
+
+\begin{align*}
+\frac14 h\,\partial^\beta h_\nu^\mu \partial_\beta h_\mu^\nu
+&= \frac12\Big\{2(K_2\!\cdot\!K_4)(\epsilon_2\epsilon_4)(-\eta^{\mu\nu})(2K_{1\mu}K_{3\nu})\Big\} \\
+&\overset{\sim}{=}\ -(E\omega)^2(\epsilon_2\epsilon_4)(1-n_2\cdot n_4)
+\end{align*}
+
+\bigskip
+\noindent\textbf{Termine (5):} $h_\mu^\beta \partial_\nu h_\beta^\alpha \partial^\mu h_\alpha^\nu$
+
+\begin{align*}
+h_\mu^\beta\partial_\nu h_\beta^\alpha\partial^\mu h_\alpha^\nu
+&= \Big\{\big[K_{2\nu}K_{4\mu}\,\epsilon_2{}^\alpha{}_\beta\,\epsilon_4{}^\nu{}_\alpha\,P^{\mu\beta}{}_{\rho\sigma}(2K_1{}^\rho K_3{}^\sigma)+(2\leftrightarrow4)\big] \\
+&\qquad -\big[\epsilon_{2\mu\beta}\epsilon_4{}^\nu{}_\alpha K_{2\nu}K_4{}^\mu P^{\beta\alpha}{}_{\rho\sigma}+(2\leftrightarrow4)\big](2K_1{}^\rho K_3{}^\sigma) \\
+&\qquad +\big[\epsilon_{2\mu}{}^\beta\epsilon_{4\beta\alpha}K_{4\nu}q^\mu P^{\alpha\mu}{}_{\rho\sigma}-(2\leftrightarrow4)\big](2K_1{}^\rho K_3{}^\sigma)\Big\} \\[4pt]
+&= \Big\{(K_4\!\cdot\!K_1)(K_3\epsilon_2\epsilon_4K_2)+(K_4\!\cdot\!K_3)(K_1\epsilon_2\epsilon_4K_2)-(K_1\!\cdot\!K_3)(K_4\epsilon_2\epsilon_4K_2) \\
+&\qquad +(K_2\!\cdot\!K_1)(K_3\epsilon_4\epsilon_2K_4)+(K_2\!\cdot\!K_3)(K_1\epsilon_4\epsilon_2K_4)-(K_1\!\cdot\!K_3)(K_2\epsilon_4\epsilon_2K_4) \\
+&\qquad +2\big[(K_1\epsilon_4\epsilon_2K_4)(K_4\!\cdot\!K_2)+(K_3\epsilon_2\epsilon_4K_2)(K_2\!\cdot\!K_1)\big] \\
+&\qquad -2\big[(K_1\epsilon_2K_4)(K_2\epsilon_4K_2)+(K_3\epsilon_2K_4)(K_1\epsilon_4K_2)-(K_1\epsilon_2\epsilon_4K_2)(K_1\!\cdot\!K_3)\big]\Big\} \\[4pt]
+&\overset{\sim}{=}\ \Big\{\upsilon\epsilon_2\epsilon_4K_2+\upsilon\epsilon_2\epsilon_4K_2-n_4\epsilon_2\epsilon_4K_2+\upsilon\epsilon_4\epsilon_2n_4+\upsilon\epsilon_4\epsilon_2n_4 \\
+&\qquad -n_2\epsilon_4\epsilon_2n_4+2\upsilon\epsilon_4\epsilon_2n_4+2\upsilon\epsilon_2\epsilon_4n_2\Big\} \\[4pt]
+&\overset{\sim}{=}\ \big\{4+2n_4\epsilon_2\epsilon_4n_2\big\}\epsilon_2\epsilon_4n_2 \\[4pt]
+&\overset{\sim}{=}\ (E\omega)^2\big\{4\upsilon\,\epsilon_2\epsilon_4\,n_2+4\upsilon\,\epsilon_4\epsilon_2\,n_4\big\}
+\end{align*}
+
+\bigskip
+\noindent\footnotesize\emph{Nota: alcuni passaggi intermedi (blocco finale del Termine 3, e le ultime righe del Termine 5) sono parzialmente illeggibili/corretti a mano nell'originale; sono stati ricostruiti nel modo più fedele possibile alla struttura visibile.}
+
+\end{document}

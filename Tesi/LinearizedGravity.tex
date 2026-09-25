@@ -1,21 +1,59 @@
-\documentclass[12pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
+\documentclass[12pt,a4paper,oneside]{article}
+
+% ------------------------------------------------------------------
+% ------------------------------------------------------------------
 \usepackage[T1]{fontenc}
-\usepackage{graphicx}
-\usepackage{tikz-feynman}
-\usepackage{xcolor,simpler-wick}
+\usepackage[english]{babel}
+
+\usepackage{amsmath,amsthm}
+\usepackage{mathtools}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+\usepackage[final]{microtype}
+
 \usepackage{empheq}
 \usepackage{braket}
-\usepackage{subcaption}
 \usepackage{physics}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage[a4paper]{geometry} % per modificare le dimensioni e i margini del documento
+% ------------------------------------------------------------------
+% Layout
+% ------------------------------------------------------------------
+\usepackage[a4paper,top=3cm,bottom=3cm,left=3cm,right=2.5cm,
+            headheight=15pt]{geometry}
+\usepackage{setspace}
+\setstretch{1.2}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\nouppercase{\leftmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ------------------------------------------------------------------
+% ------------------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[font=small,labelfont=bf,margin=1cm]{caption}
+\usepackage{subcaption}
+\usepackage{tikz-feynman}
+\tikzfeynmanset{compat=1.1.0}
+\usepackage{simpler-wick}
+
 \usepackage{appendix}
-\newgeometry{top=2cm, bottom=1.8cm, left=2cm, right=2cm}
-% Local fallback for the 'wick' package (not available offline):
-% marks a contracted field with an over-arc.
+
+% ------------------------------------------------------------------
+% Equazioni
+% ------------------------------------------------------------------
+\numberwithin{equation}{section}   % numerazione (2.3), (4.1), ...
+\allowdisplaybreaks                % gli align lunghi possono andare a capo pagina
+
+
+% ------------------------------------------------------------------
+% Collegamenti (va caricato per ultimo)
+% ------------------------------------------------------------------
+\usepackage[hidelinks]{hyperref}
 \renewcommand{\c}[1]{\overset{\frown}{#1}}
- 
+
 \title{Linearized Gravity and QFT Connection}
 \author{Matteo Falasca}
 \date{March 2026}
@@ -24,424 +62,443 @@
 \maketitle
 
 \begin{abstract}
-In this work we present a modern and self‑contained review of the quantum theory of linearized gravity, starting from General Relativity and progressing to its canonical quantization. We then develop a minimal yet operational framework to describe gravitationally induced decoherence, deriving the master equation governing open quantum systems in the weak‑field regime.\end{abstract}
+In this work we present a modern and self‑contained review of the quantum theory of
+linearized gravity, starting from General Relativity and progressing to 
+towards its canonical quantization. We then derive the scattering cross sections
+corresponding to Compton scattering in quantum electrodynamics, to compare
+the similarities and differences. Finally, we discute the possible implications
+of such results in the context of gravity-induced decoherence.\end{abstract}
 
 % ====================================================================
 \section{Introduction to Linearized Gravity}
 % ====================================================================
+In this chapter, we will discuss how gravitational waves (GWs) emerge from general relativity
+and how they can be represented in a convenient way with a gauge choice, choosing the
+degrees of freedom they express. Such understanding will be particularly insightful
+when considering the scattering process of GWs with matter.
 
-In GR, we speak of linearized gravity whenever our metric is almost flat. Technically, we can expand our metric around flat space:
-\[
-g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}, \qquad |h_{\mu\nu}| \ll 1
-\]
-where $|h|$ is much smaller than 1.
-We will use the mostly negative flat space metric.
+As a convention, we will use $\eta_{\mu\nu} = \text{diag}(1,-1,-1,-1)$ as the Minkowski metric.
+\subsection{Perturbation of the flat metric}
 
-\subsubsection*{Validity}
-
-$h$ is different from observer to observer. Under an infinitesimal coordinate transformation, we have a family of diffeomorphisms of linearized metrics.
-\[
-h_{\mu\nu} \to h_{\mu\nu} + \partial_\mu \xi_\nu + \partial_\nu \xi_\mu, \qquad |\partial_\mu \xi_\nu| \ll 1
-\]
-
-It's important to notice that boost and translation around all space don't led to
-any change in the metric tensor. 
-The only coordinate changes are local ones, which are slowly varying in space and time.
-
-The linearized metric behaves as a tensor under Lorentz transformations. In this sense, we can assume linearized gravity as Covariant, as long as we take slowly varying frame of reference compared to a valid one. \\
-The complete diffeomorfism expansion around flat metric won't be much important for our calculations, but will be mathematically consistent in the next sections.
-
-\subsection*{Equations of Motion}
-Starting from the GR EoM
-\[
-R_{\mu\nu} - \frac{1}{2}g_{\mu\nu}R = 8\pi G\, T_{\mu\nu}
-\]
-it's first order terms in $h_{\mu\nu}$ are easily calculated by defining the trace and the trace-less perturbation:
-\[
-h = \eta^{\mu\nu} h_{\mu\nu}
-\]
-\[
-\bar{h}_{\mu\nu} = h_{\mu\nu} - \frac{1}{2}\eta_{\mu\nu} h
-\]
-and then by computing the linearized Ricci and Einstein tensor:
-\[
-R_{\mu\nu}^{(1)} = \frac{1}{2}\left( -\Box h_{\mu\nu} - \partial_\mu \partial_\nu h + \partial^\lambda \partial_\mu h_{\nu\lambda} + \partial^\lambda \partial_\nu h_{\mu\lambda} \right)
-\]
-\[
-G_{\mu\nu}^{(1)} = -\frac{1}{2}\left( \Box \bar{h}_{\mu\nu} + \eta_{\mu\nu} \partial^\lambda \partial^\rho \bar{h}_{\lambda\rho} - \partial^\lambda \partial_\mu \bar{h}_{\nu\lambda} - \partial^\lambda \partial_\nu \bar{h}_{\mu\lambda} \right)
-\]
-
-Due to diffeomorphism invariance, the metric perturbation contains redundant degrees of freedom. In 4D this reduces to 2 physical DoF in vacuum (gravitational waves), 6 with sources. This is well explained in Maggiore and confirmed by the Hamiltonian analysis in flat space via first-class constraints removing the unphysical modes.
-
-
- 
-\subsection*{Harmonic Gauge}
-
-This gauge is covariant and expressed as:
+In GR, we speak of \textit{linearized gravity} whenever our metric is almost flat. 
+This happens when the dominant physical effects are the ones of special relativity, 
+and the bending of spacetime plays a secondary role.
+Mathematically this case can be represented expanding the metric around flat space:
 \begin{equation}
-\boxed{\partial^\mu\bar{h}_{\mu\nu} = 0}
-\label{eq:DD}
-\end{equation}
-We can always reach this, via a gauge transformation made b
-from a proper infinitesimal coordinate transformation:
-\[
-\partial^\mu \bar{h}_{\mu\nu} \to \partial^\mu \bar{h}_{\mu\nu} - \Box \xi_\nu
-\]
-Looking at the Eom, they reduce to:
-\begin{equation}
-\Box \bar{h}_{\mu\nu} = \frac{-16\pi G}{c^4}\, T_{\mu\nu}
-\label{eq:EoM}
-\end{equation}
-which leads immediately to:
-\[
-\partial^\mu T_{\mu\nu} = 0
-\]
-
-And outside the source to:
-\begin{equation}
-    \boxed{
-\Box \bar{h}_{\mu\nu} = 0
-}\label{eq:EoM2}
+g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}, \qquad |h_{\mu\nu}| \ll 1. \label{g}
 \end{equation}
 
-\subsection*{TT Gauge}
+The definition of $|h_{\mu\nu}|\ll1$ depends on the norm we choose, but more 
+importantly on on 
+the frame of reference we are considering, leading to possible ambiguities.
+To understand how the perturbation $h_{\mu\nu}$ transforms from one observer to another, we should 
+consider an infinitesimal families of coordinate transformation:
+\begin{equation}
+x^\mu \rightarrow x'^\mu = x^\mu + \xi^\mu(x), \label{x}
+\end{equation}
+Under $\eqref{x}$ the metric transforms as:
+\begin{equation}\label{gauge}
+\boxed{h_{\mu\nu} \to h_{\mu\nu} + \partial_\mu \xi_\nu + \partial_\nu \xi_\mu}    
+\end{equation}
+which is a family of diffeomorphisms of linearized metrics if and only if the derivatives 
+$|\partial_\mu \xi_\nu| \ll 1$ are at most the same order of 
+smallness as $|h_{\mu\nu}|$. 
 
-De Donder gauge ($\ref{eq:DD}$) is not broken by a coordinate 
-change such that $\Box \xi_\mu = 0$. Then $\xi$ definition can be 
-extended at: 
-\begin{align}
-    \Box \xi_{\mu\nu}=0 \quad \text{s.t.} \quad \xi_{\mu\nu} \equiv \partial_\mu\xi_\nu + \partial_\nu \xi_\mu -\eta_{\mu\nu}\partial_\rho\xi^\rho
-\end{align}
+The linearized metric behaves as a \textit{tensor} under Lorentz transformations:
+\begin{equation}
+g_{\mu\nu}(x)
+\rightarrow
+g'_{\mu\nu}(x')
+=
+\Lambda_{\mu}^{\ \rho}
+\Lambda_{\nu}^{\ \sigma}
+g_{\rho\sigma}(x)
+=
+\Lambda_{\mu}^{\ \rho}
+\Lambda_{\nu}^{\ \sigma}
+\left[
+\eta_{\rho\sigma}
++
+h_{\rho\sigma}(x)
+\right]
+=
+\eta_{\mu\nu}
++
+\Lambda_{\mu}^{\ \rho}
+\Lambda_{\nu}^{\ \sigma}
+h_{\rho\sigma}(x).
+\end{equation}
+In this sense, we can assume linearized gravity as \textit{covariant}, 
+as long as we take the slowly varying frame of reference compared to a valid one. 
+Rotations never spoil $\eqref{g}$, while boosts can.\\
 
-This allows to have on shell solutions such that ($\ref{eq:EoM2}$)
-and:
-
-\begin{align}\label{TTC}
-\boxed{
-    h^{0\mu}=0 \qquad h^i_i=0 \qquad \partial_i h^{ij}=0
-}
-\end{align}
-In this framework the EoM are:
-\[
-\boxed{\Box h_{\mu\nu}=0}
-\]
-
-Now, we want to express wave solutions.
- Denoting by $(a,b)$ the plane perpendicular to the wave:
-\[
-h^{\mathrm{TT}}_{ij}(t,z) =
-\begin{pmatrix}
-h_+ & h_\times \\
-h_\times & -h_+
-\end{pmatrix}
-\cos[\omega(t - z/c)]
-\]
-
-
-
-
-
-\newpage
-\section{Field Action}
-In \textit{GR}, the \textit{covariance principle} requires the action to be invariant under coordinate changes. Since $\sqrt{-g}$ and $d^4x$ each produce a Jacobian factor under a change of coordinates, and the two cancel, covariance can be achieved by writing action in the form:
-\[
-S = \int d^4x \, \sqrt{-g}\, \bigl[ \mathcal{L}_{HE} + \mathcal{L}_M \bigr]
-\]
-
-We take $\mathcal{L}_{HE} = \frac{1}{16 \pi G} R$. Higher-curvature proposals exist, but we will not consider them here.
+From now on, the perturbation will be rescaled as:
+\begin{equation}
+    h_{\mu\nu} \rightarrow \kappa h_{\mu\nu}
+\end{equation}
 
 
 
-\subsection*{Expansion of the building blocks}
- 
-Set $g_{\mu\nu} = \eta_{\mu\nu} + \kappa h_{\mu\nu}$, $h \equiv h^\mu_\mu$. Everything geometric ($g^{\mu\nu}$, $\sqrt{-g}$, $\Gamma^\lambda_{\mu\nu}$, $R$) is an infinite series in $h$; we keep terms up to $O(h^3)$, which is what's needed for the 3-graviton vertex.
- 
-Inverse metric, order by order (from $g^{\mu\nu}g_{\nu\rho}=\delta^\mu_\rho$):
-\[
-g^{\mu\nu} = \eta^{\mu\nu} - \kappa h^{\mu\nu} + \kappa^2 h^{\mu\lambda}h^\nu_\lambda - \kappa^3 h^{\mu\lambda}h_\lambda^\alpha h_\alpha^\nu + \cdots
-\]
- 
-Determinant, using $\ln\det g = \mathrm{tr}\ln g$:
-\[
-\det(g_{\mu\nu}) = -1 - \kappa h + \tfrac12\kappa^2(h^\mu_\rho h^\rho_\mu - h^2) + \tfrac16\kappa^3(-2h^\mu_\rho h^\rho_\gamma h^\gamma_\mu + 3h\,h^\mu_\rho h^\rho_\mu - h^3)
-\]
-so that
-\[
-\sqrt{-g} = 1 + \frac{\kappa}{2}h + \frac{\kappa^2}{8}(h^2 - 2h^\mu_\rho h^\rho_\mu) + \frac{\kappa^3}{48}(h^3 - 6h\,h^\mu_\rho h^\rho_\mu + 8h^\mu_\rho h^\rho_\gamma h^\gamma_\mu)
-\]
 
-We have obtained it using '$\ln(\det(-g))=\text{tr} (\ln(-g))$' and
-\[
+\subsection{Equations of Motion and Field Action}
+The general relativity action is $S = S_E +S_M$, where:
+\begin{equation}
+    S_E = \frac{2}{\kappa^2}\int d^4x \sqrt{-g} R, \qquad \kappa =\sqrt{32\pi G}
+\end{equation}
+is the Einstein-Hilbert action and $S_M$ is the matter action. Higher curvature 
+proposals exist, but we will not consider them here. $R, \, R_{\mu\nu} \,\text{and}\,
+R_{\mu\nu}^{\rho\sigma}$ are respectively the Ricci scalar, Ricci tensor and Riemann tensor. 
+
+
+Varying the action with respect to the metric, we obtain the \textit{Einstein's Equations of Motion}:
+\begin{equation}
+R_{\mu\nu} - \frac{1}{2}g_{\mu\nu}R = 8\pi G\, T_{\mu\nu}\label{EOM}
+\end{equation}
+The first order terms in $h_{\mu\nu}$ are calculated by first of all defining the trace and the trace-reversed perturbation:
+\begin{equation}
+h = \eta^{\mu\nu} h_{\mu\nu}, \qquad \bar{h}_{\mu\nu}=h_{\mu\nu}-\frac12\eta_{\mu\nu}h
+\end{equation}
+Moreover, we have to find the espression of $\sqrt{-g}$ and the inverse metric in terms of $h_{\mu\nu}$.
+The inverse metric is defined from $g^{\mu\nu}g_{\nu\rho}=\delta^\mu_\rho$:
+\begin{equation}
+g^{\mu\nu} = \eta^{\mu\nu} - \kappa h^{\mu\nu} + \kappa^2 h^{\mu\lambda}h^\nu_\lambda - \kappa^3 h^{\mu\lambda}h_\lambda^\alpha h_\alpha^\nu + \dots\,,
+\end{equation}
+and its determinant, using $\ln\det g = \mathrm{tr}\ln g$:
+\begin{equation}
+\det(g_{\mu\nu}) = -1 - \kappa h + \tfrac12\kappa^2(h^\mu_\rho h^\rho_\mu - h^2) + \tfrac16\kappa^3(-2h^\mu_\rho h^\rho_\gamma h^\gamma_\mu + 3h\,h^\mu_\rho h^\rho_\mu - h^3)+\dots \, ,
+\end{equation}
+so that using $\ln(\det(-g))=\text{tr} (\ln(-g))$, the Taylor series of the exponential and:
+\begin{equation}
 \det g_{\mu\nu}
-= \det\eta_{\mu\alpha}\det(\delta^\alpha_\nu+h^\alpha_\nu)
-= (-1)\det(\mathbf{1+H})
-\]
-
-Then by expanding the logarithm and the exponential.
-
- 
-Affine connection, directly from its definition and the two series above:
-\[
-\Gamma^\lambda_{\mu\nu} = \frac{\kappa}{2}\bigl(\eta^{\lambda\sigma} - \kappa h^{\lambda\sigma} + \kappa^2 h^{\lambda\alpha}h_\alpha^\sigma\bigr)\bigl(\partial_\mu h_{\sigma\nu} + \partial_\nu h_{\sigma\mu} - \partial_\sigma h_{\mu\nu}\bigr)
-\]
- 
-Ricci scalar:
-\[
-R = g^{\mu\nu}\bigl[\partial_\nu \Gamma^\lambda_{\mu\lambda} - \partial_\lambda\Gamma^\lambda_{\mu\nu} + \Gamma^\tau_{\mu\lambda}\Gamma^\lambda_{\tau\nu} - \Gamma^\tau_{\mu\nu}\Gamma^\lambda_{\tau\lambda}\bigr]
-\]
-
- 
-\vspace{1cm}
-Therefore, we can expand the Hilbert-Einstein action and collect everything into 
-powers of $\kappa$:  $$\sqrt{-g}\,\mathcal{L}_{HE} = \frac{2}{\kappa^2}\sqrt{-g}R \equiv \mathcal{L}_g^0 + \mathcal{L}_g^1 + \mathcal{L}_g^2 + \cdots$$
-and: $$\sqrt{-g}\,\mathcal{L}_{M}  \equiv \mathcal{L}_M^0 + \mathcal{L}_M^1 + \mathcal{L}_M^2 + \cdots$$
-\\where we have that \underline{$\mathcal{L}^N = \kappa^N \;\,\mathclap{F}\,\;(\varphi, \partial \varphi)$}.
-
-
-\subsection*{Linearized Gravity: Free action}
-After rescaling, the leading order
-of Hilbert-Einstein action is called Pauli Fierz action,
-which resembles the free field lagrangian. 
-\begin{align}
-S^{(2)}_{HE}= \frac{1}{2 \kappa^2} \int d^4x \bigl[
-&\partial_\mu h_{\alpha\beta}\partial^\mu h^{\alpha\beta}
-- \partial_\mu h \partial ^\mu h \nonumber \\
-&+ 2\partial_\mu h^{\mu\nu}\partial_\nu h
--2\partial_\mu h^{\mu\nu}\partial_\rho h^\rho_\nu
-\bigr]
-\end{align}
+= \det\eta_{\mu\alpha}\det(\delta^\alpha_\nu+\kappa h^\alpha_\nu),
+= (-1)\det(\mathbf{1+H})    
+\end{equation}
+we finally obtain:
+\begin{equation}
+\sqrt{-g} = 1 + \frac{\kappa}{2}h + \frac{\kappa^2}{8}(h^2 - 2h^\mu_\rho h^\rho_\mu) + \frac{\kappa^3}{48}(h^3 - 6h\,h^\mu_\rho h^\rho_\mu + 8h^\mu_\rho h^\rho_\gamma h^\gamma_\mu) +\dots\,   .
+\end{equation}
+From this result we are able to compute everything we need to write the linearized EoM and the expansion
+of the action in powers of $\kappa$. The geometric quantities computed are:
 
 
 \begin{equation}
-\mathcal{L}^0_g\equiv
+\Gamma^\lambda_{\mu\nu} = \frac{\kappa}{2}\bigl(\eta^{\lambda\sigma} - \kappa h^{\lambda\sigma} + \kappa^2 h^{\lambda\alpha}h_\alpha^\sigma\bigr)\bigl(\partial_\mu h_{\sigma\nu} + \partial_\nu h_{\sigma\mu} - \partial_\sigma h_{\mu\nu}\bigr).
+\end{equation}
+
+\begin{equation}
+R = g^{\mu\nu}\bigl[\partial_\nu \Gamma^\lambda_{\mu\lambda} - \partial_\lambda\Gamma^\lambda_{\mu\nu} + \Gamma^\tau_{\mu\lambda}\Gamma^\lambda_{\tau\nu} - \Gamma^\tau_{\mu\nu}\Gamma^\lambda_{\tau\lambda}\bigr],
+\end{equation}
+
+\begin{equation}
+R_{\mu\nu}^{(1)} = \frac{\kappa}{2}\left( -\Box h_{\mu\nu} - \partial_\mu \partial_\nu h + \partial^\lambda \partial_\mu h_{\nu\lambda} + \partial^\lambda \partial_\nu h_{\mu\lambda} \right),
+\end{equation}
+
+\begin{equation}
+G_{\mu\nu}^{(1)} = -\frac{\kappa}{2}\left( \Box \bar{h}_{\mu\nu} + \eta_{\mu\nu} \partial^\lambda \partial^\rho \bar{h}_{\lambda\rho} - \partial^\lambda \partial_\mu \bar{h}_{\nu\lambda} - \partial^\lambda \partial_\nu \bar{h}_{\mu\lambda} \right),
+\end{equation}
+
+Finally, we resemble the linearized expression of the EoM $\eqref{EOM}$ (ref. Maggiore, GWs, chapter 1):
+\begin{equation}\boxed{ 
+\Box \bar{h}_{\mu\nu}
++
+\eta_{\mu\nu}\partial_\rho\partial_\sigma
+\bar{h}^{\rho\sigma}
+-
+\partial_\rho\partial_\nu h_\mu^{\ \rho}
+-
+\partial_\rho\partial_\mu h_\nu^{\ \rho}
+=
+-\frac{\kappa}{2}T_{\mu\nu}.
+}\label{LEOM}\end{equation}
+
+we also derive from lagrangian density $\mathcal{L}_E=\frac{2}{\kappa^2}\sqrt{-g}\,R$, 
+the leading order \textit{massless Pauli-Fierz} lagrangian \eqref{PF} and
+the lower order lagrangian with three $h_{\mu\nu}$ (\eqref{TH}Ref. Choi, 1994):
+\begin{equation}\boxed{\label{PF}
+\mathcal{L}^0_E =
 -\partial_\rho h_{\mu\nu}\partial^\rho h^{\mu\nu}
 +2\partial_\rho h_{\mu\nu}\partial^\nu h^{\mu\rho}
 -2\partial_\nu h^{\mu\nu}\partial_\mu h
-+\partial_\mu h\partial^\mu h
++\partial_\mu h\partial^\mu h}
 \end{equation}
- 
-
- 
-\subsection*{Self interaction: Cubic term}
-
- 
-Order $k^1$: the three-graviton self-interaction, already reduced (STRONGLY IMPOSED DD GAUGE, Illegal?
-, and integration by parts) to 6 contributions (Choi). 
-
 \begin{align}
-S^{(3)}_{HE} = \int d^4x\, \mathcal{L}_g^1, \qquad
-\mathcal{L}_g^1 =\;\kappa  \Bigl[
-&\frac{1}{2} h_\beta^\alpha \partial^\mu h_\alpha^\beta \partial_\mu h
+\boxed{
+\begin{aligned}\label{TH}
+\mathcal{L}_E^{1}={}&
+\frac{1}{2} h_\beta^\alpha \partial^\mu h_\alpha^\beta \partial_\mu h
 - \frac{1}{2} h_\beta^\alpha \partial_\alpha h_\nu^\mu \partial^\beta h_\mu^\nu
-- h_\beta^\alpha \partial_\mu h_\alpha^\nu \partial^\mu h_\nu^\beta \nonumber \\
+- h_\beta^\alpha \partial_\mu h_\alpha^\nu \partial^\mu h_\nu^\beta\\
 &+ \frac{1}{4} h\, \partial^\beta h_\nu^\mu \partial_\beta h_\mu^\nu
 + h_\mu^\beta \partial_\nu h_\beta^\alpha \partial^\mu h_\alpha^\nu
-- \frac{1}{8} h\, \partial^\nu h\, \partial_\nu h \Bigr]
+- \frac{1}{8} h\, \partial^\nu h\, \partial_\nu h
+\end{aligned}
+}
 \end{align}
+Actually, we have taken a simplified form of $\eqref{TH}$, imposing that
+$\partial_\mu h^{\mu\nu} = \frac{1}{2} \partial^\nu h$. The reason of this simplification,
+which drastically reduces the number of terms, will become clear in the next section,
+where we will discuss the gauge freedom of the perturbation field.
+
+On the other hand, the matter lagrangian is obtained in the same way, in the formalism
+of \textit{minimal coupling}, who replaces the flat metric with the curved one, and the partial derivatives with covariant ones.
+We choose the matter field to be described by a massive scalar field $\phi$, obeying the Klein-Gordon EoM. Of course the
+leading order of the expansion is the free Klein-Gordon lagrangian:
+\begin{equation}
+\boxed{\mathcal{L}_M^{0}
+= \Big(\frac{1}{2}\eta^{\mu\nu}\partial_\nu \phi \partial_\mu \phi - \frac{m^2}{2}\Big)}
+\end{equation}
 
 
 
-\subsection*{Linearized action: Interaction terms}
-We are interested in interaction between matter fields and linearized gravity. To analyse this in a simpler way, we will suppose that mass is described by a Klein-Gordon Lagrangian, because interaction structure is independent of the type of field we are using. Expanding the metric and its determinant into the matter part of the action, we will get a free matter contribute and various terms containing information about the gravity interacting with the matter:
-\[
-\int d^4x \,\sqrt{-g} \; \mathcal{L}_M
-= S_M^{(0)} + S_M^{(1)} + S_M^{(2)} + \mathcal{O}(h^3)
-\]
-
-
-\vspace{1em}
-\textsc{\textbf{Interaction terms:}}
-The zeroth-order term is, as expected, the free field action in flat space (ordine $\kappa^0$):
-\[
-\boxed{
-S_M^{(0)}
-= \int d^4x \Big(\frac{1}{2}\eta^{\mu\nu}\partial_\nu \phi \partial_\mu \phi - \frac{m^2}{2}\Big)}
-\]
-
-The first-order vertex couples $h_{\mu\nu}$ to the flat-space stress-energy tensor. Un $h$, quindi ordine $\kappa^1$:
-\[
+The first-order vertex perturbation is such that $h_{\mu\nu}$ couples to the flat-space stress-energy tensor:
+\begin{equation}
 \boxed {
-S_M^{(1)} = -\frac{\kappa}{2} \int d^4x \, h^{\mu\nu}T_{\mu\nu}
+\mathcal{L}_M^{1} = -\frac{\kappa}{2} \, h^{\mu\nu}T_{\mu\nu}
 =
--\frac{\kappa}{2} \int d^4x \, h^{\mu\nu}
+-\frac{\kappa}{2} \, h^{\mu\nu}
 \left[
 \partial_\mu \phi\, \partial_\nu \phi
 - \eta_{\mu\nu}\left(\frac12 \partial_\rho \phi\, \partial^\rho \phi - \frac12 m^2 \phi^2\right)
 \right]
 }
-\]
+\end{equation}
+As a matter of fact, in QFT a field usually couples with a conserved current and 
+in flat space the stress-energy tensor is the conserved current associated with translations.
+However, in curved space, the stress-energy tensor is not conserved in the form $\partial_\mu T^{\mu\nu}=0$, 
+but it must be related to the curvature. Because of this we find the further terms:
 
-The second-order vertex takes the form (due $h$, ordine $\kappa^2$):
 \begin{align}
 \boxed{
-S^{(2)}=\kappa^2\int d^4x \Biggl\{
+\mathcal{L}^{2}=\kappa^2 \Biggl\{
 \frac{1}{4}\bigl(\frac12h^2-h_{\alpha\beta}h^{\alpha\beta}\bigr)\mathcal{L}_M \nonumber - \frac{hh^{\mu\nu}}{4}\partial_\mu\phi\partial_\nu\phi \nonumber + \frac{1}{2}h^{\mu\alpha}h_\alpha^\nu \partial_\mu\phi\partial_\nu\phi
 \Biggr\}
 }
 \end{align}
 
-\textsc{Indexed are moved by the flat metric for convention}
-\vspace{1cm}
 
-
-
-\newpage
-\section{Lagrangians in De Donder gauge}
  
-Collecting the results above, the full action up to the orders considered, expressed in the harmonic (De Donder) gauge, reads:
-(In the next chapter we will explain what De Donder gauge means for the free Lagrangian. Meanwile, for 
-the self interacting one, we followed literature imposing the Harmonic condition on the field exactly.) 
-\[
+\subsection{Gauge Freedom and the GWs}
+In general relativity, \textit{covariance principle} imposes physical laws to 
+be valid in every frame of reference. A change of coordinates such as $\eqref{x}$, which
+doens't change Einstein's action. One can 
+put constraints on the perturbation field $h_{\mu\nu}$ choosing $\xi (x)$, a mechanism 
+which resembles gauge freedom. 
+In particular, we can impose the \textbf{\textit{De Donder}} gauge condition:
+
+\begin{equation}
+\boxed{\partial^\mu\bar{h}_{\mu\nu} = 0}.
+\label{eq:DD}
+\end{equation}
+This condition is always satisfiable, since under \eqref{gauge} the field transforms as:
+
+\begin{equation}
+\partial^\mu \bar{h}_{\mu\nu} \to \partial^\mu \bar{h}_{\mu\nu} - \Box \xi_\nu,
+\end{equation}
+and then if for some observer $
+\partial^\nu \bar h_{\mu\nu}=f_\mu(x)
+$,
+we can choose the gauge transformation such that
+$
+\Box \xi _\mu=f_\mu(x),
+$
+thereby obtaining
+$
+\partial^\nu \bar{h}’_{\mu\nu}=0
+$. Such equation has always a solution since the D'Alembertian operator is invertible with
+a Green's function procedure.
+
+In this gauge, the EoM reduce to the simpler form:
+\begin{equation}
+\Box \bar{h}_{\mu\nu} = -\frac{\kappa}{2}\, T_{\mu\nu}
+\label{eq:EoM}
+\end{equation}
+which leads immediately to:
+\begin{equation}
+\partial^\mu T_{\mu\nu} = 0.
+\end{equation}
+In the absence of sources, we obtain the wave equation:
+\begin{equation}
+    \boxed{
+\Box \bar{h}_{\mu\nu} = 0
+}\label{eq:EoM2}
+\end{equation}
+Therefore, we can think of De Donder gauge as the gauge choice that allows $h$ to 
+satisfy the conservation of the Stress-Energy tensor. Since we put four costraints on 
+a symmetric rank-2 tensor, $h_\mu\nu$ has six degrees of freedom in the De Donder gauge.
+
+
+The harmonic condition \eqref{eq:DD} does not fix the gauge completely.
+Under an infinitesimal coordinate change the trace transforms as $h\to h+2\,\partial_\rho\xi^\rho$, so that the
+trace-reversed perturbation shifts as:
+\begin{equation}
+  \bar h_{\mu\nu}\;\to\;\bar h_{\mu\nu}+\xi_{\mu\nu},
+  \qquad
+  \xi_{\mu\nu}\equiv\partial_\mu\xi_\nu+\partial_\nu\xi_\mu
+  -\eta_{\mu\nu}\,\partial_\rho\xi^\rho .
+  \label{eq:xi-shift}
+\end{equation}
+$\xi_{\mu\nu}$ is the change
+induced on $\bar h_{\mu\nu}$ by the vector $\xi_\mu$, and it is entirely
+determined by its four components. Taking the divergence,
+$\partial^\mu\xi_{\mu\nu}=\Box\xi_\nu$, hence the harmonic condition is
+preserved by every transformation satisfying:
+\begin{equation}
+  \Box\xi_\mu=0 .
+  \label{eq:residual}
+\end{equation}
+Such costraints, guarantees that \textit{outside the source} both $\bar{h}_{\mu\nu}$ and $\xi_{\mu\nu}$
+satisfy the same wave equation. Therefore, we have four more degrees of freedom to gauge our $h_{\mu\nu}$
+field choosing from the four-vectors such that $\Box \xi_{\mu\nu}=0$.
+Therefore, we choose these four functions to have the
+\textbf{\textit{transverse-traceless (TT)}} conditions (Ref. Maggiore, GWs, Chapt.1):
+\begin{equation}
 \boxed{
-\begin{aligned}
-\mathcal L_g^{(0)}
-&=
-\frac{1}{2}
-\left[
+  h^{0\mu}=0, \qquad h^i{}_i=0, \qquad \partial_i h^{ij}=0 ,
+}
+\label{TTC}
+\end{equation}
+and, since $\bar h_{\mu\nu}=h_{\mu\nu}$, the equations of motion reduce to
+\begin{equation}
+  \boxed{\Box h_{\mu\nu}=0 .}
+\end{equation}
+
+For a wave travelling along $z$, transversality sets $\epsilon_{3j}=0$ and
+tracelessness gives $\epsilon_{22}=-\epsilon_{11}$. Only the components in
+the $(x,y)$ plane survive, and for a linearly polarized wave
+\begin{equation}\boxed{
+  h^{\mathrm{TT}}_{ij}(t,z)=
+  \begin{pmatrix}
+    h_+ & h_\times \\
+    h_\times & -h_+ \\
+  \end{pmatrix}_{(x,y)}
+  \cos\!\bigl[\omega(t-z)\bigr],
+  \label{eq:TT-wave}}
+\end{equation}
+with $h_+$ and $h_\times$ the amplitudes of the two physical polarizations.
+
+In practice, given a plane wave propagating along $\hat n$ outside the sources
+and already in De Donder gauge, its TT part can be extracted directly from the
+spatial components $h_{ij}$, without solving for $\xi_\mu$ explicitly (Ref. Maggiore, GWs, Chapt. 1). We
+introduce the transverse projector
+\begin{equation}
+P_{ij}(\hat n)=\delta_{ij}-n_in_j ,
+\label{TTPs}
+\end{equation}
+which is symmetric, satisfies $n^iP_{ij}=0$ and $P_{ik}P_{kj}=P_{ij}$, and has
+trace $P_{ii}=2$. From it we build the \textit{Lambda tensor}
+\begin{equation}
+\Lambda_{ij,kl}(\hat n)=\frac12\bigl(P_{ik}P_{jl}+P_{il}P_{jk}-P_{ij}P_{kl}\bigr),
+\label{TTP}
+\end{equation}
+which is again a projector, $\Lambda_{ij,kl}\Lambda_{kl,mn}=\Lambda_{ij,mn}$,
+is transverse on every index, and traceless in both pairs,
+$\Lambda_{ii,kl}=\Lambda_{ij,kk}=0$. The TT wave is then simply
+\begin{equation}
+\boxed{h^{\mathrm{TT}}_{ij}=\Lambda_{ij,kl}\,h_{kl}} ,
+\label{eq:TT-proj}
+\end{equation}
+The same operation defines the TT part
+$S^{\mathrm{TT}}_{ij}=\Lambda_{ij,kl}S_{kl}$ of any symmetric tensor.
+
+We stress that the TT gauge can only be imposed in vacuum. Inside a source,
+$\Box\bar h_{\mu\nu}\propto T_{\mu\nu}\neq0$, and the residual
+transformations \eqref{eq:residual} are no longer sufficient to remove the
+components $h_{0\mu}$ and $h$. Because of this, the TT gauge captures the
+radiative degrees of freedom but not the Newtonian part of the interaction.
+
+\subsection*{Summary: Lagrangians}
+Collecting the results above:
+\begin{empheq}[box=\fbox]{align}
+\mathcal L_E^{0}
+&=\frac{1}{2}\Bigl[
 \partial_\mu h_{\alpha\beta}\partial^\mu h^{\alpha\beta}
--\frac12
-\partial_\mu h\,\partial^\mu h
-\right]
-\qquad (\kappa^0)
-\\[0.5cm]
-\mathcal L_g^{(1)}
-&=
-\kappa\Biggl[
-\frac12 h_\beta^\alpha
-\partial^\mu h_\alpha^\beta
-\partial_\mu h
--\frac12 h_\beta^\alpha
-\partial_\alpha h_\nu^\mu
-\partial^\beta h_\mu^\nu
--h_\beta^\alpha
-\partial_\mu h_\alpha^\nu
-\partial^\mu h_\nu^\beta
-\\
-&\quad
-+\frac14 h
-\partial^\beta h_\nu^\mu
-\partial_\beta h_\mu^\nu
-+h_\mu^\beta
-\partial_\nu h_\beta^\alpha
-\partial^\mu h_\alpha^\nu
--\frac18 h
-\partial^\nu h
-\partial_\nu h
-\Biggr]
-\qquad (\kappa^1)
-\\[0.5cm]
-\mathcal L_M^{(0)}
-&=
-\frac12\partial_\mu\phi\,\partial^\mu\phi
--\frac12m^2\phi^2
-\qquad (\kappa^0)
-\\[0.5cm]
-\mathcal L_M^{(1)}
-&=
--\frac{\kappa}{2} h^{\mu\nu}
-\left[
+-\frac12\partial_\mu h\,\partial^\mu h\Bigr],
+\label{sum:LE0}\\[0.3cm]
+\mathcal L_M^{0}
+&=\frac12\partial_\mu\phi\,\partial^\mu\phi-\frac12m^2\phi^2,
+\label{sum:LM0}\\[0.3cm]
+\mathcal L_E^{1}
+&=\kappa\Bigl[
+\frac12 h_\beta^\alpha\partial^\mu h_\alpha^\beta\partial_\mu h
+-\frac12 h_\beta^\alpha\partial_\alpha h_\nu^\mu\partial^\beta h_\mu^\nu
+-h_\beta^\alpha\partial_\mu h_\alpha^\nu\partial^\mu h_\nu^\beta
+\nonumber\\
+&\qquad
++\frac14 h\,\partial^\beta h_\nu^\mu\partial_\beta h_\mu^\nu
++h_\mu^\beta\partial_\nu h_\beta^\alpha\partial^\mu h_\alpha^\nu
+-\frac18 h\,\partial^\nu h\,\partial_\nu h\Bigr],
+\label{sum:LE1}\\[0.3cm]
+\mathcal L_M^{1}
+&=-\frac{\kappa}{2}h^{\mu\nu}\Bigl[
 \partial_\mu\phi\,\partial_\nu\phi
--\eta_{\mu\nu}
-\left(
-\frac12\partial_\rho\phi\,\partial^\rho\phi
--\frac12m^2\phi^2
-\right)
-\right]
-\qquad (\kappa^1)
-\\[0.5cm]
-\mathcal L_M^{(2)}
-&=
-\kappa^2\left[
-\frac14
-\left(
-\frac12h^2-h_{\alpha\beta}h^{\alpha\beta}
-\right)
-\mathcal L_M^{(0)}
+-\eta_{\mu\nu}\Bigl(\frac12\partial_\rho\phi\,\partial^\rho\phi
+-\frac12m^2\phi^2\Bigr)\Bigr],
+\label{sum:LM1}\\[0.3cm]
+\mathcal L_M^{2}
+&=\kappa^2\Bigl[
+\frac14\Bigl(\frac12h^2-h_{\alpha\beta}h^{\alpha\beta}\Bigr)\mathcal L_M^{0}
 -\frac14 h\,h^{\mu\nu}\partial_\mu\phi\,\partial_\nu\phi
-+\frac12h^{\mu\alpha}h_\alpha^\nu
-\,\partial_\mu\phi\,\partial_\nu\phi
-\right]
-\qquad (\kappa^2)
-\end{aligned}
-}
-\]
- 
-$\mathcal{L}_g^{(1)}$  is obtained imposing strongly Harmonic condition, it would be different otherwise.
-De Donder projector is:
-\[
-P_{\mu\nu,\alpha\beta}^{\mathrm{H}}
-=
-\frac12
-\left(
-\eta_{\mu\alpha}\eta_{\nu\beta}
-+\eta_{\mu\beta}\eta_{\nu\alpha}
--\eta_{\mu\nu}\eta_{\alpha\beta}
-\right)
-\]
- 
-\subsection{Lagrangians in TT gauge}
-By projecting the action in TT gauge, we have that the free graviton action reduces to:
-\[
-\boxed{
-\begin{aligned}
-\mathcal{L}^{(2)}_{HE} &= \frac{1}{2} \partial_k h_{ij}\,\partial^k h^{ij} &&(\kappa^0)\\[0.3cm]
-\mathcal{L}_{I}^{(1)} &= -\frac{\kappa}{2} h^{ij}\,\partial_i\phi\,\partial_j\phi &&(\kappa^1)\\[0.3cm]
-\mathcal{L}^{(2)}_{I} &= \kappa^2 \Biggl[
-\frac{1}{4} h_{ij}h^{ij}
-\left( \frac{1}{2}\partial_\rho\phi\,\partial^\rho\phi
-- \frac{1}{2}m^2\phi^2 \right)
-+ \frac{1}{2} h^{ij}h_{j}^{k}
-\,\partial_i\phi\,\partial_k\phi\Biggr] &&(\kappa^2)\\
-\mathcal{L}_g^{(1)} &= \kappa \Biggl[
--\frac12 h_l^k\,\partial_k h_j^i\,\partial^l h_i^j
-- h_l^k\,\partial_i h_k^j\,\partial^i h_j^l
-+ h_i^l\,\partial_j h_l^k\,\partial^i h_k^j
-\Biggr]
-&&(\kappa^1)\\
-\end{aligned}
-}
-\]
-
-The projector onto the TT gauge is:
-\begin{equation}
-\Lambda_{ij,kl}(\hat{n}) = \frac{1}{2}\left(P_{ik}P_{jl} + P_{il}P_{jk} - P_{ij}P_{kl}\right)
-\label{TTP}    
-\end{equation}
-
-with
-\begin{equation}
-P_{ij}=\delta_{ij}-n_in_j
-\label{TTPs}    
-\end{equation}
-
++\frac12h^{\mu\alpha}h_\alpha^\nu\,\partial_\mu\phi\,\partial_\nu\phi\Bigr].
+\label{sum:LM2}
+\end{empheq}
 
 
 \newpage
-\section{Hamiltonian}
-\subsection{Free hamiltonian}
-The full hamiltonian reads as:
-\[
-\hat{H} = \hat{H}_0^{\mathrm{KG}} + \hat{H}_0^{\mathrm{PF}} + \hat{H}^I + \hat{H}^{SI}
-\]
-
-Conjugate momenta of the free fields:
+\section{Hamiltonian formulation}
+We are interested in using hamiltonian formalism tools, to do so we have to perform a 
+Legendre transformation of our lagrangian. The full Hamiltonian reads
 \begin{equation}
-    \label{piphi}
-    \boxed{\pi_\phi=\dot\phi}
+\hat{H} = \hat{H}_0^{\mathrm{KG}} + \hat{H}_0^{\mathrm{PF}} + \hat{H}^{I} + \hat{H}^{SI},
+\label{eq:Htot}
 \end{equation}
-\begin{equation}\label{pih}
-    \boxed{\pi^{\mu\nu}=(\dot h^{\mu\nu}-\tfrac12\eta^{\mu\nu}\dot h)}
+where each piece arises from the corresponding Lagrangian terms: the free
+Klein--Gordon part $\hat H_0^{\mathrm{KG}}$ from \eqref{sum:LM0}, the free
+Pauli--Fierz part $\hat H_0^{\mathrm{PF}}$ from \eqref{sum:LE0}, the
+gravity--matter interaction $\hat H^{I}$ from \eqref{sum:LM1} and
+\eqref{sum:LM2}, and the gravitational self-interaction $\hat H^{SI}$ from
+\eqref{sum:LE1}. This notation is only provisional, but it will be useful
+when moving to the interaction picture, as it makes it immediately clear
+which terms generate the free evolution and which ones describe the
+interactions.
+\subsection{Free Hamiltonian}
+We start from the free Lagrangians \eqref{sum:LM0} and \eqref{sum:LE0}. The
+conjugate momenta are
+\begin{equation}
+\boxed{\pi_\phi=\frac{\partial\mathcal L_M^0}{\partial\dot\phi}=\dot\phi},
+\label{piphi}
 \end{equation}
-
-Free Hamiltonians:
-\begin{equation} \boxed{
-    \mathcal{H}_0^{\mathrm{KG}} = \frac{1}{2}\Bigl(\pi_\phi^2 + (\vec{\nabla}\phi)^2 + m^2\phi^2\Bigr)
-}\end{equation}
-\begin{equation}\label{HPF}\boxed{
-    \mathcal{H}_0^{\mathrm{PF}} = \frac{1}{2}\Bigl(\pi_{\mu\nu}\pi^{\mu\nu} - \tfrac12\pi^2
-    + (\vec\nabla h_{\mu\nu})\cdot(\vec\nabla h^{\mu\nu}) - \tfrac12(\vec\nabla h)^2\Bigr)
-}\end{equation}
-
+\begin{equation}
+\boxed{\pi^{\mu\nu}=\frac{\partial\mathcal L_E^0}{\partial\dot h_{\mu\nu}}
+=\dot h^{\mu\nu}-\tfrac12\eta^{\mu\nu}\dot h} .
+\label{pih}
+\end{equation}
+Note that \eqref{pih} is well defined for every component of $h_{\mu\nu}$,
+including $h_{00}$, only because \eqref{sum:LE0} is the De Donder form of the
+Pauli--Fierz Lagrangian: this point will be discussed in detail in the
+quantization section. Taking the trace of \eqref{pih} gives $\pi=-\dot h$, so
+the relation can be inverted as
+\begin{equation}
+\dot h_{\mu\nu}=\pi_{\mu\nu}-\tfrac12\eta_{\mu\nu}\pi .
+\end{equation}
+Performing the Legendre transform $\mathcal H=\pi\dot\Phi-\mathcal L$, we obtain
+the free Hamiltonian densities
+\begin{equation}
+\boxed{
+\mathcal{H}_0^{\mathrm{KG}}=\frac{1}{2}\Bigl(\pi_\phi^2+(\vec{\nabla}\phi)^2+m^2\phi^2\Bigr)
+},
+\label{HKG}
+\end{equation}
+\begin{equation}
+\boxed{
+\mathcal{H}_0^{\mathrm{PF}}=\frac{1}{2}\Bigl(\pi_{\mu\nu}\pi^{\mu\nu}-\tfrac12\pi^2
++(\vec\nabla h_{\mu\nu})\cdot(\vec\nabla h^{\mu\nu})-\tfrac12(\vec\nabla h)^2\Bigr)
+}.
+\label{HPF}
+\end{equation}
+Unlike \eqref{HKG}, the Pauli--Fierz Hamiltonian is not positive definite:
+because of the Minkowski contractions, the components $h_{0i}$ enter with the
+opposite sign. As in QED, these unphysical modes will be removed by the
+Gupta--Bleuler condition on the physical states.
 
 \subsection{Hamiltonian in Interaction Picture}
 To compute scattering matrix, we are interested in the hamiltonian
