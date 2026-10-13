@@ -55,38 +55,81 @@
 \usepackage[hidelinks]{hyperref}
 \renewcommand{\c}[1]{\overset{\frown}{#1}}
 
-\title{Linearized Gravity and QFT Connection}
+\title{Graviton Scattering}
 \author{Matteo Falasca}
 \date{March 2026}
 
 \begin{document}
 \maketitle
 
-\begin{abstract}
-We study the canonical quantization of linearized gravity within quantum
-field theory (QFT), focusing on the interaction between gravitons and matter
-and on its connection with the decoherence of open quantum systems.
- We compare different description of the graviton,
-in the de Donder and transverse-traceless gauges, drawing analogies with
-quantum electrodynamics (QED).
-
-Using the interaction picture, we compute the scattering cross sections
-between a massive scalar field and gravitons. For a static mass, scalar and
-gravitational waves share the same Rutherford-like cross section, up to a
-polarization-dependent factor, in agreement with classical general relativity.
-For graviton--scalar Compton scattering, we derive the first-order correction
-in the velocity of the scalar. 
 
 
-\end{abstract}
+
 % ====================================================================
+\section{Introduction}
+The nature of gravity is one of the topics that raise the most questions
+in physics. General Relativity still agrees with the experiments it faces
+after more than one hundred years, but QFT has made predictions so precise
+that it cannot be ignored. To put this into perspective, QED predicts the
+$g$-factor of the electron so accurately that, if the factor itself were as
+big as New York City, the uncertainty would be as large as a
+hair~\cite{GreinerQED}. For gravity, by contrast, a comparable test seems hopeless:
+the gravitational attraction between the electron and the proton would shift
+the phase of a hydrogen atom by only 43 arcseconds over a hundred times the
+age of the universe~\cite{Feynman1963}. On the other hand, the measurement
+problem is far from solved, current explaination predicts differences for systems
+which are or not measured, but does not specify what a measurement is.
+
+
+Modern quantum experiments allow for increasing control over density matrices
+and states. However, no experiment is capable of directly investigating degrees
+of freedom
+of quantum gravity. On the other hand, solutions for the measurement problem exist,
+and many of them rely on gravuty, such as the Penrose hypothesis. On the other hand,
+decoherence often goes with the measurement problem, since they are stronly 
+related. In such framework, it has been shown by Pitovsky that classical
+gravity can induce decoherence in simple systems as the heart. 
+Due to the alredy open scientific path of decoherence, we aim of investigating
+a complementary
+problem: if no graviton can be directly measured, is there any way of
+understanding whether or not gravitons are real by looking at the particles
+we can measure?
+Starting from this, we address the problem of graviton-induced decoherence
+in a system~\cite{Blencowe2013}. To study it, we analyze the scattering of gravitons off matter
+in very simple systems, with the idea that every interaction couples matter
+degrees of freedom to gravitational ones and therefore leads to decoherence.
+
+In Chapter~\ref{...}, we introduce linearized gravity, the most natural
+framework to quantize, explaining the different gauges and their meaning.
+In Chapter~\ref{...}, we carry out the quantization with various techniques,
+obtaining results that we could not find in the literature: we quantize the
+classically observable degrees of freedom, both directly and through
+covariant quantization.
+In Chapter~\ref{...}, we make use of the QFT formalism, deriving the basic
+ingredients of the scattering-matrix framework and showing differences and
+analogies with the photon case, such as the appearance of a self-interaction
+term.
+In Chapter~\ref{...}, we start validating our results by computing the
+deflection of spin-$n$ particles by a gravitational wave; in particular, we
+recover the classical geometrical results~\cite{Peters1976}, plus some new terms that come
+from the particle-physics perspective, in which backward scattering is
+allowed.
+We then compute the analogue of Compton scattering for a very massive
+particle, which resembles the previous case, the difference being that we
+now also compute corrections to the velocity of the particle. We show that
+even a classical source of gravity can give rise to quantum behaviour.
+Finally, we compute scattering cross sections and their corrections. We also
+work out explicitly the angular part of the two-point function, a useful
+ingredient for computing decoherence in the Feynman--Vernon formalism~\cite{CalzettaHu2008},
+showing that it takes the form of spherical Bessel functions.
+\newpage
 \section{Introduction to Linearized Gravity}
 % ====================================================================
-In this chapter, we will discuss how gravitational waves (GWs) emerge from
-general relativity and how they can be represented in a convenient way with a
-gauge choice, selecting the degrees of freedom they carry. We will also derive
-the Lagrangian densities of the theory, discussing how the interaction of
-linearized gravity with matter is modeled.
+In this chapter we will discuss how gravitational waves (GWs) emerge from
+General Relativity and how they can be represented in a convenient way with a
+gauge choice, selecting the degrees of freedom they carry~\cite{Maggiore2008,Weinberg1972}. We will also derive
+the Lagrangian density of the theory, discussing how the interaction of
+linearized gravity with matter is derived from the Einstein action.
 
 We will denote $\eta_{\mu\nu} = \text{diag}(1,-1,-1,-1)$ as the flat Minkowski metric.
 \subsection{Perturbation of the flat metric}
@@ -99,15 +142,14 @@ Mathematically, we show this by performing an expansion of the metric around fla
 g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}, \qquad |h_{\mu\nu}| \ll 1. \label{g}
 \end{equation}
 
-The definition of $|h_{\mu\nu}|\ll1$ depends on the norm we choose, but more 
-importantly on 
+The definition of $|h_{\mu\nu}|\ll1$ depends on the norm we choose and on 
 the frame of reference we are in, leading to possible ambiguities.
 In fact, the perturbation $h_{\mu\nu}$ transforms from one observer to another:
 we generalize this by considering an infinitesimal family of coordinate transformations
 \begin{equation}
-x^\mu \rightarrow x'^\mu = x^\mu + \xi^\mu(x), \label{x}
+x^\mu \rightarrow x'^\mu = x^\mu + \xi^\mu(x). \label{x}
 \end{equation}
-Under $\eqref{x}$ the perturbation transforms as
+Under $\eqref{x}$ the metric perturbation transforms as
 \begin{equation}\label{gauge}
 \boxed{h_{\mu\nu} \to h_{\mu\nu} - \partial_\mu \xi_\nu - \partial_\nu \xi_\mu},    
 \end{equation}
@@ -147,12 +189,13 @@ h_{\rho\sigma}(x).
 
 We can think of linearized gravity as a \textit{covariant} theory,
 as long as we start from a valid frame of reference and
- limit ourselves to slowly varying ones. 
-Rotations never spoil $\eqref{g}$, while boosts can. It will be
-convenient to rescale the perturbation as:
+ limit ourselves to slowly varying ones. It will be
+convenient rescale the metric perturbation by introducing
+\begin{equation}k=\sqrt{32\pi G},\end{equation}
+so that
 \begin{equation}
     \boxed{
-    h_{\mu\nu} \rightarrow \kappa h_{\mu\nu}}
+    h_{\mu\nu} \rightarrow \kappa h_{\mu\nu}}.
 \end{equation}
 
 
@@ -164,20 +207,20 @@ General Relativity is a field theory with action $S = S_E +S_M$, where:
     S_E = \frac{2}{\kappa^2}\int d^4x \sqrt{-g} R, \qquad \kappa =\sqrt{32\pi G}
 \end{equation}
 is the Einstein-Hilbert action and $S_M$ is the matter action. Higher curvature 
-proposals exist, but we will not consider them here. $R, \, R_{\mu\nu} \,\text{and}\,
+proposals exist~\cite{Stelle1978}, but we will not consider them here. $R, \, R_{\mu\nu} \,\text{and}\,
 R_{\mu\nu}^{\rho\sigma}$ are respectively the Ricci scalar, Ricci tensor and Riemann tensor. 
 Varying the action with respect to the metric, we obtain \textit{Einstein's Equations of Motion}:
 \begin{equation}
-R_{\mu\nu} - \frac{1}{2}g_{\mu\nu}R = 8\pi G\, T_{\mu\nu}\label{EOM}
+R_{\mu\nu} - \frac{1}{2}g_{\mu\nu}R = 8\pi G\, T_{\mu\nu}.\label{EOM}
 \end{equation}
 
-We can have a convenient representation of the EoM by defining the trace and the 
+We can have a convenient representation of the Equations of Motion (EoM)
+ by defining the trace and the 
 trace-reversed perturbation:
 \begin{equation}
-h = \eta^{\mu\nu} h_{\mu\nu}, \qquad \bar{h}_{\mu\nu}=h_{\mu\nu}-\frac12\eta_{\mu\nu}h,
+h = \eta^{\mu\nu} h_{\mu\nu} \quad\text{and} \quad \bar{h}_{\mu\nu}=h_{\mu\nu}-\frac12\eta_{\mu\nu}h;
 \end{equation}
-since we can find that the EoM can be linearized, 
-we compute from $\eqref{EOM}$ (further ref. Maggiore, GWs, chapter 1):
+These definitions allows $\eqref{EOM}$ to be written as \cite{Maggiore2008}:
 \begin{equation}\boxed{ 
 \Box \bar{h}_{\mu\nu}
 +
@@ -197,24 +240,8 @@ $g^{\mu\nu}g_{\nu\rho}=\delta^\mu_\rho$:
 \begin{equation}
 g^{\mu\nu} = \eta^{\mu\nu} - \kappa h^{\mu\nu} + \kappa^2 h^{\mu\lambda}h^\nu_\lambda - \kappa^3 h^{\mu\lambda}h_\lambda^\alpha h_\alpha^\nu + \dots\,,
 \end{equation}
-We can also find some related quantities, such as the metric
-determinant, where we used $\ln\det g = \mathrm{tr}\ln g$:
-\begin{equation}
-\det(g_{\mu\nu}) = -1 - \kappa h + \tfrac12\kappa^2(h^\mu_\rho h^\rho_\mu - h^2) + \tfrac16\kappa^3(-2h^\mu_\rho h^\rho_\gamma h^\gamma_\mu + 3h\,h^\mu_\rho h^\rho_\mu - h^3)+\dots \, ,
-\end{equation}
-because from the logarithm expansion we had found that
-$\ln(\det(-g))=\text{tr} (\ln(-g))$ resulted in
-\begin{equation}
-\det g_{\mu\nu}
-= \det\eta_{\mu\alpha}\det(\delta^\alpha_\nu+\kappa h^\alpha_\nu),
-= (-1)\det(\mathbf{1+H})  .  
-\end{equation}
-From this equation one can find
-\begin{equation}
-\sqrt{-g} = 1 + \frac{\kappa}{2}h + \frac{\kappa^2}{8}(h^2 - 2h^\mu_\rho h^\rho_\mu) + \frac{\kappa^3}{48}(h^3 - 6h\,h^\mu_\rho h^\rho_\mu + 8h^\mu_\rho h^\rho_\gamma h^\gamma_\mu) +\dots\,   .
-\end{equation}
-To prove \eqref{LEOM} we must compute more geometrical quantities expanded
-in powers of $\kappa$. With some calculations we find:
+the other geometrical quantities expandeded
+in powers of $\kappa$ are:
 
 
 \begin{equation}
@@ -234,22 +261,50 @@ G_{\mu\nu}^{(1)} = -\frac{\kappa}{2}\left( \Box \bar{h}_{\mu\nu} + \eta_{\mu\nu}
 \end{equation}
 These can be put into \eqref{EOM} to prove that its leading order is \eqref{LEOM}.
 
-On the other hand, we are interested in making explicit the series of
-lagrangian densities resulting from
-$\mathcal{L}_E=\frac{2}{\kappa^2}\sqrt{-g}\,R$. 
-We apply the same logic as before and we obtain at
-leading order the \textit{massless Pauli-Fierz} lagrangian \eqref{PF} and at the
- next order a lagrangian with three $h_{\mu\nu}$ (Ref. Choi, 1994):
-\begin{equation}\boxed{\label{PF}
+Beyond the EoM we are interested in making explicit the expansion of
+the Lagrangian density arising from the Einstein action
+$\mathcal{L}_E=\frac{2}{\kappa^2}\sqrt{-g}\,R$
+following Ref.~\cite{Feynman1963}.
+Expressing the metric as
+ $g_{\mu\nu}=\eta_{\mu\nu}+\kappa h_{\mu\nu}$ 
+ the metric determinant factorizes as
+\begin{equation}
+\det g_{\mu\nu}
+= \det\eta_{\mu\alpha}\,\det(\delta^\alpha_\nu+\kappa h^\alpha_\nu)
+= (-1)\det(\mathbf{1}+\kappa\mathbf{H}) \, ;
+\end{equation}
+using $\det(-g)=\exp[\mathrm{tr}\ln(-g)]$ and expanding the exponential
+and logarithmic function, we find that
+\begin{equation}
+\det(g_{\mu\nu}) = -1 - \kappa h + \tfrac12\kappa^2(h^\mu_\rho h^\rho_\mu - h^2) + \tfrac16\kappa^3(-2h^\mu_\rho h^\rho_\gamma h^\gamma_\mu + 3h\,h^\mu_\rho h^\rho_\mu - h^3)+\dots \, ,
+\end{equation}
+and 
+\begin{equation}
+\sqrt{-g} = 1 + \frac{\kappa}{2}h + \frac{\kappa^2}{8}(h^2 - 2h^\mu_\rho h^\rho_\mu) + \frac{\kappa^3}{48}(h^3 - 6h\,h^\mu_\rho h^\rho_\mu + 8h^\mu_\rho h^\rho_\gamma h^\gamma_\mu) +\dots \, .
+\label{-det}
+\end{equation}
+
+Again, inserting \eqref{-det} into the Einstein action we 
+obtain its perturbative expansion, whose leading order 
+in $k$ is the
+\textit{massless Pauli--Fierz} Lagrangian 
+
+\begin{equation}\label{PF}
+\boxed{
 \mathcal{L}^0_E =
 -\partial_\rho h_{\mu\nu}\partial^\rho h^{\mu\nu}
 +2\partial_\rho h_{\mu\nu}\partial^\nu h^{\mu\rho}
 -2\partial_\nu h^{\mu\nu}\partial_\mu h
-+\partial_\mu h\partial^\mu h}
++\partial_\mu h\partial^\mu h,}
 \end{equation}
-\begin{align}
+and the subleading
+ order is a cubic Lagrangian in $h_{\mu\nu}$
+(Ref.~\cite{ChoiShimSong1995}), 
+which we expressed imposing the gauge condition
+$\partial_\mu h^{\mu\nu} = \frac{1}{2} \partial^\nu h$:
+\begin{equation}\label{TH}
 \boxed{
-\begin{aligned}\label{TH}
+\begin{aligned}
 \mathcal{L}_E^{1}={} \kappa \;\Big[ &
 \frac{1}{2} h_\beta^\alpha \partial^\mu h_\alpha^\beta \partial_\mu h
 - \frac{1}{2} h_\beta^\alpha \partial_\alpha h_\nu^\mu \partial^\beta h_\mu^\nu
@@ -257,20 +312,15 @@ leading order the \textit{massless Pauli-Fierz} lagrangian \eqref{PF} and at the
 &+ \frac{1}{4} h\, \partial^\beta h_\nu^\mu \partial_\beta h_\mu^\nu
 + h_\mu^\beta \partial_\nu h_\beta^\alpha \partial^\mu h_\alpha^\nu
 - \frac{1}{8} h\, \partial^\nu h\, \partial_\nu h  \Big]
-\end{aligned}
-}
-\end{align}
-Actually, in our $\eqref{TH}$ we imposed
-$\partial_\mu h^{\mu\nu} = \frac{1}{2} \partial^\nu h$.
-
+\end{aligned}}
+\end{equation}
 
 The matter lagrangian is expanded in the formalism
 of \textit{minimal coupling}, where the flat metric is replaced
-by the curved metric, and partial derivatives are replaced by covariant derivatives. Other
-frameworks exist, but we won't consider them.
+by the curved metric, and partial derivatives are replaced by covariant derivatives.
 As the matter field, we choose a massive, real scalar field $\phi$, which
 obeys the Klein-Gordon EoM. 
-Its leading-order lagrangian density is the free Klein-Gordon one:
+Its leading-order Lagrangian density is the free Klein-Gordon one:
 \begin{equation}
 \boxed{\mathcal{L}_M^{0}
 = \Big(\frac{1}{2}\eta^{\mu\nu}\partial_\nu \phi \partial_\mu \phi - \frac{\phi^2m^2}{2}\Big),}
@@ -286,22 +336,12 @@ Its leading-order lagrangian density is the free Klein-Gordon one:
 \left[
 \partial_\mu \phi\, \partial_\nu \phi
 - \eta_{\mu\nu}\left(\frac12 \partial_\rho \phi\, \partial^\rho \phi - \frac12 m^2 \phi^2\right)
-\right]
+\right].
 }
 \end{equation}
-This is a common fact in field theories, where fields interact
-when one is coupled to a conserved current of the other. 
-In flat space,
- the stress-energy tensor is the \textit{natural rank-2 conserved current associated with
- translation invariance}. 
- It can be derived from Noether's theorem, from
- the translation invariance of the action.
-  It's worth stressing that, in curved space, it's not
-  true that $\partial_\mu T^{\mu\nu}=0$;
-   this is true at most with covariant derivatives. 
-  We express one further term:
-
-  
+This is a common feature of field theories, where fields interact
+via coupling of one field with the conserved current of the other. 
+A further term of the perturbation is
   
 \begin{equation}
 \boxed{
@@ -309,18 +349,24 @@ In flat space,
 \frac{1}{4}\bigl(\frac12h^2-h_{\alpha\beta}h^{\alpha\beta}\bigr)\mathcal{L}_M - \frac{hh^{\mu\nu}}
 {4}\partial_\mu\phi\partial_\nu\phi + \frac{1}{2}h^{\mu\alpha}h_\alpha^\nu \partial_\mu\phi\partial_\nu\phi
 \Biggr\}.
-}
+}\label{Corr}
 \end{equation}
 
+In General Relativity, stress-energy tensor represents
+the conservated current ($D_\mu T^{\mu\nu}=0$) and
+ Eq.~\eqref{Corr} accounts for the corrections 
+ compared 
+to the flat-spacetime case.
  
 \subsection{Gauge Freedom and the GWs}
 Recalling the brief discussion of the \textit{covariance principle} in
-linearized gravity (Sec.~1.1), we now show how it gives rise to a gauges.
+linearized gravity (Sec.~1.1), we now show how it gives rise to a 
+class of gauges.
 A generic change of coordinates introduces
  parameters $\xi (x)$,
-which allow us to modify $h_{\mu\nu}$ according to \eqref{gauge}. This mechanism
-resembles a gauge freedom. We consider two gauge choices. The first one is called
-\textbf{\textit{De Donder}} gauge:
+which allows us to modify $h_{\mu\nu}$ according to \eqref{gauge}. This mechanism
+resembles the gauge freedom. We consider two gauge choices. The first one is called
+\textbf{\textit{De Donder}} gauge~\cite{Maggiore2008}:
 
 \begin{equation}
 \boxed{\partial^\mu\bar{h}_{\mu\nu} = 0.}
@@ -330,7 +376,7 @@ We can always choose this gauge. Under \eqref{gauge}
 \begin{equation}
 \partial^\mu \bar{h}_{\mu\nu} \to \partial^\mu \bar{h}_{\mu\nu} - \Box \xi_\nu,
 \end{equation}
-and calling $
+ calling $
 \partial^\nu \bar h_{\mu\nu} \equiv f_\mu(x)
 $,
 we can choose a gauge parameter such that
@@ -344,9 +390,9 @@ $.
 Since the D'Alembertian operator is invertible with
 a Green's function procedure, we can always solve this equation.
 
-The strength of this gauge is that the EoM reduce to:
+The feature of this gauge is that the EoM reduce to:
 \begin{equation}
-\Box \bar{h}_{\mu\nu} = -\frac{\kappa}{2}\, T_{\mu\nu}
+\Box \bar{h}_{\mu\nu} = -\frac{\kappa}{2}\, T_{\mu\nu},
 \label{eq:EoM}
 \end{equation}
 which implies stress-energy conservation
@@ -357,7 +403,7 @@ Even more interesting is that,
 in the absence of sources, we obtain the wave equation:
 \begin{equation}
     \boxed{
-\Box \bar{h}_{\mu\nu} = 0
+\Box \bar{h}_{\mu\nu} = 0.
 }\label{eq:EoM2}
 \end{equation}
 The De Donder gauge puts four constraints on 
@@ -368,25 +414,25 @@ a symmetric rank-2 tensor, leaving six degrees of freedom.
 The harmonic condition \eqref{eq:DD} does not fix the gauge completely.
 Under \eqref{gauge}, the trace-reversed field transforms as
 \begin{equation}
-  \bar h_{\mu\nu}\;\to\;\bar h_{\mu\nu}+\xi_{\mu\nu},
+  \bar h_{\mu\nu}\;\to\;\bar h_{\mu\nu}+\zeta_{\mu\nu},
   \qquad
-  \xi_{\mu\nu}\equiv\partial_\mu\xi_\nu+\partial_\nu\xi_\mu
+  \zeta_{\mu\nu}\equiv\partial_\mu\xi_\nu+\partial_\nu\xi_\mu
   -\eta_{\mu\nu}\,\partial_\rho\xi^\rho .
   \label{eq:xi-shift}
 \end{equation}
-This is interesting because, taking the divergence,
-$\partial^\mu\xi_{\mu\nu}=\Box\xi_\nu$, hence the De Donder condition is
-preserved by every further transformation satisfying:
+This is interesting because, taking the divergence
+$\partial^\mu\zeta_{\mu\nu}=\Box\xi_\nu$, the De Donder condition is
+preserved by every further transformation satisfying
 \begin{equation}
   \Box\xi_\mu=0 .
   \label{eq:residual}
 \end{equation}
-All the further $\xi_\mu$ 
- which obey \eqref{eq:residual} allow for further
+Furthermore $\xi_\mu$ 
+ obeying \eqref{eq:residual} allow for further
 gauge choices. \textit{Outside the source} we can fully exploit this freedom: if 
 
 \begin{equation} 
-    \Box \bar{h}_{\mu\nu} = \Box \xi_{\mu\nu}=0, 
+    \Box \bar{h}_{\mu\nu} = \Box \zeta_{\mu\nu}=0, 
 \end{equation}
  we have four more functions that 
  can gauge $h_{\mu\nu}$. 
@@ -399,9 +445,9 @@ following conditions are satisfied:
 }
 \label{TTC}
 \end{equation}
-For the explicit computation, see (Ref. Maggiore, GWs, Chapt.1).
+For the explicit computation, see (Ref. Maggiore, GWs, Chapt.1~\cite{Maggiore2008}).
 
-Here, since $\bar h_{\mu\nu}=h_{\mu\nu}$, the equations of motion are
+In TT gauge trace is null and $\bar h_{\mu\nu}=h_{\mu\nu}$, the EoM are
 \begin{equation}
   \boxed{\Box h_{\mu\nu}=0.}
 \end{equation}
@@ -427,7 +473,7 @@ From another perspective,
  a perturbation $h_{\mu\nu}$ propagating outside the sources, expressed
 in the De Donder gauge, can be projected onto
 the stricter TT gauge by introducing
- the transverse projector  (Ref. Maggiore, GWs, Chapt. 1):
+ the transverse projector  (Ref. Maggiore, GWs, Chapt. 1~\cite{Maggiore2008}):
 \begin{equation}
 P_{ij}(\hat n)=\delta_{ij}-n_in_j ,
 \label{TTPs}
@@ -448,8 +494,9 @@ Actually, the same operation defines the TT part
 $S^{\mathrm{TT}}_{ij}=\Lambda_{ij,kl}S_{kl}$ of any symmetric tensor.
 
 We stress that the TT gauge can only be imposed in vacuum. Inside a source,
-where $\Box\bar h_{\mu\nu}\propto T_{\mu\nu}\neq0$, the residual
-transformations \eqref{eq:residual} are no longer sufficient to remove the
+where $\Box\bar h_{\mu\nu}\propto T_{\mu\nu}\neq0$, the further
+transformations \eqref{eq:residual} that preserves
+De Donder gauge, is no longer sufficient to remove the
 components $h_{0\mu}$ and $h$. \\
 Due to this, the TT gauge captures the
 radiative degrees of freedom but not the Newtonian part of the interaction.
@@ -492,17 +539,13 @@ For further use, we collect the results above:
 \end{empheq}
 
 
-
-
 \newpage
-
-
 \section{Quantization of the Linearized Gravity Field}
 \subsection{Introduction}
 
-In the canonical quantization of the spin-1 field, we could find
+In the canonical quantization of the spin-1 electromagnetic field, we could find
 that the $A^0$ component of the potential has no conjugate momentum,
- since the Lagrangian doesn't depend on $\partial_0A^0$. 
+ since the Lagrangian doesn't depend on $\partial_0A^0$ (Ref \cite{GreinerFQ}\cite{tannoudji}). 
  For a massive (Proca) field this didn't turn out to be a problem: from the
  equations of motion we could fix $A^0$ in terms of the other fields,
 \begin{equation}
@@ -511,7 +554,7 @@ that the $A^0$ component of the potential has no conjugate momentum,
 this was enough to quantize the
 spatial components and all physical quantities turned out
 to be covariant (Ref.\ Greiner,
-\textit{Field Quantization}, Chap.~7).
+\textit{Field Quantization}, Chap.~7~\cite{GreinerFQ}).
 However, for the photon field,
  since $m\to0$, we coulnd't use this costraint:
   the vector field $A^\mu$ has two spurious degrees of
@@ -522,22 +565,20 @@ In the canonical quantization of QED
 there are two common procedures to deal with this:
 
 \begin{enumerate}
-\item \textbf{Non-covariant gauge fixing}: one imposes
+\item \textbf{Non-covariant gauge fixing}: one imposes the
  Coulomb gauge, to eliminate
 the spurious degrees of freedom and quantizes the rest. 
-This procedure, however, makes us lose manifest
-Lorentz invariance and is not convenient for systematically investigating the
-perturbative series.
+This procedure, however, is not manifestly covariant.
 \item \textbf{Covariant quantization}: all components of $A^\mu$ are treated in the
 same way. 
 The Lagrangian of the field is modified so as to also give $A^0$ a conjugate
 momentum and, to eliminate the spurious degrees of freedom, conditions are imposed on
-the allowed states of the state space (Gubta-Bleuler method).
+the allowed states of the state space (Gubta-Bleuler method~\cite{GreinerFQ}).
 \end{enumerate}
 
 Linearized gravity faces the same problem: $h_{0\mu}$ have
-no conjugate momentum. In the
-following we quantize the graviton by analogy with QED
+no conjugate momentum~\cite{Rezvan2024}. In the
+following we quantize the gravitational field by analogy with QED
  in both ways: covariantly, in the de Donder
 gauge (Secs.~2.2--2.4), and non-covariantly, in the TT gauge (Sec.~2.5).
 
@@ -551,24 +592,24 @@ be done for the graviton field:
 
 \begin{equation} \label{DDlag}
     \mathcal{L}_E^{\prime(0)}
-    = \mathcal{L}^{(0)}_E - \frac{1}{2}\, (\partial_\mu \bar{h}^{\mu\nu})\, (\partial^\rho \bar{h}_{\rho\nu})
+    = \mathcal{L}^{(0)}_E - \frac{1}{2}\, (\partial_\mu \bar{h}^{\mu\nu})\, (\partial^\rho \bar{h}_{\rho\nu}).
 \end{equation}
 
 For such choice, the Lagrangian can be brought into a
-particularly simple form upon integration by parts in the action integral:
+particularly simple form upon integration by parts:
 
 \begin{equation}
     \mathcal L_E^{\prime(0)}
 =\frac{1}{2}\Bigl[
 \partial_\mu h_{\alpha\beta}\partial^\mu h^{\alpha\beta}
--\frac12\partial_\mu h\,\partial^\mu h\Bigr]
+-\frac12\partial_\mu h\,\partial^\mu h\Bigr].
 \end{equation}
 
-And the canonically conjugate momenta $\pi^{\mu\nu}$ of $h_{\mu\nu}$ are:
+The canonically conjugate momenta $\pi^{\mu\nu}$ of $h_{\mu\nu}$ are:
 
 \begin{equation}
 \pi^{\mu\nu}=\frac{\partial\mathcal L_E^{\prime(0)}}{\partial\dot h_{\mu\nu}}
-=\dot h^{\mu\nu}-\tfrac12\eta^{\mu\nu}\dot h
+=\dot h^{\mu\nu}-\tfrac12\eta^{\mu\nu}\dot h.
 \label{pih}
 \end{equation}
 
@@ -578,14 +619,15 @@ of $h_{\mu\nu}$; nevertheless, $\mathcal{L}_E^{\prime(0)}$ coincides with
 $\mathcal{L}^{(0)}_E$ when the harmonic gauge condition
 $\partial_\mu \bar{h}^{\mu\nu}=0$ is imposed. 
 
-The reason this choice is called de Donder gauge fixing is that \eqref{DDlag}
-corresponds to the addition of a term which vanishes in the de Donder gauge
-and which yields the EoM $\Box \bar{h}_{\mu\nu} = 0$ even when
-$\partial_\mu\bar{h}^{\mu\nu}\neq0$.
 In general, there is a whole class of gauge-fixing terms: any term of the form
 $-\frac{\zeta}{2}\, (\partial_\mu \bar{h}^{\mu\nu})\, (\partial^\rho \bar{h}_{\rho\nu})$
 is admissible. In our case $\zeta=1$, as in the Feynman gauge of QED; other
 values of $\zeta$ would have given different EoM.
+The resulting equations of motion 
+take the simple form $\Box \bar{h}{\mu\nu}=0$, 
+without requiring the de Donder condition 
+$\partial_\mu\bar{h}^{\mu\nu}=0$ to be imposed separately.
+
 
 Classically, the de Donder gauge can always be reached by a fixed gauge
 transformation, but in canonical quantization
@@ -603,18 +645,28 @@ we obtain the leading-order \textit{Hamiltonian density of the free graviton fie
 \label{HPF}
 \end{equation}
 
-which resembles the structure of both QED and the scalar case.
+which resembles the form of both QED and the Klein-Gordon case, as
+we can see writing the terms as:
+\begin{equation}
+\mathcal{H}_0^{\mathrm{PF}}=\frac{1}{2}\Bigl(\pi_{\mu\nu}G^{\mu\nu}_{\rho\sigma}\pi^{\rho\sigma}
++(\vec\nabla h^{\mu\nu})\cdot(G_{\mu\nu}^{\rho\sigma}\vec\nabla h_{\rho\sigma})\Bigr).
+\label{HPF2}
+\end{equation}
+One important difference with QED, where we have $\mathcal{H}\sim(\pi_\mu\pi^\mu+\vec{\nabla}A^\mu
+\cdot\vec{\nabla}A_\mu)$, is the change $g_{\mu\nu}\to G_{\mu\nu\rho\sigma}$.
+The implications of such change will further be analyzed.
+
 We have neglected terms of order $\mathcal{O}(\kappa)$, i.e.\ cubic in
 $h_{\mu\nu}$; they will be taken into account in Section~3.
-We also compute the inverse relation for $h_{\mu\nu}$:
+We also compute the inverse relation for $h_{\mu\nu}$
 \begin{equation}
-\dot h_{\mu\nu}=\pi_{\mu\nu}-\tfrac12\eta_{\mu\nu}\pi .
+\dot h_{\mu\nu}=\pi_{\mu\nu}-\tfrac12\eta_{\mu\nu}\pi,
 \end{equation}
 
 \subsection{Canonical quantization in the De Donder gauge}
 
 Before quantizing the field, we compare our procedure with the original one by
-Gupta (Ref.\ Gupta, Phys.\ Lett.\ 1952) and with the path-integral approach.
+Gupta (Ref.\ Gupta, Phys.\ Lett.\ 1952~\cite{Gupta1952}).
 We write \eqref{DDlag} as
 \begin{equation}
   \mathcal{L}^{(0)}_g
@@ -656,25 +708,17 @@ Therefore, the conjugate momentum carries the supermetric:
 While from analogy with the scalar case,
 we would have had $-\partial_0 \hat{h}_{\mu\nu}$.
 
-Since the momentu $\pi_{\mu\nu}$, the equations of motion $\Box\bar h^{\mu\nu}=0$
+Since the momentum $\pi_{\mu\nu}$, the equations of motion $\Box\bar h^{\mu\nu}=0$
  and the
 gauge condition $\partial_\mu\bar h^{\mu\nu}=0$ are all expressed in
 terms of $\bar h_{\mu\nu}$, Gupta quantized the trace-reversed field,
 with the same procedure as the Gupta--Bleuler
 quantization of QED.
-In the path-integral formalism, instead, the propagator follows from inverting
-the kinetic operator $K^{\alpha\beta\gamma\delta}=-G^{\alpha\beta\gamma\delta}\Box$,
-which results in:
-\begin{equation}
-  \bra{0}T\bigl\{h_{\mu\nu}(x)\,h_{\alpha\beta}(y)\bigr\}\ket{0}
-  = i\,G_{\mu\nu\alpha\beta}\,D_F(x-y),
-\end{equation}
-where $D_F$ is the Feynman propagator of a massless scalar field.
 
-We instead quantize canonically the metric perturbation $h_{\mu\nu}$, which is
-the physically observable field, and show that the
+We instead quantize canonically the metric perturbation $h_{\mu\nu}$,
+ and show that the
 same results are recovered. This is consistent, since in vacuum
-$\Box\bar h^{\mu\nu}=0$ implies, taking the trace
+$\Box\bar h^{\mu\nu}=0$ implies
 \begin{equation}
     \eta_{\mu\nu} \Box \bar{h}^{\mu\nu}=\eta_{\mu\nu}\Box (h^{\mu\nu}-\frac12\eta^{\mu\nu}h)=-\Box h=0.
 \end{equation} 
@@ -683,7 +727,7 @@ obeys wave equation
 $\Box h^{\mu\nu}=0$.
 
 To quantize the theory, we impose the canonical equal-time commutation
-relations in the space of symmetric tensors:
+relations:
 \begin{equation}
   \bigl[\hat{h}_{\mu\nu}(\vec{x},t),\, \hat{\pi}^{\alpha\beta}(\vec{y},t)\bigr]
   = i\, \mathbf{1}_{\mu\nu}{}^{\alpha\beta}\, \delta^{(3)}(\vec{x}-\vec{y}),
@@ -706,15 +750,15 @@ and \eqref{eq:etcr-pi} takes the equivalent form
 \label{eq:etcr}
 \end{equation}
 
-We remark why the gauge condition cannot be imposed as an operator identity,
-$\partial^\mu \hat{\bar{h}}_{\mu\nu}\neq0$:
+The gauge condition cannot be imposed as an operator identity $\partial^\mu \hat{\bar{h}}_{\mu\nu} = 0$,
+if we did so \eqref{eq:etcr-pi} would result in a contraddiction:
 \begin{equation}\label{GBC}
-    \bigl[\partial^\mu\hat{\bar h}_{\mu\nu}(\vec x,t),\,\hat h_{\alpha\beta}(\vec y,t)\bigr]
+    0=\bigl[\partial^\mu\hat{\bar h}_{\mu\nu}(\vec x,t),\,\hat h_{\alpha\beta}(\vec y,t)\bigr]
     =\bigl[\hat\pi_{0\nu}(\vec x,t),\,\hat h_{\alpha\beta}(\vec y,t)\bigr]
     =-\frac{i}{2}\,\delta^{(3)}(\vec x-\vec y)
     \left(\eta_{0\alpha}\eta_{\nu\beta}+\eta_{0\beta}\eta_{\nu\alpha}\right)\neq0 .
 \end{equation}
-In section 2.4 we will finally solve this problem.
+In section 2.4 we will address this problem.
 
 \subsubsection{Fourier Decomposition of the Field Operator}
 
@@ -777,7 +821,7 @@ On the other hand, we write the
 Had we used a basis of generic (non-symmetric) rank-2 tensors, we would have
 introduced extra degrees of freedom that the graviton does not have. For
 further reference on why we want a symmetric spin-2 tensor, see Maggiore,
-\textit{Gravitational Waves}, Chap.~2.
+\textit{Gravitational Waves}, Chap.~2~\cite{Maggiore2008}.
 
 With this basis, the mode expansion of the graviton field reads
 \begin{equation}
@@ -856,19 +900,19 @@ $\epsilon_{\mu\nu}(\vec{k},\lambda)\,\epsilon^{\mu\nu}(\vec{k},\lambda') = \math
 so that $\hat a_{\vec k\lambda}=\mathrm{H}_{\lambda\lambda}\,(h_{\vec k\lambda},\hat h)$.
 Then
 \begin{equation}\boxed{
-    a_{\vec{k}\lambda}
+    \hat a_{\vec{k}\lambda}
 = i\,\mathrm{H}_{\lambda\lambda}\!\int\! d^3x\;
 \frac{e^{\,ik\cdot x}}{\sqrt{2\omega_k(2\pi)^3}}\;
 \epsilon^{\mu\nu}(\vec{k},\lambda)
-\Big(\dot{h}_{\mu\nu}(x) - i\omega_k\, h_{\mu\nu}(x)\Big),
+\Big(\dot{\hat h}_{\mu\nu}(x) - i\omega_k\, \hat h_{\mu\nu}(x)\Big),
 }\end{equation}
 or equivalently
 \begin{equation}\boxed{
-    a_{\vec{k}\lambda}
+    \hat a_{\vec{k}\lambda}
 = i\,\mathrm{H}_{\lambda\lambda}\!\int\! d^3x\;
 \frac{e^{\,ik\cdot x}}{\sqrt{2\omega_k(2\pi)^3}}\;
-\Big(\epsilon^{\mu\nu}(\vec{k},\lambda)\,G_{\mu\nu\alpha\beta}\,\pi^{\alpha\beta}(x)
-- i\omega_k\, \epsilon^{\mu\nu}(\vec{k},\lambda)\,h_{\mu\nu}(x)\Big)
+\Big(\epsilon^{\mu\nu}(\vec{k},\lambda)\,G_{\mu\nu\alpha\beta}\,\hat \pi^{\alpha\beta}(x)
+- i\omega_k\, \epsilon^{\mu\nu}(\vec{k},\lambda)\,\hat h_{\mu\nu}(x)\Big)
 .}\end{equation}
 Finally, using the canonical commutation relations, we obtain
 \begin{equation}
@@ -884,8 +928,12 @@ Finally, using the canonical commutation relations, we obtain
 \end{equation}
 where we defined
 $\mathcal G_{\lambda\lambda'} = \mathrm{H}_{\lambda\lambda}\mathrm{H}_{\lambda'\lambda'}\,
-\epsilon^{\mu\nu}(\vec k,\lambda)\,G_{\mu\nu\alpha\beta}\,\epsilon^{\alpha\beta}(\vec k,\lambda')$.
-Its QED analogous was diagonal, graviton one isn't. 
+\epsilon^{\mu\nu}(\vec k,\lambda)\,G_{\mu\nu\alpha\beta}\,\epsilon^{\alpha\beta}(\vec k,\lambda')
+$, on the non-null contractions we have:
+\begin{equation}
+  \mathcal G_{\lambda\lambda'} =
+  \epsilon^{\mu\nu}(\vec k,\lambda)\,G_{\mu\nu\alpha\beta}\,\epsilon^{\alpha\beta}(\vec k,\lambda')
+\end{equation}
 If we fix $\lambda=(a,a)$, $\lambda'=(b,b)$;
 then the trace $\epsilon(\lambda)=\eta_{aa}$ and by definition
 $\mathrm{H}_{\lambda\lambda}=+1$. With some computation
@@ -905,17 +953,16 @@ fact that some states have negative norm:
 \end{equation}
 hence the Fock space is not a Hilbert space.
 
-
-Following the Gupta--Bleuler procedure, we impose a \textit{condition on the state
+Following the Gupta--Bleuler procedure~\cite{Gupta1952,GreinerFQ}, we impose a \textit{condition on the state
 vectors} $\ket{\Phi}$ of the Fock space. In particular we set,
 \begin{equation} \label{GPC1}
   \Bigl(\partial^\mu \hat{h}_{\mu\nu}
         - \tfrac{1}{2}\partial_\nu \hat{h}\Bigr)^{(+)} \ket{\Phi} = 0
 \end{equation}
-where we denoted with $(+)$ the positive-frequency, annihilation related part.
-This is a stronger condition than setting the \textit{expectation value} of the de Donder
-condition to zero; it also guarantees that the expected number of
-negative-norm states vanishes.
+where $(+)$ denotes the positive-frequency (annihilation) part.
+This condition is weaker than the operator identity, which would be incompatible
+with the commutation relations, but it guarantees that the de Donder condition
+holds for expectation values.
 
 In terms of annihilation operators, the condition reads
 \begin{equation}
@@ -927,86 +974,79 @@ and, since the plane waves are linearly independent, for each $\vec k$:
 \begin{equation}
     \sum_{\lambda=1}^{10}\Bigl(k^\mu \epsilon_{\mu\nu}(\vec k,\lambda) -\tfrac12\, k_\nu\, \epsilon^\alpha{}_\alpha(\vec k,\lambda)\Bigr)\hat a_{\vec k\lambda}\ket{\Phi} = 0 .
 \end{equation}
-
-We can take $\vec k=\omega\hat z$.\\
-For $\vec k=\omega\hat z$ the polarization vectors are:
+We can take $\vec k=\omega\hat z$, for which the polarization vectors are
 \begin{align}
-\epsilon^\mu(\vec k,0)=(1,0,0,0)&\qquad
-\epsilon^\mu(\vec k,1)=(0,1,0,0)\\
-\epsilon^\mu(\vec k,2)=(0,0,1,0)&\qquad
-\epsilon^\mu(\vec k,3)=(0,0,0,1)
+\epsilon^\mu(\vec k,0)=(1,0,0,0),&\qquad
+\epsilon^\mu(\vec k,1)=(0,1,0,0),\\
+\epsilon^\mu(\vec k,2)=(0,0,1,0),&\qquad
+\epsilon^\mu(\vec k,3)=(0,0,0,1),
 \end{align}
 so that
-$k_\nu=\omega\bigl(\epsilon_\nu(\vec k,0)+\epsilon_\nu(\vec k,3)\bigr)$.\\
-Therefore, after some computations,
- we obtain four equations for the
+$k_\nu=\omega\bigl(\epsilon_\nu(\vec k,0)+\epsilon_\nu(\vec k,3)\bigr)$.
+Therefore, after some computations, we obtain four equations for the
 annihilation operators:
 \begin{subequations}\label{GBE}
 \begin{align}
 \bigl(\hat a_{11}+\hat a_{22}\bigr)\ket{\Phi}&=0,\\
 \bigl(\hat{a}_{01}-\hat{a}_{13}\bigr)\ket{\Phi} &=0,\\
 \bigl(\hat{a}_{02}-\hat{a}_{23}\bigr)\ket{\Phi}&=0, \\
-\bigl(\hat a_{00}-\sqrt2\,\hat a_{03}+\hat a_{33}\bigr)\ket{\Phi}&=0 
+\bigl(\hat a_{00}-\sqrt2\,\hat a_{03}+\hat a_{33}\bigr)\ket{\Phi}&=0 .
 \end{align}
 \end{subequations}
-The second and third equations have the same form as the QED Gupta--Bleuler
-condition $(\hat a_0-\hat a_3)\ket{\Phi}=0$.
+
 
 Let us denote by $\hat L_{k\nu}$ the four combinations of annihilation operators
 appearing in \eqref{GBE}, so that the physical states are defined by
-$\hat L_{k\nu}\ket{\Phi}=0$. We find that:
+$\hat L_{k\nu}\ket{\Phi}=0$. In Appendix~\ref{app:Lstates} we prove that:
 \begin{itemize}
-\item each $\hat L^\dagger_{k\nu}$ creates a zero-norm state (see the Appendix);
-\item the $\hat L_{k\nu}$ are mutually orthogonal, i.e.\
-$[\hat L_{k\mu},\hat L^\dagger_{k\nu}]=0$ for every $\mu,\nu$;
-\item acting with $\hat L^\dagger_{k\nu}$ on a physical state gives
-another physical state: these are excitations that don't break the de Donder
-condition on expectation values.
+\item each state $\hat L^\dagger_{k\nu}\ket{0}$ has zero norm
+($\bra{0}\hat L_{k\nu}\hat L^\dagger_{k\nu}\ket{0}=0$);
+\item $[\hat L_{k\mu},\hat L^\dagger_{k\nu}]=0$ for every $\mu,\nu$.
 \end{itemize}
-Asking to have most of these excitations with zero expectation value (i.e.
-$\hat{n}_{11}+\hat{n}_{22}=0$), we are left with
-two physical polarizations, which we call
+As in QED, where $\hat a_3^\dagger-\hat a_0^\dagger$ creates zero-norm states,
+the $\hat L^\dagger_{k\nu}$ create unobservable excitations, which do not
+contribute to observable quantities. We show this explicitly for the energy in 
+Appendix~\ref{app:energy}, but here we briefly recap the scheme.
+Expanding the Hamiltonian \eqref{HPF2} in terms of creation and annihilation
+operators, we obtain
 \begin{equation}
-\hat a_{+}=\tfrac{1}{\sqrt2}\bigl(\hat a_{11}-\hat a_{22}\bigr),\qquad
-\hat a_{\times}=\hat a_{12},
+\hat H=\int d^3k\;\omega_k\sum_{\lambda,\lambda'=1}^{10}
+\mathcal G_{\lambda\lambda'}\,\hat a^\dagger_{\vec k\lambda}\hat a_{\vec k\lambda'} ,
 \end{equation}
-with polarization tensors
+then, computing the expectation value onto the
+physical states, we find that only two unconstrained modes contribute:
 \begin{equation}
-\epsilon^{(+)}_{\mu\nu}\propto
-\begin{pmatrix}
-0 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 \\
-0 & 0 & -1 & 0 \\
-0 & 0 & 0 & 0
-\end{pmatrix},
-\qquad
-\epsilon^{(\times)}_{\mu\nu}\propto
-\begin{pmatrix}
-0 & 0 & 0 & 0 \\
-0 & 0 & 1 & 0 \\
-0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 0
-\end{pmatrix}.
+\boxed{
+\bra{\Phi}\hat H\ket{\Phi}
+=\int d^3k\;\omega_k\bigl(\langle\hat n_{+}\rangle+\langle\hat n_{\times}\rangle\bigr).}
 \end{equation}
-Therefore, a physical state contains TT modes, plus possible
-excitations created by $\hat L^\dagger_{k\nu}$. However, they
- do not contribute to norms and
-expectation values, exactly as $\langle n_0-n_3\rangle=0$ in QED.
+We proved that for the covariant quantization, in the de Donder gauge, only the TT
+gravitons contribute to the energy. We could not find this exact result elsewhere.
 
-One can show that the physical states form \textit{equivalence
-classes}. As in QED, they are generated by gauge freedom.
-Denoting by $\ket{\Phi_T}$ a state containing only TT quanta, every state of its
-class can be written as
+Since we found excitations
+which are unobservable and don't contribute to physical quantities, 
+one can group these in \textit{equivalence classes} defined by
+the action of the $\hat L^\dagger_{k\nu}$.
+As in QED, we expect different states of the same class to be
+connected by a gauge transformation.
+Given a physical state, every state
+of its class can be written as
 \begin{equation}
-    \ket{\Phi_c} = \hat{R}_c \ket{\Phi_T},\qquad
+    \ket{\Phi_c} = \hat{R}_c \ket{\Phi},\qquad
     \hat{R}_c=\exp\Bigl(\int d^3k\; c^\nu(\vec k)\, \hat{L}^\dagger_{k\nu}\Bigr)
     =1+\int d^3k\; c^\nu(\vec k)\, \hat{L}^\dagger_{k\nu}+\dots ,
 \end{equation}
-where the four coefficient functions $c^\nu(\vec k)$ descrive the states.
+where the four functions $c^\nu(\vec k)$ label the states in the class.
+Since the $\hat L_{k\nu}$ commute with $\hat R_c$
+and don't change the norm, we expect this behaviour from
+observable quantities:
+\begin{equation}
+\braket{\Phi_c}{\Phi_c}=\braket{\Phi}{\Phi},\qquad
+\bra{\Phi_c}\hat H\ket{\Phi_c}=\bra{\Phi}\hat H\ket{\Phi },
+\end{equation}
 
 
-\subsection{De Donder propagator}
-Finally we derive the propagator, by some machinery. Let us call:
+We now derive the propagator. Let us recall:
 \begin{equation}
   C_{\mu\nu\alpha\beta}(x-y)
   = \bigl[\hat{h}_{\mu\nu}(x),\, \hat{h}_{\alpha\beta}(y)\bigr],
@@ -1022,11 +1062,11 @@ Using \eqref{eq:ETCR-ladder}:
   C_{\mu\nu\alpha\beta}(x-y)=\int\frac{d^3k}{2\omega_k(2\pi)^3}
   \Bigl[\sum_{\lambda,\lambda'}\epsilon_{\mu\nu}(\vec k,\lambda)\,
   \mathcal G_{\lambda\lambda'}\,\epsilon_{\alpha\beta}(\vec k,\lambda')\Bigr]
-  \Bigl(e^{-ik\cdot(x-y)}-e^{ik\cdot(x-y)}\Bigr).
+  \Bigl(e^{-ik\cdot(x-y)}-e^{ik\cdot(x-y)}\Bigr),
 \end{equation}
-From the definition of $\mathcal G_{\lambda\lambda'}$ and the completeness
+from the definition of $\mathcal G_{\lambda\lambda'}$ and the completeness
 relation \eqref{eq:completeness-dewitt} we recover
-\begin{equation}
+\begin{equation} \label{Metric}
   \sum_{\lambda,\lambda'}\epsilon_{\mu\nu}(\lambda)\,\mathrm{H}_{\lambda\lambda}\,
   \epsilon^{\rho\sigma}(\lambda)\,G_{\rho\sigma\kappa\tau}\,
   \epsilon^{\kappa\tau}(\lambda')\,\mathrm{H}_{\lambda'\lambda'}\,\epsilon_{\alpha\beta}(\lambda')
@@ -1034,19 +1074,19 @@ relation \eqref{eq:completeness-dewitt} we recover
   \mathbf 1^{\kappa\tau}{}_{\alpha\beta}
   =G_{\mu\nu\alpha\beta}.
 \end{equation}
-This contribute is independent from $\vec{k}$, then the remaining part
- is $\Delta$, the Pauli--Jordan function
-from the Klein-Gordon field:
+From \eqref{Metric}, we can divide the contribution in two terms, $i\Delta (x-y)$
+and $G_{\mu\nu\alpha\beta}$:
 \begin{equation}
   C_{\mu\nu\alpha\beta}(x-y)=G_{\mu\nu\alpha\beta}\int\frac{d^3k}{2\omega_k(2\pi)^3}
   \Bigl(e^{-ik\cdot(x-y)}-e^{ik\cdot(x-y)}\Bigr)
   = i\,G_{\mu\nu\alpha\beta}\,\Delta(x-y),
 \end{equation}
-The solution of this problem is unique, one could perform a Taylor
-expansion around $\tau=t-t'$ to convince himself. We have found:
+The scalar part $\Delta (x-y)$ is the Pauli-Jordan function, 
+corresponding to a Klein-Gordon field (Eq. 4.102 \cite{GreinerFQ}).
+We thus get:
 \begin{equation}
   \bigl[\hat{h}_{\mu\nu}(x),\, \hat{h}_{\alpha\beta}(y)\bigr]
-  = i\, G_{\mu\nu\alpha\beta}\, \Delta(x-y),
+  = i\, G_{\mu\nu\alpha\beta}\, \Delta(x-y).
 \end{equation}
 Therefore, by analogy with the Klein-Gordon field, 
 we write everything in the momentum space:
@@ -1058,27 +1098,27 @@ we write everything in the momentum space:
     \frac{i\, G_{\mu\nu\alpha\beta}}{k^2 + i\varepsilon}\, e^{-ik\cdot(x-y)} .
 }
 \end{equation}
-Further references for those computations in (Greiner, Field Quantization, 4.105)
 
 \subsection{Canonical Quantization in the Transverse-Traceless Gauge}
-If we are prepared to lose manifest covariance, we can use the TT conditions
+If we are prepared to lose manifest covariance, we can use the TT gauge conditions
 \eqref{TTC}. In this case the propagator takes a more complicated form, but the
 interaction vertices become much simpler.
 For a free field $h^{\mu\nu}$, the gauge can be chosen so that
 \begin{equation*}
     h=0,\qquad h^{0\mu}=0,\qquad \partial_i h^{ij}=0 .
 \end{equation*}
-As in QED, this leads to a \textit{radiation gauge}, meaning that we quantize
+As in QED, this leads to the \textit{radiation gauge}, meaning that we quantize
 only the propagating degrees of freedom of the theory.
 If we naively quantize the graviton field, however, we fail to recover the TT
 gauge:
 \begin{equation}
 [\partial_i h^{ij}(\vec x),\pi^{kl}(\vec x')]
 = \partial_i [h^{ij}(\vec x),\pi^{kl}(\vec x')]
-= i\,\partial_i \delta^{(3)}(\vec{x}-\vec{x}')\,\mathbf{1}^{ij,kl}\neq 0 ,
+= i\,\partial_i \delta^{(3)}(\vec{x}-\vec{x}')\,\mathbf{1}^{ij,kl}\neq 0 .
 \end{equation}
 
-We therefore modify the ETCR so that they are compatible with the TT condition.
+We therefore modify the equal time commutation
+relation so that they are compatible with the TT condition.
 In analogy with the Coulomb gauge in QED, we use the projector \eqref{TTP} to
 define the \textit{transverse-traceless delta function}
 \begin{equation}\label{TTD}
@@ -1149,10 +1189,11 @@ Appendix~\ref{app:bessel}.
 The previous sections were dedicated to the quantization of the free fields.
 Nevertheless, the most interesting feature of QFT is its ability to make
 predictions about the interactions between different kinds of particles.
-Linearized gravity is particularly well suited to this description: its
-natural Taylor expansion in $\kappa$, with matter and gravity terms of
-decreasing magnitude, makes Feynman diagrams a convenient tool even for
-computing classical interactions, as we will see.
+Linearized gravity fits naturally into this framework: its
+natural Taylor expansion in $\kappa$, 
+involving a coupling between matter and gravity terms
+, makes Feynman diagrams a convenient tool for
+computing interactions, as we will see.
 Furthermore, this framework allows one to compute the dominant contributions to
 the scattering of gravitons and matter particles at the lowest orders in the
 velocity, and to identify which physical mechanisms are responsible for the
@@ -1160,7 +1201,7 @@ different types of gravitational interaction.
 
 \subsection{The scattering matrix}
 In quantum field theory, the scattering matrix $\hat S$ is the central object
-for computing cross sections. We refer to Greiner for a detailed discussion of
+for computing cross sections. We refer to Greiner~\cite{GreinerFQ} for a detailed discussion of
 the formalism; here we only point out what is needed for our purposes.
 The key step is to identify which part of the Hamiltonian generates the free
 evolution and which part describes the interactions. We split the Hamiltonian as
@@ -1196,8 +1237,8 @@ Remarkably, performing a standard Legendre transformation, we find for the
 where $\mathcal{N}$ is a normal-dependent term, i.e.\ a term that can be
 expressed through the unit vector $n^\mu$ normal to the space-like
 hypersurface on which we quantize; for the equal-time condition $x_0=x_0'$,
-$n^\mu=(1,\vec{0})$ (Ref.\ Greiner, Example~8.6). We develop this subject
-further in the Appendix. For the moment we only state the resulting rules
+$n^\mu=(1,\vec{0})$ (Ref.\ Greiner, Example~8.6~\cite{GreinerFQ}). We develop this subject
+further in the Appendix. For the moment we only state the resulting rules~\cite{Weinberg1995}
 (Matthews' theorem):
 \begin{itemize}
     \item use $\hat{\mathcal{H}}^I=-\hat{\mathcal{L}}^I[\Phi^I]$, dropping $\mathcal{N}$;
@@ -1227,10 +1268,17 @@ vertex they generate:
 +\underbrace{\hat{\mathcal{H}}_M^{2}}_{\phi\phi hh,\;O(\kappa^{2})}
 +O(\kappa^{3}),
 \end{equation}
-their explicit expressions being those obtained in Section~1. The cubic
-vertex $hhh$ is the quantum counterpart of the non-linearity of the Einstein
-equations: classically it corrects the gravitational field, while here it
-appears as a graviton self-interaction.
+their explicit expressions being those obtained upward. 
+The cubic vertex $hhh$ has a different meaning 
+in QFT:
+whilst in classical field theory it was a 
+$\kappa$ order correction to the geometry of spacetime,
+in QFT it represents 
+graviton
+ self-interaction~\cite{Gupta1954,Feynman1963}. 
+ Further QFT analysis show these terms are
+ responsible for non-renormalizability of the theory.
+
 
 Note that \eqref{Dyson} is graded by the \emph{number of vertices}, but we
 regroup it in powers of $\kappa$. Moreover, we only write the terms relevant
@@ -1268,14 +1316,18 @@ the internal lines via Wick's theorem.
 \text{graviton (de Donder):}\qquad
 \langle 0|T^{*}h_{\mu\nu}(x)h_{\alpha\beta}(y)|0\rangle
 &=\int\!\frac{d^4k}{(2\pi)^4}\,
-\frac{i\,G_{\mu\nu,\alpha\beta}}{k^{2}+i\epsilon}\,e^{-ik(x-y)} .
+\frac{i\,G_{\mu\nu\alpha\beta}}{k^{2}+i\epsilon}\,e^{-ik(x-y)} .
 \end{align}
 
 \paragraph{External legs}
-Scalars contribute a factor $1$. As shown by the Gupta--Bleuler analysis,
-physical gravitons can be TT, so each external graviton contributes a TT
-polarization tensor $\epsilon_{ij}^{(\lambda)}(\hat k)$, $\lambda=+,\times$,
-satisfying
+Scalars contribute a factor $1$. For the external gravitons, the
+Gupta--Bleuler analysis showed that only the TT modes contribute to the energy,
+while other modes have zero norm and
+zero energy, resulting unable to describe asymptotic, observable
+ particles. 
+ Each external graviton
+contributes a TT polarization tensor $\epsilon_{ij}^{(\lambda)}(\hat k)$,
+$\lambda=+,\times$, satisfying
 \begin{equation}
     \epsilon_{ij}=\epsilon_{ji},\qquad
     \delta^{ij}\epsilon_{ij}=0,\qquad
@@ -1310,43 +1362,36 @@ T^*\bigl\{{:}\,h^{\mu\nu}T_{\mu\nu}(x_1)\,{:}\;
 \end{empheq}
 Where $\mathcal V_3$ is the cubic vertex of the graviton self-interaction \eqref{sum:LE1}.
 
-\newpage\section{Gravitational scattering of scalar and gravitational waves}
+\newpage\section{Gravitational scattering of scalar and gravitational waves by an external source}
 \label{sec:scalar-scattering}
 
 \subsection{Introduction to the problem}
 \label{subsec:setup}
 In this section we compute, within the QFT framework, the scattering of a
-massless wave by the gravitational field of a static mass $M$. We consider both
-a scalar and a gravitational wave, and we work in the \textit{Born
-approximation}: the field of the source is treated as a classical external
-background, and only the leading order of the Dyson series is kept. In terms of
-Feynman diagrams, the wave exchanges a single graviton with the source.
+scalar and of a gravitational massless wave by the field of a static mass
+$M$~\cite{DeLogiKovacs1977}. We work in the
+\textit{Born approximation}: the field of the source is treated as a classical
+background and only the leading order of the Dyson series is kept.
+In terms of Feynman diagrams, the
+wave exchanges a single graviton with the source.
 
-There are some assumptions which define the problem:
-The background does not depend on time, the energy of the wave is conserved and
-therefore the scattering is elastic. \\The
-wavelength is long compared with the size of the
-source, so the wave cannot probe its internal structure, and only the monopole
-part of the field ($\propto 1/r$) is relevant. The angular momentum of the
-source is neglected (see {[Ref.]} ).
-
-The situation is analogous to the Born approximation in electromagnetic
-scattering, where a long-wavelength wave interacts with a small body and the
-field inside the scatterer is approximated by the incident wave.
-There is, however, a subtlety. The Born approximation requires the scattering
-field to be weak, but this does not mean that the source must be light: the
-approximation also holds for a very massive source, as long as the energy of
-the scattered wave is small enough,
-\begin{equation}
-    \omega/M\ll1 ,
-\end{equation}
-we will investigate this later.
+The assumptions that define the problem are:
+\begin{itemize}
+\item the field is weak where the wave is scattered, $GM/r\ll1$,
+otherwise the linearized gravity framework would collapse 
+\item the energy of the wave is small compared to the mass of the source,
+$\omega/M\ll1$, so that its recoil is negligible and the background is static,
+resulting in an elastic scattering;
+\item the wavelength is long compared to the size of the source, so only the
+monopole part of the field ($\propto1/r$) is relevant, and the angular
+momentum of the source is neglected. 
+\end{itemize}
 
 This computation has a double meaning. On the one hand, it shows that a
 classical, geometrical result can be obtained with QFT techniques. The
 weak-field cross sections were derived by Peters by solving the wave equations
 on the Schwarzschild background (Ref.\ Peters, Phys.\ Rev.\ D \textbf{13}, 775
-(1976)); for a scalar wave and for an unpolarized gravitational wave they read
+(1976)~\cite{Peters1976}); for a scalar wave and for an unpolarized gravitational wave they read
 \begin{equation}
     \label{eq:peters}
     \frac{d\sigma}{d\Omega}\bigg|_{s=0}
@@ -1357,12 +1402,12 @@ on the Schwarzschild background (Ref.\ Peters, Phys.\ Rev.\ D \textbf{13}, 775
     \Bigl[\cos^{8}\frac{\theta}{2}+\sin^{8}\frac{\theta}{2}\Bigr],
 \end{equation}
 and we will recover both of them from tree-level diagrams. On the other hand,
-the same amplitudes describe the scattering of a low-energy scalar or graviton
-off a very massive particle: they are the static limit of the Compton
+the same amplitudes describe the scattering of a low-energy scalar particle or graviton
+off a very massive object: they are the static limit of the Compton
 amplitude computed in Section~5.
 
 The simplest case of a monopole source is the
-Schwarzschild metric outside a spherical body of mass $M$:
+Schwarzschild metric outside a spherical body of mass $M$~\cite{Weinberg1972}:
 \begin{equation}
     \label{eq:metric-schw}
     g_{00} = 1-\frac{2GM}{r}, \qquad
@@ -1416,7 +1461,7 @@ line: graviton}
 In $\hat S_\kappa$, \eqref{S:k1}, we replace the graviton field by the classical
 background. $T_{\mu\nu}$ combines with
 $h^{\mu\nu}$, but we can get rid of trace terms in the computations
-considering ${T}_{\mu\nu}\bar h^{\mu\nu}= \bar T_{\mu\nu}h^{\mu\nu}$, we then have:
+considering ${T}_{\mu\nu}\bar h^{\mu\nu}= \bar T_{\mu\nu}h^{\mu\nu}=\partial_\mu\phi\,\partial_\nu\phi h^{\mu\nu}$, we then have:
 \begin{equation}
     \label{eq:amplitude}
     S_{fi}=\bra{p_2}\hat S_\kappa\ket{p_1}
@@ -1432,15 +1477,21 @@ momentum conservation,
     p_2=p_1+q ,
 \end{equation}
 since the background is static $\omega=\omega'$ and time integration
-gives $2\pi\delta(\omega'-\omega)$:
+gives $2\pi\delta(\omega'-\omega)$, no energy
+is exchanged with the massive source:
 \begin{equation}
     \label{eq:elastic}
     q^{0}=0,\qquad
     \mathbf{q}=\mathbf{p}_2-\mathbf{p}_1,\qquad
     |\mathbf{p}_2|=|\mathbf{p}_1|=\omega .
 \end{equation}
-The scattering is therefore elastic, with $|\mathbf{q}|=2\omega\sin(\theta/2)$,
-and \eqref{eq:amplitude} takes the form
+The scattering is therefore elastic. 
+Calling $\theta$ the angle between
+$\mathbf p_1$ and $\mathbf p_2$,
+\begin{equation}
+|\mathbf q|^2=2\omega^2(1-\cos\theta)=4\omega^2\sin^2\tfrac{\theta}{2},
+\end{equation}
+so that \eqref{eq:amplitude} takes the form
 \begin{equation}
     S_{fi}=-\,2\pi i\,\delta(\omega'-\omega)\,
     \frac{\mathcal M}{(2\pi)^3\,2\omega},
@@ -1459,7 +1510,7 @@ Only $\bar h_{00}$ contributes to the vertex:
 
 Finally, we resemble for classical cases the differential cross section for such
 assumptions,
-$d\sigma/d\Omega=|\mathcal M|^2/16\pi^2$ (Ref. Greiner, QED):
+$d\sigma/d\Omega=|\mathcal M|^2/16\pi^2$ (Ref. Greiner, QED~\cite{GreinerQED}):
 \begin{equation}
     \label{eq:xsec-schw}
     \boxed{
@@ -1475,7 +1526,9 @@ Like in the analogous
 incoming wave, resembling the non dependence on the 
 energy of the incoming particle in the Rutherford scattering.
 
-In the forward limit of small angles, one recovers
+In the limit of small angles, where
+the scattered particle is simply deflected by
+the massive source, one recovers
 $d\sigma/d\Omega\to 16G^{2}M^{2}/\theta^{4}$, that's interesting, 
 because it's the same cross section associated
 with the Schwarzschild deflection of light in geometrical 
@@ -1496,16 +1549,18 @@ The same background also deflects a gravitational wave. In this case the
 coupling comes from the cubic self-interaction of gravity, and the amplitude is
 obtained by taking one leg of $\mathcal V_3$ to be the background and the other
 two to be the incoming and outgoing gravitons. 
-
-The incoming and outgoing gravitons are set to
+The incoming and outgoing gravitons are
 \begin{equation}
   h^{(1)}_{\mu\nu}\propto\epsilon^{(1)}_{\mu\nu}\,e^{-ik_1\cdot x},\qquad
   h^{(2)}_{\mu\nu}\propto\epsilon^{(2)}_{\mu\nu}\,e^{+ik_2\cdot x},
 \end{equation}
-with TT polarizations. We repeat the same computing as before,
-writing $\epsilon^{(2)}\!\cdot\epsilon^{(1)}\equiv\epsilon^{(2)}_{ij}\epsilon^{(1)}_{ij}$,
-each of the contributions from $\mathcal V_3$ is:
-\begin{align*}
+with TT polarizations, and we write
+$\epsilon^{(2)}\!\cdot\epsilon^{(1)}\equiv\epsilon^{(2)}_{ij}\epsilon^{(1)}_{ij}$.
+The computation proceeds as in the scalar case. In each term of
+$\mathcal V_3$, any of the three fields can be the background, while the other
+two are the external gravitons; each term therefore gives three contributions,
+which we sum:
+\begin{align}
   \tfrac12 h_\beta^\alpha\partial^\mu h_\alpha^\beta\partial_\mu h
   &\;\to\;+\Phi\,|\mathbf q|^2\,(\epsilon^{(2)}\!\cdot\epsilon^{(1)}),\\
   -\tfrac12 h_\beta^\alpha\partial_\alpha h_\nu^\mu\partial^\beta h_\mu^\nu
@@ -1518,7 +1573,11 @@ each of the contributions from $\mathcal V_3$ is:
   &\;\to\;0,\\
   -\tfrac18 h\,\partial^\nu h\,\partial_\nu h
   &\;\to\;0 .
-\end{align*}
+\end{align}
+In the fifth term the three contributions cancel each other. The last term
+vanishes because all three factors are traces, and at least two of them belong
+to the external gravitons, which are traceless.
+
 Therefore, with the same $|\mathbf q|$ as before we have a total
 \begin{equation}
   \label{eq:M-graviton}
@@ -1542,9 +1601,10 @@ In the forward limit $(\epsilon^{(2)}\!\cdot\epsilon^{(1)})\to1$, for equal
 polarizations, so we recover exactly the scalar result \eqref{eq:xsec-schw}.
 
 For an unpolarized wave we average over the initial polarizations and sum over
-the final ones
-$\sum_\lambda\epsilon^{(\lambda)}_{ij}\epsilon^{(\lambda)}_{kl}$. We
-will dedicate to polarization tensors product a section later, for now
+the final ones,
+$\frac12\sum_{\lambda_1,\lambda_2=+,\times}
+\bigl|\epsilon^{(2)}\!\cdot\epsilon^{(1)}\bigr|^2$.
+We will dedicate to polarization tensors product a section later, for now
 let us show the cross-section:
 \begin{equation}
     \label{eq:xsec-graviton-unpol}
@@ -1556,15 +1616,21 @@ let us show the cross-section:
 \end{equation}
 which is exactly the result of Peters for gravitational waves, \eqref{eq:peters}.
 
-The polarization factor has been studied in a more general case by Guadagnini:
+The polarization factor has been studied in a more general case by Guadagnini~\cite{Guadagnini2008}:
 precise study could distinguish the polarization of the scattered gravitational
 wave even in the monopole potential case. 
 
-In conclusion, in the Born approximation scalar and gravitational waves are
+In conclusion, in the Born approximation, scalar and gravitational waves are
 deflected by a static mass in the same way, up to a polarization factor.
-In the forward limit, where the exchanged graviton is soft ($q\to0$) and the
-polarization factor tends to one, we recovered of the equivalence
-principle for which a soft graviton interaction doesn't depend on its type.
+When considering the forward limit, where the
+ spatial part of the exchanged momentum is null ($\vec{q}\to0$) 
+and $\epsilon^{(2)}\!\cdot\epsilon^{(1)}\to 1$,
+the scattering cross section
+doesn't depend on the type of scattered particle.
+This is interesting, because we recovered
+the soft graviton theorem from a particular 
+case. 
+
 
 \newpage
 \section{Graviton--Scalar Compton Scattering}
@@ -1573,7 +1639,7 @@ principle for which a soft graviton interaction doesn't depend on its type.
 \subsection{Introduction to the problem}
 
 Now we are interested in calculating the leading order of a
-Compton-like scattering process
+Compton-like scattering process~\cite{GrossJackiw1968,DeWitt1967III,ChoiShimSong1995}
 \begin{equation}
 \phi(p_1)+h(k_1,\lambda_1)\;\longrightarrow\;\phi(p_2)+h(k_2,\lambda_2),
 \end{equation}
@@ -1839,7 +1905,7 @@ tensors.
 % ---------------------------------------------------------------
 \subsection{Polarization products}
 To compute spin-2 polarization tensor products, we introduce a generalization
-of the spin-1 case treated in Greiner, \textit{QED}.
+of the spin-1 case treated in Greiner, \textit{QED}~\cite{GreinerQED}.
 
 The TT polarization tensors live in the plane transverse to the graviton
 momentum. For each momentum $\vec k_i$,
@@ -1933,7 +1999,7 @@ S^{t}_{fi}=i\kappa^2\,\mathcal N\,\frac{E^2}{4\sin^2(\theta/2)}\,\mathcal M .
 \end{equation}
 For the scalar at rest, $\mathcal M\simeq\mathcal M^{(0)}$.
 
-Following Greiner, we regularize the delta functions in a 
+Following Greiner~\cite{GreinerFQ,GreinerQED}, we regularize the delta functions in a 
 continuous volume $V\to(2\pi)^3$
 and time $T$, with the usual substitution
 \begin{equation}
@@ -1963,7 +2029,7 @@ For the scalar at rest, in the classical limit we have
 \label{eq:dsigma}
 \end{empheq}
 which again is Rutherford-like. For the unpolarized case we then have
-poved to have the same result as Peters:
+poved to have the same result as Peters~\cite{Peters1976}:
 \begin{equation}
 \frac{d\sigma}{d\Omega}\bigg|_{v=0}^{\rm unpol}
 =\frac{G^2E^2}{\sin^4(\theta/2)}\,
@@ -2038,14 +2104,14 @@ the interaction vertices up to $O(\kappa^2)$. We then quantized the graviton
 canonically in two gauges. In the de Donder gauge we quantized the metric
 perturbation $h_{\mu\nu}$ itself, rather than its trace-reversed counterpart:
 the commutation relations are no longer diagonal in the polarization index,
-but the propagator coincides with the one obtained by Gupta and from the path
+but the propagator coincides with the one obtained by Gupta~\cite{Gupta1952} and from the path
 integral, and the Gupta--Bleuler condition selects physical states that are
 transverse and traceless. In the TT gauge, instead, only the two physical
 polarizations are quantized, at the price of losing manifest covariance.
 
 With these tools we computed the scattering of scalar and gravitational waves
 by a static mass. The tree-level diagrams reproduce exactly the classical
-cross sections of Peters: both waves undergo a Rutherford-like scattering, and
+cross sections of Peters~\cite{Peters1976}: both waves undergo a Rutherford-like scattering, and
 they differ only by a polarization-dependent factor.
 
 Finally, we studied graviton--scalar Compton scattering, expanding the
@@ -2058,7 +2124,7 @@ angular term due to the spin-2 nature of the graviton.
 These results can be extended in several directions: higher orders in the
 velocity, where the remaining diagrams become relevant; sources with angular
 momentum; and the description of gravity-induced decoherence within the
-influence-functional formalism, for which the propagators derived here are the
+influence-functional formalism~\cite{CalzettaHu2008,Blencowe2013}, for which the propagators derived here are the
 starting point.
 
  \newpage
@@ -2067,7 +2133,7 @@ starting point.
 \section{Bessel expression for the TT-gauge propagator}
 \label{app:bessel}
 
-In the open-quantum-system formalism one ofter needs the graviton propagator in
+In the open-quantum-system formalism~\cite{CalzettaHu2008,GundhiBassi2023} one ofter needs the graviton propagator in
 position space. For the TT gauge, the Fourier transform of the propagator
 contains the angular integral of the projector $\Lambda_{ij,kl}$ over the
 direction $\hat n$ of the momentum $\vec k=k\,\hat n$,
@@ -2188,49 +2254,43 @@ I_{ij,kl}(\vec r,k)=2\pi\Bigl[\Bigl(j_0-\frac{2j_1}{x}\Bigr)D^{(0)}_{ijkl}
 \section{Interaction Hamiltonian terms}
 \label{app:normal-terms}
 
-When the interaction contains derivatives of the fields, the interaction
-Hamiltonian is not simply minus the interaction Lagrangian: as stated in
-\eqref{HIN}, it contains an additional normal-dependent term $\mathcal N$.
-A naive computation of the scattering matrix would therefore give Feynman
-rules different from the ones read off directly from the Lagrangian.
-However, as in scalar QED, these extra terms cancel out. The reason lies in the
-time derivatives of the two-point function.
+When the interaction contains time derivatives of the fields, the interaction
+Hamiltonian contains, besides $-\hat{\mathcal L}^I$, a normal-dependent term
+$\mathcal N$ as in the case of equation \eqref{HIN}. 
+We show it cancels in the case of scalar QED, following
+Greiner (\textit{Field Quantization}, Example~8.6~\cite{GreinerFQ}).
 
-A single time derivative produces no extra term, since the fields commute at
-equal times, $[\Phi(\vec x,t),\Phi(\vec y,t)]=0$:
-\begin{equation}
-    \partial_0^x\,T\{\phi^I(x)\phi^I(y)\}= T\{\dot\phi^I(x)\phi^I(y)\}.
-\end{equation}
-With two time derivatives, instead, the equal-time commutator between the
-field and its conjugate momentum gives a contact term:
+In fact in scalar QED, $\hat{\mathcal H}^I=-\hat{\mathcal L}^I+e^2\hat\phi^\dagger\hat\phi\,(\hat A^0)^2$,
+so the first-term of the $S$ operator contains the extra term
+$-ie^2\int d^4x\,{:}\hat\phi^\dagger\hat\phi{:}\,{:}\hat A_0\hat A_0{:}$.
+At the same order in the perturbative parameter,
+the second term of $S$ contracts two field derivatives.
+Since $\partial_0$ also acts on the step functions of the $T$ product, this
+contraction contains a contact term,
 \begin{equation}\label{contact}
-    \partial_0^x\partial_0^y\,T\{\phi^I(x)\phi^I(y)\}
-    = T\{\dot\phi^I(x)\dot\phi^I(y)\} + i\,\delta^{(4)}(x-y) .
+\langle0|T\{\partial_\mu\hat\phi(x)\,\partial_\nu\hat\phi^\dagger(y)\}|0\rangle
+=\partial^x_\mu\partial^y_\nu\, i\Delta_F(x-y)
+-i\,g_{\mu0}\,g_{\nu0}\,\delta^{(4)}(x-y),
 \end{equation}
-The same happens for the graviton field, where the contact term carries the
-tensor structure of the commutation relations \eqref{eq:etcr}:
-\begin{equation}
-    \partial_0^x\partial_0^y\,T\{h^I_{\mu\nu}(x)h^I_{\alpha\beta}(y)\}
-    = T\{\dot h^I_{\mu\nu}(x)\dot h^I_{\alpha\beta}(y)\}
-    + i\,G_{\mu\nu\alpha\beta}\,\delta^{(4)}(x-y) .
-\end{equation}
-The ordinary time-ordered product $T$ and the product $T^*$ defined in
-\eqref{Tstar}, in which the derivatives are taken outside the time ordering,
-therefore differ by contact terms. These contact terms are exactly what cancels
-the normal-dependent term $\mathcal N$ of the Hamiltonian.
+which gives $+ie^2\int d^4x\,{:}\hat\phi^\dagger\hat\phi{:}\,{:}\hat A_0\hat A_0{:}$
+and exactly cancels the first-order extra term.
 
-A general proof proceeds order by order: every Feynman diagram of a given
-order contains subgraphs in which two time derivatives act on the same
-propagator, and the resulting contact terms cancel the contributions of
-$\mathcal N$ at the same order. Since this is tedious to show explicitly in the
-gravitational case, we stop at the analogy with scalar QED and refer to Greiner
-(\textit{Field Quantization}, Chap.~8) and to Matthews' theorem. The result is
-that the scattering matrix can be computed with the two rules stated in
-Section~3: use $\hat{\mathcal H}^I=-\hat{\mathcal L}^I$, dropping $\mathcal N$,
-and replace the time-ordered product $T$ with $T^*$.
+The same happens for the graviton, whose contact term carries the structure
+of the commutation relations \eqref{eq:etcr}, $-iG_{\mu\nu\alpha\beta}\,\delta^{(4)}(x-y)$.
+We do not repeat the computation and refer to Matthews'
+theorem~\cite{Weinberg1995}. 
 
+For example, in the graviton-exchange channel of Section~\ref{sec:compton}, 
+using the full interaction Hamiltonian
+$-\hat{\mathcal L}^I+\mathcal N$ and neglecting
+the contact terms, the amplitude vanishes up to linear order in the
+velocity. Therefore it's interesting to notice
+that in the canonical procedure, the whole contribution of this channel
+therefore comes from the contact terms.
 
-\section{The states $\hat L^\dagger_{k\nu}\ket{0}$}
+\newpage
+\section{Gubta-Bleuler method}
+\subsection{The states $\hat L^\dagger_{k\nu}\ket{0}$}
 \label{app:Lstates}
 
 Since $\hat L_{k\nu}\ket0=0$, the norm of $\hat L^\dagger_{k\nu}\ket0$ is given by
@@ -2269,6 +2329,128 @@ mode, so their commutators vanish trivially. For the other two,
 \end{equation}
 Hence $[\hat L_{k\mu},\hat L^\dagger_{k\nu}]=0$ for every $\mu,\nu$, and each
 $\hat L^\dagger_{k\nu}\ket0$ has zero norm.
+
+
+
+\subsection{Energy of the Gupta--Bleuler states}
+\label{app:energy}
+
+\subsubsection{Hamiltonian in terms of creation and annihilation operators}
+From $\hat\pi=G\dot{\hat h}$, from
+\eqref{HPF2} we can recover:
+\begin{equation}
+\hat H=\frac12\int d^3x\;\Bigl(\dot{\hat h}_{\mu\nu}\,G^{\mu\nu}_{\rho\sigma}\,\dot{\hat h}^{\rho\sigma}
++\vec\nabla\hat{h}_{\mu\nu}\cdot G^{\mu\nu}_{\rho\sigma}\,\vec\nabla\hat{h}^{\rho\sigma}\Bigr) .
+\end{equation}
+Expanding into modes we have
+\begin{equation}
+\begin{split}
+\hat H=-\frac12\int d^3x\int\frac{d^3k\,d^3k'}{(2\pi)^3\sqrt{4\omega_k\omega_{k'}}}
+\sum_{\lambda,\lambda'}&\bigl(\omega_k\omega_{k'}+\vec k\cdot\vec k'\bigr)\,
+\epsilon_{\mu\nu}(\lambda)G_{\rho\sigma}^{\mu\nu}\epsilon^{\rho\sigma}(\lambda')\\
+\times\Bigl(&\hat a_{\vec k\lambda}\hat a_{\vec k'\lambda'}e^{-i(k+k')\cdot x}
++\hat a^\dagger_{\vec k\lambda}\hat a^\dagger_{\vec k'\lambda'}e^{i(k+k')\cdot x}\\
+&-\hat a_{\vec k\lambda}\hat a^\dagger_{\vec k'\lambda'}e^{-i(k-k')\cdot x}
+-\hat a^\dagger_{\vec k\lambda}\hat a_{\vec k'\lambda'}e^{i(k-k')\cdot x}\Bigr).
+\end{split}
+\end{equation}
+The integration over $\vec x$ gives $(2\pi)^3\delta^3(\vec k\pm\vec k')$.
+In the first two terms $
+\omega_k^2-\vec k^2=0$. Using
+$\epsilon(\lambda)G\epsilon(\lambda')=\mathcal G_{\lambda\lambda'}$ and normal
+ordering,
+\begin{equation}
+\hat H=\int d^3k\;\omega_k\sum_{\lambda,\lambda'=1}^{10}
+\mathcal G_{\lambda\lambda'}\,\hat a^\dagger_{\vec k\lambda}\hat a_{\vec k\lambda'} .
+\end{equation}
+
+We explicit all the contributions for the Hamiltonian
+\begin{equation}
+\hat H=\int d^3k\;\omega_k\Bigl[\sum_{i<j}\hat a^\dagger_{ij}\hat a_{ij}
+-\sum_i\hat a^\dagger_{0i}\hat a_{0i}
++\sum_{a,b}\mathcal G_{(aa)(bb)}\,\hat a^\dagger_{aa}\hat a_{bb}\Bigr],
+\qquad
+\mathcal G_{(aa)(bb)}=\delta_{ab}-\tfrac12\eta_{aa}\eta_{bb},
+\end{equation}
+where the last sum reads
+\begin{equation}
+\begin{split}
+\sum_{a,b}\mathcal G_{(aa)(bb)}\,\hat a^\dagger_{aa}\hat a_{bb}
+={}&\tfrac12\bigl(\hat a^\dagger_{00}\hat a_{00}+\hat a^\dagger_{11}\hat a_{11}
++\hat a^\dagger_{22}\hat a_{22}+\hat a^\dagger_{33}\hat a_{33}\bigr)\\
+&+\tfrac12\bigl(\hat a^\dagger_{00}\hat a_{11}+\hat a^\dagger_{00}\hat a_{22}
++\hat a^\dagger_{00}\hat a_{33}+\text{h.c.}\bigr)\\
+&-\tfrac12\bigl(\hat a^\dagger_{11}\hat a_{22}+\hat a^\dagger_{11}\hat a_{33}
++\hat a^\dagger_{22}\hat a_{33}+\text{h.c.}\bigr).
+\end{split}
+\end{equation}
+Grouping the terms:
+\begin{itemize}
+\item $\tfrac12\bigl(\hat a^\dagger_{11}\hat a_{11}+\hat a^\dagger_{22}\hat a_{22}
+-\hat a^\dagger_{11}\hat a_{22}-\hat a^\dagger_{22}\hat a_{11}\bigr)
+=\hat a_+^\dagger\hat a_+$;
+\item $\tfrac12(\hat a_{00}+\hat a_{33})^\dagger(\hat a_{00}+\hat a_{33})
+=\hat b^\dagger\hat b$, with $\hat b=\tfrac{1}{\sqrt2}(\hat a_{00}+\hat a_{33})$;
+\item the remaining mixed terms,
+$\tfrac12\bigl(\hat c^\dagger\hat L_{k0}+\hat L^\dagger_{k0}\hat c\bigr)$, with
+$\hat c=\hat a_{00}-\hat a_{33}$ and $\hat L_{k0}=\hat a_{11}+\hat a_{22}$.
+\end{itemize}
+Hence
+\begin{equation}
+\begin{split}
+\hat H=\int d^3k\;\omega_k\Bigl[\;
+&\underbrace{\hat a_+^\dagger\hat a_+}_{(1)}
++\underbrace{\hat a_\times^\dagger\hat a_\times}_{(2)}
++\underbrace{\bigl(\hat b^\dagger\hat b-\hat a^\dagger_{03}\hat a_{03}\bigr)}_{(3)}
++\underbrace{\tfrac12\bigl(\hat c^\dagger\hat L_{k0}+\hat L^\dagger_{k0}\hat c\bigr)}_{(4)}\\
+&+\underbrace{\bigl(\hat a^\dagger_{13}\hat a_{13}-\hat a^\dagger_{01}\hat a_{01}\bigr)}_{(5)}
++\underbrace{\bigl(\hat a^\dagger_{23}\hat a_{23}-\hat a^\dagger_{02}\hat a_{02}\bigr)}_{(6)}
+\Bigr].
+\end{split}
+\end{equation}
+
+Finally, we can see it's expectation value on 
+the physical states.
+We firstly recognize that $\hat L_{k3}=\sqrt2(\hat b-\hat a_{03})$, moreover we use:
+\begin{equation}
+\hat L_{k0}\ket{\Phi}=0,\qquad
+\hat a_{13}\ket{\Phi}=\hat a_{01}\ket{\Phi},\qquad
+\hat a_{23}\ket{\Phi}=\hat a_{02}\ket{\Phi},\qquad
+\hat b\ket{\Phi}=\hat a_{03}\ket{\Phi}.
+\end{equation}
+The six terms give:\\
+\noindent\textbf{Term (1)} 
+$
+\bra{\Phi}\hat a_+^\dagger\hat a_+\ket{\Phi}
+=\langle\hat n_{+}\rangle .
+$
+
+\noindent\textbf{Term (2)} $\bra{\Phi}\hat a^\dagger_{\cross}\hat a_{\cross}\ket{\Phi}
+=\langle\hat n_{\cross}\rangle$.
+
+\noindent\textbf{Term (3)}
+$
+\bra{\Phi}\hat b^\dagger\hat b-\hat a^\dagger_{03}\hat a_{03}\ket{\Phi}
+=\bra{\Phi}\bigl(\hat b^\dagger-\hat a^\dagger_{03}\bigr)\hat a_{03}\ket{\Phi}
+=\bra{\Phi}\bigl(\hat a^\dagger_{03}-\hat a^\dagger_{03}\bigr)\hat a_{03}\ket{\Phi}=0 .
+$
+
+\noindent\textbf{Term (4)} Since $\hat L_{k0}\ket{\Phi}=0$ it is null.
+
+\noindent\textbf{Terms (5), (6)} 
+$\bra{\Phi}\hat a^\dagger_{13}\hat a_{13}-\hat a^\dagger_{01}\hat a_{01}\ket{\Phi}
+=\bra{\Phi}(\hat a^\dagger_{01}-\hat a^\dagger_{01})\hat a_{01}\ket{\Phi}=0$,
+and analogously for (6).
+
+\newpage
+
+
+
+
+
+
+
+
 \section{Computation of the Compton diagrams}
 \label{app:compton}
 
@@ -2466,6 +2648,165 @@ from which \eqref{eq:Mt} follows, with $\mathcal M$ the term in curly brackets.
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{thebibliography}{99}
+
+\bibitem{GreinerQED}
+W.~Greiner and J.~Reinhardt,
+\textit{Quantum Electrodynamics}, 4th ed.
+(Springer, Berlin, Heidelberg, 2009).
+
+\bibitem{Feynman1963}
+R.~P.~Feynman,
+Quantum theory of gravitation,
+Acta Phys.\ Polon.\ \textbf{24}, 697 (1963).
+
+\bibitem{Blencowe2013}
+M.~P.~Blencowe,
+Effective field theory approach to gravitationally induced decoherence,
+Phys.\ Rev.\ Lett.\ \textbf{111}, 021302 (2013),
+arXiv:1211.4751.
+
+\bibitem{Peters1976}
+P.~C.~Peters,
+Differential cross sections for weak-field gravitational scattering,
+Phys.\ Rev.\ D \textbf{13}, 775 (1976).
+
+\bibitem{CalzettaHu2008}
+E.~A.~Calzetta and B.-L.~B.~Hu,
+\textit{Nonequilibrium Quantum Field Theory}
+(Cambridge University Press, Cambridge, 2008).
+
+\bibitem{Maggiore2008}
+M.~Maggiore,
+\textit{Gravitational Waves. Volume 1: Theory and Experiments}
+(Oxford University Press, Oxford, 2008).
+
+\bibitem{Weinberg1972}
+S.~Weinberg,
+\textit{Gravitation and Cosmology: Principles and Applications of the
+General Theory of Relativity}
+(John Wiley \& Sons, New York, 1972).
+
+\bibitem{Stelle1978}
+K.~S.~Stelle,
+Classical gravity with higher derivatives,
+Gen.\ Relativ.\ Gravit.\ \textbf{9}, 353 (1978).
+
+\bibitem{ChoiShimSong1995}
+S.~Y.~Choi, J.~S.~Shim, and H.~S.~Song,
+Factorization and polarization in linearized gravity,
+Phys.\ Rev.\ D \textbf{51}, 2751 (1995),
+arXiv:hep-th/9411092.
+
+\bibitem{GreinerFQ}
+W.~Greiner and J.~Reinhardt,
+\textit{Field Quantization}
+(Springer, Berlin, Heidelberg, 1996).
+
+\bibitem{Rezvan2024}
+J.~Rezvan and S.~Ahmad,
+Constraint analysis of Fierz--Pauli action through linearization of its
+nonlinear action constraints,
+Eur.\ Phys.\ J.\ Plus \textbf{139}, 541 (2024).
+
+\bibitem{Gupta1952}
+S.~N.~Gupta,
+Quantization of Einstein's gravitational field: linear approximation,
+Proc.\ Phys.\ Soc.\ A \textbf{65}, 161 (1952).
+
+\bibitem{DeWitt1967II}
+B.~S.~DeWitt,
+Quantum theory of gravity. II. The manifestly covariant theory,
+Phys.\ Rev.\ \textbf{162}, 1195 (1967).
+
+\bibitem{DeWitt1967III}
+B.~S.~DeWitt,
+Quantum theory of gravity. III. Applications of the covariant theory,
+Phys.\ Rev.\ \textbf{162}, 1239 (1967).
+
+\bibitem{Weinberg1995}
+S.~Weinberg,
+\textit{The Quantum Theory of Fields. Volume I: Foundations}
+(Cambridge University Press, Cambridge, 1995).
+
+\bibitem{Gupta1954}
+S.~N.~Gupta,
+Gravitation and electromagnetism,
+Phys.\ Rev.\ \textbf{96}, 1683 (1954).
+
+\bibitem{DeLogiKovacs1977}
+W.~K.~De~Logi and S.~J.~Kov\'acs,~Jr.,
+Gravitational scattering of zero-rest-mass plane waves,
+Phys.\ Rev.\ D \textbf{16}, 237 (1977).
+
+\bibitem{Guadagnini2008}
+E.~Guadagnini,
+Gravitons scattering from classical matter,
+Class.\ Quantum Grav.\ \textbf{25}, 095012 (2008),
+arXiv:0803.2855.
+
+\bibitem{GrossJackiw1968}
+D.~J.~Gross and R.~Jackiw,
+Low-energy theorem for graviton scattering,
+Phys.\ Rev.\ \textbf{166}, 1287 (1968).
+
+\bibitem{GundhiBassi2023}
+A.~Gundhi and A.~Bassi,
+Motion of an electron through vacuum fluctuations,
+Phys.\ Rev.\ A \textbf{107}, 062801 (2023),
+arXiv:2301.11946.
+
+\end{thebibliography}
 
 \section{DISCARDED Open Quatum Systems}
 We will develop the theory of quantum open systems from the point of view of the so-

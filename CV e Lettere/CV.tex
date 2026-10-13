@@ -1,0 +1,119 @@
+% CV tailored to: KTH, Doctoral student in Theoretical Condensed Matter Physics (ref. PA-2026-2710)
+% Compile with pdfLaTeX.
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+% T1 + Latin Modern when available; otherwise default Computer Modern (keeps fonts scalable for microtype).
+\IfFileExists{lmodern.sty}{\usepackage[T1]{fontenc}\usepackage{lmodern}}{}
+\usepackage[top=1.8cm,bottom=1.7cm,left=2cm,right=2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\definecolor{muted}{gray}{0.38}
+
+% ---------- Layout ----------
+% Left column: date or label. Right column: content.
+\newlength{\cvlabel}\setlength{\cvlabel}{3.8cm}
+
+\newcommand{\cvsection}[2][]{%
+  \par\vspace{13pt}\noindent
+  {\footnotesize\bfseries\textls[90]{\MakeUppercase{#2}}}%
+  {\footnotesize\color{muted}\quad #1}\par
+  \vspace{-6pt}\noindent\rule{\linewidth}{0.3pt}\par\vspace{5pt}}
+
+\newcommand{\cvrow}[2]{%
+  \par\noindent
+  \parbox[t]{\dimexpr\cvlabel-0.3cm}{\raggedright\small\leavevmode\color{muted}#1}\hspace{0.3cm}%
+  \parbox[t]{\dimexpr\linewidth-\cvlabel}{#2}\par\vspace{6pt}}
+
+\newenvironment{cvitems}
+  {\begin{itemize}[leftmargin=1.1em,itemsep=1.5pt,topsep=3pt,parsep=0pt,partopsep=0pt,label={\raisebox{0.1ex}{\footnotesize$\bullet$}}]}
+  {\end{itemize}}
+
+\newcommand{\with}[1]{\\{\small\color{muted}Supervisor: #1}}
+\newcommand{\code}[1]{\hfill{\small\normalfont\href{#1}{\underline{code}}}}
+
+\begin{document}
+
+% ---------- Header ----------
+{\LARGE\bfseries Matteo Falasca}\par\vspace{5pt}
+{\small\color{muted}MSc student in theoretical physics, University of Trieste\par\vspace{2pt}
+\href{mailto:matteofalasca82@gmail.com}{matteofalasca82@gmail.com}\quad$\cdot$\quad +39 345 067 1749}\par
+
+% ---------- Education ----------
+\cvsection{Education}
+\cvrow{Dec 2026 (expected)}{\textbf{MSc in Physics}, University of Trieste. Taught in English.\\
+  Weighted average 28.4/30; all exams completed on schedule.}
+\cvrow{Dec 2024}{\textbf{BSc in Physics}, University of Trieste.}
+
+% ---------- Research ----------
+\cvsection{Research}
+\cvrow{Master's thesis}{\textbf{Graviton Scattering and Induced Decoherence}\with{Prof.\ Angelo Bassi}
+  \begin{cvitems}
+    \item Effective field theory within canonical QFT, aimed at many-body open-system decoherence.
+    \item Perturbative spin-2 gauge field coupled to matter with an original algebraic analysis.
+    \item Derived graviton--matter cross sections that generalize the light--matter case and include velocity corrections, which I could not find in the literature.
+    \item Ongoing: gravity-induced decoherence from scattering and comparison with condensed matter
+    system decoherence from novel analysis.
+  \end{cvitems}}
+\cvrow{Bachelor's thesis}{\textbf{Calibration of Galaxy Cluster Miscentering Distribution\\ from eROSITA Data}\with{Prof.\ Alexandro Saro}\code{https://github.com/MatteoFalasca-AFK/Projects.CV/tree/main}
+  \begin{cvitems}
+    \item Built a neural-network emulator that predicts functions with no analytic form from a large simulated dataset, used it to model position errors.
+    \item Parameter space too large to analyze directly, implementation of ingenious techniques such as Latin hypercube sampling.
+  \end{cvitems}}
+
+% ---------- Projects ----------
+\cvsection{Projects}
+\cvrow{Numerical project}{\textbf{Locality transfer matrix for noisy quantum circuits}\code{https://github.com/MatteoFalasca-AFK/Projects.CV/tree/main}
+  \begin{cvitems}
+    \item Built a faster algorithm for the matrix of Grossi et al.\ (arXiv:2410.01893), which describes how a noisy evolution mixes different subspaces of information.
+    \item Such algorithm could also parametrize where information flows in a generic many-body system.
+    \item Written in Python within a collaboration and later used in their research.
+  \end{cvitems}}
+\cvrow{Course project}{\textbf{The minority game} {\small\color{muted}(6 ECTS)}
+  \begin{cvitems}
+    \item Simulated a model of many interacting agents and compared it with its analytical reduction to a mean-field oscillator affected by white noise.
+  \end{cvitems}}
+\cvrow{Numerical project}{\textbf{Epidemic growth}\code{https://github.com/MatteoFalasca-AFK/Projects.CV/tree/main}
+  \begin{cvitems}
+    \item Extrapolated Italian COVID-19 data.
+    \item Confronted with epidemic models, then analyzed and usefully represented them.
+  \end{cvitems}}
+\vspace{1cm}
+% ---------- Courses ----------
+\cvsection[grades out of 30]{Selected courses}
+\cvrow{Light--matter}{QFT I (28), QFT II (27), Atoms, Molecules and Photons (28), thesis on spin-2--matter interactions (40 ECTS)}
+\cvrow{Condensed matter}{Quantum Many-Body Systems (28), Statistical Mechanics (27), Quantum Statistical Mechanics (26).}
+\cvrow{Simulation and data}{Computational Physics Lab (30), Machine Learning (29), Data Modelling (28, BSc).}
+% ---------- Schools ----------
+\cvsection{Schools}
+\cvrow{18 Aug -- 5 Sep 2025}{\textbf{ICTP School on Quantum Dynamics of Matter, Light and Information}, Trieste.\\
+  Three-week selective school on quantum many-body physics, quantum optics and light--matter interactions. Lectures by Subir Sachdev on quantum 
+  critical dynamics and the Sachdev--Ye--Kitaev model and its simulations.}
+\cvrow{11 -- 16 May 2025}{\textbf{Bad Honnef Physics School ``Frontiers of Quantum Metrology for New Physics Searches''}, DPG and WE-Heraeus Foundation.\\
+  Quantum metrology and light--matter interactions. Lectures by Silke Ospelkaus on the control of dipolar molecules.}
+
+% ---------- Skills ----------
+\cvsection{Skills}
+\cvrow{Programming}{Fortran (advanced), Python, bash, \LaTeX.}
+\cvrow{Languages}{Italian (native), English (fluent).}
+
+% ---------- Teaching ----------
+\cvsection{Teaching and other activities}
+\cvrow{Oct 2025 -- Mar 2026}{\textbf{Tutor for Bachelor students}, University of Trieste. University-funded individual and group sessions for first-year students on how to study for physics exams.}
+\cvrow{Since 2021}{Private lessons in physics and mathematics, also for university exams.}
+\cvrow{Since 2017}{\textbf{Football referee} (FIGC), now in Eccellenza, the top regional division. Taught me advanced teamwork and effective communication under pressure}
+\cvrow{2017 -- 2019}{President of my Rotary Junior Club. Helped me build advanced social skills.}
+\cvrow{2020}{High-school merit scholarship. 400€}
+
+% ---------- Referees ----------
+\cvsection{Referees}
+\cvrow{Prof.\ Angelo Bassi}{Thesis supervisor, University of Trieste. Contact on request.}
+\cvrow{Prof.\ Francesco Scazza}{University of Trieste. Contact on request.}
+% Once both have agreed, replace "Contact on request." with their email addresses.
+
+\end{document}
