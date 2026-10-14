@@ -1306,7 +1306,7 @@ self-contractions; the contractions \emph{between} the two vertices generate
 the internal lines via Wick's theorem.
 
 \subsection{Feynman rules}
-
+\label{RULES}
 \paragraph{Propagators}
 \begin{align}
 \text{scalar:}\qquad
@@ -1369,29 +1369,34 @@ Where $\mathcal V_3$ is the cubic vertex of the graviton self-interaction \eqref
 \label{subsec:setup}
 In this section we compute, within the QFT framework, the scattering of a
 scalar and of a gravitational massless wave by the field of a static mass
-$M$~\cite{DeLogiKovacs1977}. We work in the
-\textit{Born approximation}: the field of the source is treated as a classical
-background and only the leading order of the Dyson series is kept.
-In terms of Feynman diagrams, the
-wave exchanges a single graviton with the source.
+$M$~\cite{DeLogiKovacs1977}. We work in the \textit{Born approximation},
+i.e.\ we keep only the leading order of $\hat S$ in its Dyson
+series. In the appendix, we give a brief recap of
+this approximation following \cite{Weinberg1972} work.
+ In terms of Feynman diagrams, the wave exchanges a single graviton
+with the source.
 
 The assumptions that define the problem are:
 \begin{itemize}
-\item the field is weak where the wave is scattered, $GM/r\ll1$,
-otherwise the linearized gravity framework would collapse 
+\item the field is weak where the wave is scattered, $GM/r\ll1$;
+otherwise the linearized-gravity framework would break down and the Born
+approximation would not be applicable;
 \item the energy of the wave is small compared to the mass of the source,
-$\omega/M\ll1$, so that its recoil is negligible and the background is static,
-resulting in an elastic scattering;
-\item the wavelength is long compared to the size of the source, so only the
-monopole part of the field ($\propto1/r$) is relevant, and the angular
-momentum of the source is neglected. 
+$\omega/M\ll1$: the recoil of the source is negligible, the background is
+static and the scattering is elastic;
+\item the wavelength of the scattered wave is long compared to the size of
+the source, so only the monopole part of the field ($\propto1/r$) is
+relevant and the angular momentum of the source can be neglected.
 \end{itemize}
+For these reasons it is meaningful to describe this process as the
+deflection of a massless wave by gravity. 
 
-This computation has a double meaning. On the one hand, it shows that a
-classical, geometrical result can be obtained with QFT techniques. The
-weak-field cross sections were derived by Peters by solving the wave equations
-on the Schwarzschild background (Ref.\ Peters, Phys.\ Rev.\ D \textbf{13}, 775
-(1976)~\cite{Peters1976}); for a scalar wave and for an unpolarized gravitational wave they read
+
+By solving this problem we first show that quantized linearized gravity
+gives results consistent with its classical, geometrical counterpart. In
+particular, Peters derived the weak-field cross sections by solving the
+wave equations on the Schwarzschild background~\cite{Peters1976}; for a
+scalar wave and for an unpolarized gravitational wave they read
 \begin{equation}
     \label{eq:peters}
     \frac{d\sigma}{d\Omega}\bigg|_{s=0}
@@ -1401,11 +1406,12 @@ on the Schwarzschild background (Ref.\ Peters, Phys.\ Rev.\ D \textbf{13}, 775
     =\frac{G^2M^2}{\sin^{4}(\theta/2)}
     \Bigl[\cos^{8}\frac{\theta}{2}+\sin^{8}\frac{\theta}{2}\Bigr],
 \end{equation}
-and we will recover both of them from tree-level diagrams. On the other hand,
-the same amplitudes describe the scattering of a low-energy scalar particle or graviton
-off a very massive object: they are the static limit of the Compton
-amplitude computed in Section~5.
+and we will recover both of them from tree-level diagrams.
+We will also show that the deflection of a low-energy massless wave and the
+Compton scattering off a very massive particle, whose amplitude is computed
+in Section~6, describe the same physics.
 
+\subsection{Gravitational source}
 The simplest case of a monopole source is the
 Schwarzschild metric outside a spherical body of mass $M$~\cite{Weinberg1972}:
 \begin{equation}
@@ -1494,23 +1500,21 @@ $\mathbf p_1$ and $\mathbf p_2$,
 so that \eqref{eq:amplitude} takes the form
 \begin{equation}
     S_{fi}=-\,2\pi i\,\delta(\omega'-\omega)\,
-    \frac{\mathcal M}{(2\pi)^3\,2\omega},
-    \qquad
-    \mathcal M=\frac{\kappa}{2}\,\bar h^{\mu\nu}(\mathbf q)\,
-    \bigl(p_{1\mu} p_{2\nu}+p_{2\mu} p_{1\nu}\bigr).
-    \label{eq:M-ext}
+    \frac{\mathcal M}{(2\pi)^3\,2\omega}.
 \end{equation}
 Only $\bar h_{00}$ contributes to the vertex:
-\begin{equation}
+\begin{align}
     \label{eq:M-schw}
-    \mathcal M=\kappa\,\omega^2\,\bar h_{00}(\mathbf q)
-    =-\frac{\kappa^2M\omega^2}{2\,|\mathbf q|^2}
-    =-\frac{16\pi GM\omega^2}{|\mathbf q|^2}.
-\end{equation}
-
-Finally, we resemble for classical cases the differential cross section for such
-assumptions,
-$d\sigma/d\Omega=|\mathcal M|^2/16\pi^2$ (Ref. Greiner, QED~\cite{GreinerQED}):
+    \mathcal M=&\frac{\kappa}{2}\,\bar h^{\mu\nu}(\mathbf q)\,
+    \bigl(p_{1\mu} p_{2\nu}+p_{2\mu} p_{1\nu}\bigr)\nonumber
+    =\kappa\,\omega^2\,\bar h_{00}(\mathbf q)\\
+=&-\frac{16\pi GM\omega^2}{|\mathbf q|^2}.
+\end{align}
+As in the analogous QED case, we can compute (Ref. Greiner, QED~\cite{GreinerQED}):
+\begin{equation}
+d\sigma=\frac{|S_{fi}|^2}{T\,J}\,\frac{V\,d^3p_2}{(2\pi)^3}=|\mathcal M|^2/16\pi^2
+\end{equation} 
+Which finally leads to the result:
 \begin{equation}
     \label{eq:xsec-schw}
     \boxed{
@@ -1639,7 +1643,7 @@ case.
 \subsection{Introduction to the problem}
 
 Now we are interested in calculating the leading order of a
-Compton-like scattering process~\cite{GrossJackiw1968,DeWitt1967III,ChoiShimSong1995}
+Compton-like scattering process~\cite{GrossJackiw1968,ChoiShimSong1995,Guadagnini2008}
 \begin{equation}
 \phi(p_1)+h(k_1,\lambda_1)\;\longrightarrow\;\phi(p_2)+h(k_2,\lambda_2),
 \end{equation}
@@ -1669,7 +1673,7 @@ S_{fi}^{(\alpha)}=i\,\kappa^{2}\,\mathcal{N}\;\mathcal{M}^{(\alpha)},
 \end{equation}
 where $(\alpha)$ labels the diagram we are considering. In particular,
 there are four diagrams
-at $O(\kappa^2)$, as we have seen in Fig.~\ref{fig:diagrams}:
+at $O(\kappa^2)$, as we have will derive from Section~\ref{RULES}:
 the seagull, the $s$- and
 $u$-channel scalar exchange, and the $t$-channel graviton exchange.
 We compute each of them separately and explicitly in Appendix~\ref{app:compton};
@@ -1866,7 +1870,7 @@ S^{t}_{fi}=\frac{\kappa^2}{2}\int d^4x_1\,d^4x_2\;
 \end{equation}
 where we have to consider all possible contractions. These
 computations, which we report directly in the classical limit,
-give the following result:
+give the following \textbf{final result}:
 \begin{equation}
 S^{t}_{fi} \simeq
 i\kappa^2\,\mathcal N\,\frac{E^2}{4\sin^2(\theta/2)}\,\mathcal M
@@ -1876,14 +1880,14 @@ i\kappa^2\,\mathcal N\,\frac{E^2}{4\sin^2(\theta/2)}\,\mathcal M
 \end{equation}
 where, in powers of the velocity,
 $\mathcal M=\mathcal M^{(0)}+\mathcal M^{(1)}+O(v^2)$, with
-\begin{align}
+\begin{empheq}[box=\fbox]{align}
 \mathcal M^{(0)}&=(\epsilon^{(2)}\!\cdot\epsilon^{(1)}),
 \label{eq:Mcal}\\
 \mathcal M^{(1)}&=-(\epsilon^{(2)}\!\cdot\epsilon^{(1)})\,\vec v\!\cdot\!(\vec n_2+\vec n_1)
 +2\bigl(\vec v\!\cdot\!\epsilon^{(2)}\!\cdot\!\epsilon^{(1)}\!\cdot\!\vec n_2
 +\vec v\!\cdot\!\epsilon^{(1)}\!\cdot\!\epsilon^{(2)}\!\cdot\!\vec n_1\bigr).
 \label{eq:Mcal1}
-\end{align}
+\end{empheq}
 The static term $\mathcal M^{(0)}$ is the polarization factor found for the
 deflection of a gravitational wave by a fixed mass, Eq.~\eqref{eq:M-graviton}.
 
@@ -2104,21 +2108,26 @@ the interaction vertices up to $O(\kappa^2)$. We then quantized the graviton
 canonically in two gauges. In the de Donder gauge we quantized the metric
 perturbation $h_{\mu\nu}$ itself, rather than its trace-reversed counterpart:
 the commutation relations are no longer diagonal in the polarization index,
-but the propagator coincides with the one obtained by Gupta~\cite{Gupta1952} and from the path
-integral, and the Gupta--Bleuler condition selects physical states that are
-transverse and traceless. In the TT gauge, instead, only the two physical
-polarizations are quantized, at the price of losing manifest covariance.
+but the propagator coincides with the one obtained by Gupta~\cite{Gupta1952};
+we have proved the Gupta--Bleuler condition groups states in equivalence classes
+and selects TT gauged states as their representative.
+We proved also quantizing directly the projected Transverse Traceless
+field is possible, at the price of having a much more hard to handle propagator.
+
 
 With these tools we computed the scattering of scalar and gravitational waves
-by a static mass. The tree-level diagrams reproduce exactly the classical
-cross sections of Peters~\cite{Peters1976}: both waves undergo a Rutherford-like scattering, and
-they differ only by a polarization-dependent factor.
+by a static mass in the Born approximation.
+ The tree-level diagrams reproduce exactly the classical
+cross sections of Peters~\cite{Peters1976}: 
+both waves undergo a Rutherford-like scattering, and
+they differ only by a polarization-dependent factor. In the soft
+graviton limit, our results were coherent with the soft graviton theorem.
 
 Finally, we studied graviton--scalar Compton scattering, expanding the
-amplitude in the velocity of the scalar. Up to first order only the
+amplitude in the velocity of the scalar. Up to first order only the virtual
 graviton-exchange diagram contributes, while the seagull and scalar-exchange
 diagrams are of higher order. The static limit recovers the fixed-background
-result, and the first-order correction consists of a Doppler factor and of an
+result and the first-order correction consists of a Doppler factor and an additional
 angular term due to the spin-2 nature of the graviton.
 
 These results can be extended in several directions: higher orders in the
@@ -2442,8 +2451,37 @@ $\bra{\Phi}\hat a^\dagger_{13}\hat a_{13}-\hat a^\dagger_{01}\hat a_{01}\ket{\Ph
 =\bra{\Phi}(\hat a^\dagger_{01}-\hat a^\dagger_{01})\hat a_{01}\ket{\Phi}=0$,
 and analogously for (6).
 
-\newpage
+\section{Born approximation}
 
+Following Section~3.2 of Ref.~\cite{Weinberg1995}, the $S$-matrix can be
+written as
+\begin{equation}
+    S_{\beta\alpha}=\delta(\beta-\alpha)
+    -2\pi i\,\delta(E_\beta-E_\alpha)\,T^+_{\beta\alpha},
+    \qquad
+    T^+_{\beta\alpha}=\bigl(\Phi_\beta,\,V\,\Psi^+_\alpha\bigr),
+\end{equation}
+where $\Phi_\beta$ are eigenstates of the free Hamiltonian $H_0$, while the
+``in'' states $\Psi^+_\alpha$ are eigenstates of the full Hamiltonian
+$H=H_0+V$ and solve the Lippmann--Schwinger equation
+\begin{equation}
+    \Psi^+_\alpha=\Phi_\alpha
+    +\frac{1}{E_\alpha-H_0+i\epsilon}\,V\,\Psi^+_\alpha .
+\end{equation}
+Iterating this equation generates the Born series for $T^+_{\beta\alpha}$
+in powers of $V$. Since $V$ already appears explicitly in
+$T^+_{\beta\alpha}$, replacing $\Psi^+_\alpha$ with the free state
+$\Phi_\alpha$ introduces an error only at order $V^2$:
+\begin{equation}
+    T^+_{\beta\alpha}=\bigl(\Phi_\beta,\,V\,\Phi_\alpha\bigr)+O(V^2).
+\end{equation}
+This is the Born approximation: the incoming wave is assumed to cross the
+region where the interaction acts essentially undistorted, so it can be
+treated as a free wave. This is justified when the potential is weak in
+that region, which in our case is guaranteed by $GM/r\ll1$. In
+diagrammatic language, the amplitude is given by the tree-level diagram
+with a single interaction vertex on the source side, i.e.\ by
+one-graviton exchange.
 
 
 
